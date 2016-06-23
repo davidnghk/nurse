@@ -11,6 +11,51 @@
       <%= f.email_field :email, class: 'form-control' %>
     </div>
     <div class="form-group">
+      <%= f.label :phone_no %>
+      <%= f.text_field :phone_no, class: 'form-control' %>
+      
+    <% if params[:role] == 'partner' %>
+
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image, class:  'form-control' %>
+        </div>
+
+      <fieldset>
+        <p>Please input your qualification information for verification</p>
+        <div class="form-group">
+          <%= f.label :qualification %>
+          <%= f.select :qualification, User.qualifications.keys.to_a %>
+        </div>
+        <div class="form-group">
+          <%= f.label :registration_no %>
+          <%= f.text_field :registration_no, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :registration_chinese_name %>
+          <%= f.text_field :registration_chinese_name, class: 'form-control' %>
+        </div>    
+        <div class="form-group">
+          <%= f.label :registration_english_name %>
+          <%= f.text_field :registration_english_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :registration_expiry_date %>
+          <%= f.date_field :registration_expiry_date, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :certificate_image %>
+          <%= f.file_field :certificate_image, class:  'form-control' %>
+        </div>
+      </fieldset>
+      <%= f.hidden_field :role, :value => :partner %>
+    <% else %>
+      <%= f.hidden_field :role, :value => :customer %>
+    <% end %>
+    
+    <%= f.hidden_field :status, :value => :active %>
+    </div>
+    <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>

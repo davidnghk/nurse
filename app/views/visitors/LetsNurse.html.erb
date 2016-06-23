@@ -1,0 +1,234 @@
+<!-- Navigation -->
+<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+<nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand">
+            <a href="#top"  onclick = $("#menu-close").click(); >醫療護送</a>
+        </li>
+        <li>
+            <a href="#top" onclick = $("#menu-close").click(); >主頁</a>
+        </li>
+        <li>
+            <a href="#about" onclick = $("#menu-close").click(); >關於我們</a>
+        </li>
+        <li>
+            <a href="#services" onclick = $("#menu-close").click(); >服務</a>
+        </li>
+        <li>
+            <a href="#portfolio" onclick = $("#menu-close").click(); >組合</a>
+        </li>
+        <li>
+            <a href="#contact" onclick = $("#menu-close").click(); >聯絡我們</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <h1>醫療護送</h1>
+        <h3>護送長者往返醫院服務</h3>
+        <br>
+        <!--
+        <a href="#about" class="btn btn-dark btn-lg">詳情</a> -->
+        <% if !user_signed_in? %>
+        <%= link_to '登錄', new_user_session_path, class: "btn btn-warning btn-lg" %>
+        <%= link_to '註冊', new_user_registration_path, class: "btn btn-warning btn-lg" %>
+        <% end %>
+    </div>
+</header>
+
+<!-- About -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>醫療護送服務，給你安心</h2>
+                <p class="lead">當你的家庭成員需要返回醫院，我們會帶你心愛的家人安全回家。</a>.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Services -->
+<!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+<section id="services" class="services bg-primary">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <h2>服務範圍</h2>
+                <hr class="small">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-ambulance fa-stack-1x text-primary"></i>
+                        </span>
+                            <h4>
+                                <strong>長者護送</strong>
+                            </h4>
+                            <p>點至點護送長者來回醫院服務</p>
+                            <a href="#" class="btn btn-warning btn-lg">詳情</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-wheelchair fa-stack-1x text-primary"></i>
+                        </span>
+                            <h4>
+                                <strong>醫院看護</strong>
+                            </h4>
+                            <p>私家護士醫院看護服務</p>
+                            <a href="#" class="btn btn-warning btn-lg">詳情</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-shield fa-stack-1x text-primary"></i>
+                        </span>
+                            <h4>
+                                <strong>私家看護</strong>
+                            </h4>
+                            <p>家庭護士看護服務的</p>
+                            <a href="#" class="btn btn-warning btn-lg">詳情</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+
+
+<!-- Portfolio -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h2>工作範圍</h2>
+                <hr class="small">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <a href="#">
+                                <%= image_tag("nursing1.jpg", :alt => "rss feed", :class =>"img-responsive") %>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <a href="#">
+                       <!--         <img class="img-portfolio img-responsive" src="http://ironsummitmedia.github.io/startbootstrap-stylish-portfolio/img/portfolio-2.jpg"> --> 
+                                <%= image_tag("nursing5.jpg", :alt => "rss feed", :class =>"img-responsive" )%>
+                            </a>
+                        </div>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="portfolio-item">
+                            <a href="#">
+                                <%= image_tag("nursing2.jpg", :alt => "rss feed", :class =>"img-responsive") %>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+                <a href="#" class="btn btn-dark">更多</a>
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Call to Action -->
+<aside class="call-to-action bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3>特別推廣服務</h3>
+                <a href="#" class="btn btn-lg btn-warning">長者護送</a>
+                <a href="#" class="btn btn-lg btn-dark">私家護理</a>
+            </div>
+        </div>
+    </div>s
+</aside>
+
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4><strong>長者護送</strong>
+                </h4>
+                <p>香港九龍<br>九龍塘森麻實道707號</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i> (852) 456-7890</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; 醫療護送 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Custom Theme JavaScript -->
+<script>
+// Closes the sidebar menu
+$("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Opens the sidebar menu
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Scrolls to the selected menu item on the page
+$(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+</script>

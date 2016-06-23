@@ -1,0 +1,67 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<h3><%= t('order_list') %> </h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('customer') %></th>
+      <th><%= t('booking_date') %></th>
+      <th><%= t('duration') %> </th>
+      <th><%= t('hospital') %> </th>
+      <th><%= t('location') %></th>
+      <th><%= t('server_grade') %></th>
+      <th><%= t('server') %></th>
+      <th><%= t('contact_person') %></th>
+      <th><%= t('contact_phone_no') %></th>
+      <th><%= t('fee') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <% if order.user_id != nil %>
+        <td><%= order.user.name %></td>
+        <% else %>
+          <td><%= order.user.name %></td>
+        <% end %>
+        <td><%= order.booking_date %> <%= order.booking_time.strftime("%I:%m%P") %> </td>
+        <td><%= order.duration %></td>
+        <td><%= t order.hospital %></td>
+        <td><%= order.location %></td>
+        <td><%= t order.server_grade %></td>
+        <% if order.server_id != nil %>
+          <td><%= order.server.name %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td><%= order.contact_person %></td>
+        <td><%= order.contact_phone_no %></td>
+        <td><%= number_with_delimiter(order.fee, precision: 0) %></td>
+        <td><%= t order.aasm_state %></td>
+        <td>
+          <%= link_to order do %>
+              <i class="glyphicon glyphicon-zoom-in"></i>
+            <% end %>
+        </td>
+        <td>
+          <%= link_to edit_order_path(order)  do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+        </td>
+
+       <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<!--
+<%= link_to new_order_path  do %>
+  <i class="glyphicon glyphicon-plus-sign"></i>
+<% end %>
+-->
+

@@ -34,3 +34,10 @@ end
 group :production do
   gem 'passenger'
 end
+gem 'bootstrap-datepicker-rails'
+gem 'devise-i18n'
+gem 'stripe'
+gem 'translated_attribute_value'
+gem 'paperclip'
+gem 'aasm'
+

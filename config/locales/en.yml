@@ -21,3 +21,107 @@
 
 en:
   hello: "Hello world"
+  duration: "hours"
+  hours: "Number of Hours"
+  home: "Home"
+  order: "Order"
+  order_list: "Order List"
+  new_order: "New Order"
+  Booking: "Booking"
+  List_Booking: "List Booking"
+  New_Booking: "New Booking"
+  about: "About"
+  edit_account: "Edit Account"
+  sign_out: "Sign Out"
+  sign_in: "Sign In"
+  sign_up: "Sign Up"
+  admin: "Admin"
+  users: "Users"
+  start_datetime: "Time"
+  no_of_hours: "Hours"
+  pickup: "Pickup Location"
+  dropff: "Dropoff Location"
+  trip_type: "Trip"
+  helper_class: "Helper Class"
+  total_fee: "Total Fee"
+  server: "Nurse"
+  status: "Status"
+  OneWay: "One Way"
+  RoundTrip: "Round Trip"
+  Helper: "Helper"
+  Nurse: "Nurse"
+  listing_booking: "Listing of Bookings"
+  new: "New"
+  partner_up: "Partner"
+  server_grade: "Grade"
+  location: "Location"
+  hospital: "Hospital"
+  contact_person: "Contact"
+  contact_phone_no: "Phone"
+  location_details: "Location Details"
+  fee: "Fee"
+  customer: "Customer"
+  order: "order"
+  booking_date: "Date"
+  booking_time: "Time"
+  pending: "Pending"
+  open: "Open"
+  rejected: "Rejected"
+  cancelled: "Cancelled"
+  confirmed: "Confirmed"
+  completed: "Completed"
+  
+  註冊護士: "Registed Nurse"
+  登記護士: "Enrolled Nurse"  
+  
+  嘉諾撒醫院: "Canossa Hospital"
+  播道醫院: "Evangel Hospital"
+  香港港安醫院: "Hong Kong Adventist Hospital"
+  香港浸信會醫院: "Hong Kong Baptist Hospital"
+  養和醫院: "Hong Kong Sanatorium & Hospital"
+  明德國際醫院: "Matilda International Hospital"
+  寶血醫院: "Precious Blood Hospital"
+  聖保祿醫院: "St. Paul's Hospital"
+  聖德肋撒醫院: "St. Teresa's Hospital"
+  T荃灣港安醫院: "Tsuen Wan Adventist Hospital"
+  仁安醫院:  "Union Hospital"
+  
+  helpers:
+    select:
+      prompt: "Please choose"
+    submit:
+      create: "Create"
+      submit: "Submit"
+      update: "Update"
+  
+  activerecord:
+    attributes:
+      booking:
+        start_datetime: "Start Time"
+        location: "Location"
+        status: "Status"
+      user:
+        name: "Name"
+        email: "email"
+        
+  simple_form:
+    labels:
+      defaults:
+        start_datetime: 'Start Time'
+        user: 'Name'
+        hours: 'Hours'
+        pickup_address: "Pickup"
+        dropoff_address: "Dropoff"
+        trip_type: "Trip Type"
+        helper_class: "Helper Class"
+        server: "Server"
+        
+  activerecord:
+    attributes:
+      booking:
+        trip_type:
+          One_Way: "Single"
+          Round: "Round Trip"  
+        helper_class:
+          Helper: "Helper"
+          Nurse: "Nurse"  

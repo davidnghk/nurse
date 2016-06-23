@@ -1,0 +1,68 @@
+<div class="authform">
+
+<p>
+  <strong><%= t("customer") %>:</strong>
+  <%= @order.user.name %>
+</p>
+
+<p>
+  <strong><%= t("booking_date") %>:</strong>
+  <%= @order.booking_date %>  <%= @order.booking_time.strftime("%I:%M%P") %>
+</p>
+
+<p>
+  <strong><%= t("duration") %>:</strong>
+  <%= @order.duration %> <%= t("no_of_hours") %>
+</p>
+
+<p>
+  <strong><%= t("hospital") %>: </strong>
+  <%= t @order.hospital %>
+</p>
+
+<p>
+  <strong><%= t("location") %>:</strong>
+  <%= @order.location %>
+</p>
+
+<p>
+  <strong><%= t("server_grade") %>:</strong>
+  <%= @order.server_grade %>
+</p>
+
+<% if @order.server_id != nil %>
+  <p>
+    <strong><%= t("server") %>:</strong>
+    <%= @order.server.name %>
+  </p>
+<% end %>
+
+<p>
+  <strong><%= t("contact_person") %>:</strong>
+  <%= @order.contact_person %>
+</p>
+
+<p>
+  <strong><%= t("contact_phone_no") %>:</strong>
+  <%= @order.contact_phone_no %>
+</p>
+
+<p>
+  <strong><%= t("fee") %>:</strong>
+  <%= number_to_currency(@order.fee, precision: 0) %>
+</p>
+
+<p>
+  <strong><%= t("status") %>:</strong>
+  <%= t @order.aasm_state %>
+</p>
+  <%= link_to edit_order_path(@order)  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+  
+  <%= link_to orders_path do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>  
+  
+</div>
+

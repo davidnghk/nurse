@@ -1,0 +1,9 @@
+<script language="Javascript">
+  Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>");
+</script>
+
+<!--<h1><%=  t('new_order') %></h1>-->
+
+<%= render 'form' %>
+
+<!--<%= link_to 'Back', orders_path %>-->
