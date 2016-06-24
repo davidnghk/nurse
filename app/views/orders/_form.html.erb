@@ -1,4 +1,5 @@
-<div class="authform">
+<!--<div class="authform">-->
+  <div >
   <%#= simple_form_for @order, html: { class: 'cc_form'} do |f| %>
   <%= simple_form_for(@order)  do |f| %>
   <%= f.error_notification %>
@@ -32,7 +33,7 @@
 <!-- Credit card payment details --> 
 
    <% if @order.new_record? %>
-<!--    <%= render 'payment' %>-->
+     <%#= render 'payment' %>
    <% end %>
   </div>
   
