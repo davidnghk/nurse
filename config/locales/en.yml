@@ -71,6 +71,26 @@ en:
   confirmed: "Confirmed"
   completed: "Completed"
   
+  customer: "Client"
+  order_time: "Time"
+  hours: "Hours"
+  hospital: "Hospital"
+  location: "Location"
+  cost: "Cost"
+  contact: "Contact"
+  phone_no: "Phone No"
+  nurse: "Nurse"
+  status: "Status"
+  payment: "Payment"
+  Paid: "Paid"
+  ot: "Outstanding "
+  
+  engage: "Engage"
+  cancel: "Cancel"
+  disangage: "Disengage"
+  reject: "Reject"
+  home: "Lets Nurse"
+  
   註冊護士: "Registed Nurse"
   登記護士: "Enrolled Nurse"  
   
@@ -119,6 +139,9 @@ en:
   activerecord:
     attributes:
       booking:
+        hosiptal:
+          聖保祿醫院: "St. Paul's Hospital"
+          明德國際醫院: "Matilda International Hospital"
         trip_type:
           One_Way: "Single"
           Round: "Round Trip"  

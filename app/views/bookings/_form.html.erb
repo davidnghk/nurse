@@ -1,0 +1,64 @@
+<div class="authform">
+  
+    <% if @booking.new_record? %>
+    <% end %>
+  
+    <%= simple_form_for(@booking) do |f| %>
+
+    <div class="form-inputs">
+
+        <% if @booking.new_record? %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+        <h3><%= t("New_Booking") %></h3> <br>
+        <% else %>
+          <h3><%= @booking.user.name %>'s <%= t("Booking") %></h3>
+        <% end %>
+
+      <% if current_user.partner? %>
+          <%= render 'details' %>
+      <% else %>
+
+        <%= f.input :order_datetime, discard_minute: :true %>
+        <%= f.input :hours, collection: [4,8,12], default: 4 %>
+        <%= f.input :hospital, collection: Booking.hospitals.keys %>
+        <%= f.input :location %>
+
+        <% if @booking.new_record? %>
+        <%= f.hidden_field :status, value: :Pending %>
+        <% else %>
+          <%= f.input :status, collection: Booking.statuses.keys %>
+        <% end %>
+
+        <% if current_user.admin? %>
+          <%= f.association :nurse, :as => :collection_select, collection: User.partner %>
+        <% end %>
+
+        <%= f.input :contact_person %>
+        <%= f.input :contact_phone_no %>
+
+      <% end %>
+      
+    </div>
+  
+  <% if @booking.new_record? %>
+    <form action="" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-amount=""
+        data-name="Let's Nurse"
+        data-description="Widget"
+        data-image="../app/assets/images/stripeLogo.png"
+        data-locale="auto"
+        data-currency="hkd">
+      </script>
+    </form>
+  <% else %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+  
+  <% end %>
+</div>
+

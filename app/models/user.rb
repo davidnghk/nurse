@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   enum role: [:customer, :partner, :admin, :user, :vip]
   enum qualification: [:registered_nurse, :enrolled_nurse]
-  enum status: [:active, :suspended]
+  enum status: [:Pending, :Approved, :Disapproved]
 
   validates_presence_of :name
   validates_uniqueness_of :email
@@ -36,19 +36,19 @@ class User < ActiveRecord::Base
 #  after_initialize :set_default_role, :if => :new_record?
 
   aasm do
-    state :pending, :initial => true
-    state :approved, :rejected
+    state :Approved, :initial => true
+    state :Pending, :Disapproved 
 
-    event :approve do
-      transitions :from => :pending, :to => :approved
+    event :Approve do
+      transitions :from => :Pending, :to => :Approved
     end
 
-    event :reject do
-      transitions :from => :pending, :to => :rejected
+    event :Disapprove do
+      transitions :from => [:Pending, :Approved], :to => :Disapproved 
     end
 
-    event :pend do
-      transitions :from => [:approved, :rejected], :to => :pending
+    event :Pend do
+      transitions :from => :Approved, :to => :pending
     end
     
   end

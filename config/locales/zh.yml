@@ -27,7 +27,7 @@ zh:
   order: "訂單"
   order_list: "訂單清單"
   new_order: "新訂單"
-  Booking: "預訂"
+  booking: "訂單"
   List_Booking: "預訂清單"
   New_Booking: "新預訂"
   about: "關於我們"
@@ -75,6 +75,29 @@ zh:
   completed: "完成"
   open_orders: "公開單"
   
+  customer: "客户"
+  order_time: "时间"
+  hours: "小时"
+  hospital: "醫院"
+  location: "地點"
+  cost: "成本"
+  contact: "聯絡人"
+  phone_no: "電話號碼"
+  nurse: "護士"
+  status: "狀態"
+  payment: "費用"
+  Paid: "已付"
+  ot: "未付"
+  
+  engage: "接單"
+  cancel: "取消"
+  disangage: "放單"
+  reject: "拒絕"
+  home: "護理易"
+  
+  admin: "管理員"
+  partner: "夥伴"
+  
   simple_form:
     labels:
       defaults:
@@ -99,6 +122,9 @@ zh:
   activerecord:
     attributes:
       booking:
+        hosiptal_translation:
+          聖保祿醫院: "聖保祿醫院"
+          明德國際醫院: "明德國際醫院"
         trip_type_translation:
           One_Way: "單程"
           Round: "往返"  

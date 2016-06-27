@@ -1,0 +1,30 @@
+  <p><strong>User: </strong><%= @booking.user.name %></p>
+  <p>
+    <strong>Time: </strong><%= @booking.order_datetime.strftime("%d/%m/%Y - %l:00 %p") %>
+  </p>
+  <p><strong>Hours: </strong><%= @booking.hours %> hours</p>
+  <p><strong>Hospital: </strong><%= @booking.hospital %></p>
+  <p><strong>Location: </strong><%= @booking.location %></p>
+  <% if current_user.admin? or current_user.customer? %>
+  <p><strong>Fee: </strong><%= number_to_currency(@booking.fee) %></p>
+  <% end %>
+  <% if current_user.admin? or current_user.partner? %>
+    <p><strong>Cost: </strong><%= number_to_currency(@booking.cost) %></p>
+  <% end %>
+  <p><strong>Contact: </strong><%= @booking.contact_person %></p>
+  <p><strong>Phone No: </strong><%= @booking.contact_phone_no %></p>
+
+  <% if @booking.nurse %>
+    <p> <strong>Nurse: </strong><%= @booking.nurse.name %></p>
+  <% else %> 
+    <p> <strong>Nurse: </strong></p>
+  <% end %>
+  
+  <p><strong>Status: </strong><%= @booking.status %></p>
+  
+  <% if current_user.admin? %>
+    <p> <strong>Stripe Token: </strong><%= @booking.payment_token %> </p>
+  <% end %>
+    
+  <p> <strong>Payment: </strong><%= @booking.payment %> </p>
+

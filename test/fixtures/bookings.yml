@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  order_datetime: 2016-06-25 01:40:49
+  hours: 1
+  hospital: 1
+  location: MyString
+  fee: 1
+  cost: 1
+  contact_person: MyString
+  contact_phone_no: 1
+  payment_token: MyString
+
+two:
+  user_id: 
+  order_datetime: 2016-06-25 01:40:49
+  hours: 1
+  hospital: 1
+  location: MyString
+  fee: 1
+  cost: 1
+  contact_person: MyString
+  contact_phone_no: 1
+  payment_token: MyString

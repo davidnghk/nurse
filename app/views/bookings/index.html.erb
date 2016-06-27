@@ -1,0 +1,89 @@
+
+<% if current_user.partner? %>
+  <h3><%= t('booking') %>(<%= t('partner') %>)</h3>
+<% elsif current_user.customer? %>
+  <h3><%= t('booking') %>(<%= t('customer') %>)</h3>
+<% elsif current_user.admin? %>
+  <h3><%= t('booking') %>(<%= t('admin') %>)</h3>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% if current_user.partner? %>
+         <th><%= t('customer') %></th>
+      <% end %>
+      <th><%= t('order_time') %></th>
+      <th><%= t('hours') %></th>
+<!--      <th>Hospital</th>-->
+      <th><%= t('location') %></th>
+      <th><%= t('nurse') %></th>
+      <th><%= t('status') %></th>
+      <% if current_user.admin? or current_user.customer? %>
+        <th><%= t('fee') %></th>
+        <th><%= t('payment') %></th>
+      <% end %>
+      <% if current_user.admin? or current_user.partner? %>
+        <th><%= t('cost') %></th>
+      <% end %>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <% if current_user.partner? %>
+          <td><%= booking.user.name %></td>
+        <% end %>
+        <% if booking.order_datetime? %>
+        <td><%= booking.order_datetime.strftime("%d/%m/%Y %l %p") %> </td>
+        <% end %> 
+        <td><%= booking.hours %></td>
+        <td><%= booking.hospital %> <%= booking.location %></td>
+
+        <% if booking.nurse_id != nil %>
+          <td><%= booking.nurse.name %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td><%= booking.status %></td>
+        <% if current_user.admin? or current_user.customer? %>
+          <td><%= number_with_delimiter(booking.fee) %></td>
+          <td><%= booking.payment %></td>
+        <% end %>
+        <% if current_user.admin? or current_user.partner? %>
+          <td><%= number_with_delimiter(booking.cost) %></td>
+        <% end %>
+
+<!--        Action Button -->
+        
+        <%= link_to booking do %>
+          <td>
+          <%= link_to booking  do %>
+              <i class="glyphicon glyphicon-zoom-in"></i>
+          <% end %>           
+          </td>
+        <% end %>
+        
+        <% if current_user.customer? or current_user.admin? %>
+          <td>
+          <%= link_to edit_booking_path(booking)  do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+        <% end %>
+        
+        <% if current_user.admin? %>
+        <td>
+          <%= link_to booking, method: :delete, data: { confirm: 'Are you sure?' }  do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+        </td>
+        <% end %>
+
+    <% end %>
+  </tbody>
+</table>
+
+
