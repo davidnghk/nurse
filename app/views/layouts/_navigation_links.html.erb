@@ -2,7 +2,7 @@
 <%# add navigation links to this file %>
         <li><%= link_to t('about'), page_path('about') %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('order')%><b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('booking')%><b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to t('booking_list'), bookings_path %></li>
               <% if current_user.customer? %>

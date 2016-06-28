@@ -41,4 +41,4 @@ gem 'stripe'
 gem 'translated_attribute_value'
 gem 'paperclip'
 gem 'aasm'
-
+gem 'validates_timeliness', '~> 4.0'

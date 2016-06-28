@@ -1,19 +1,29 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy, 
-                          :cancel, :engage, :disengage, :complete]
+    :cancel, :engage, :disengage, :complete, :expire, :reject]
 
   def cancel
-    redirect_to bookings_path  if @booking.cancel!
+    @booking.cancel!
+    BookingMailer.cancel_booking(@booking).deliver
+    redirect_to bookings_path  
   end
   
   def engage
     @booking.nurse = current_user
-    redirect_to bookings_path  if @booking.engage!
+    @booking.engage!
+    BookingMailer.engage_booking(@booking).deliver
+    redirect_to bookings_path 
   end
   
   def disengage
+    BookingMailer.disengage_booking(@booking).deliver
     @booking.nurse = nil 
-    redirect_to bookings_path  if @booking.disengage!
+    @booking.disengage!
+    redirect_to bookings_path 
+  end
+  
+  def expire
+    redirect_to bookings_path  if @booking.expire!
   end
   
   def complete
@@ -53,10 +63,12 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @booking = Booking.new(booking_params)
+  @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.fee  = @booking.hours * 250
     @booking.cost = @booking.hours * 200
+    @booking.status = :Open
+    @booking.payment_token = params[:stripeToken]
 
     respond_to do |format|
       customer = Stripe::Customer.create(
@@ -70,9 +82,9 @@ class BookingsController < ApplicationController
         :description => 'Nurse: '+@booking.user.name,
         :currency    => 'hkd'
       )
-      @booking.payment_token = params[:stripeToken]
-      @booking.status = :Open
+
       if @booking.save
+        BookingMailer.new_booking(@booking).deliver
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -82,14 +94,12 @@ class BookingsController < ApplicationController
     end
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to new_booking_path
   end
 
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
-    @booking.fee  = @booking.hours * 250
-    @booking.cost = @booking.hours * 200
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }

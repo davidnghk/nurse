@@ -199,6 +199,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    timeliness (0.3.8)
     translated_attribute_value (0.0.6)
       rails (~> 4.1)
     turbolinks (2.5.3)
@@ -211,6 +212,8 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     unicode-display_width (1.1.0)
+    validates_timeliness (4.0.2)
+      timeliness (~> 0.3.7)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -252,6 +255,7 @@ DEPENDENCIES
   translated_attribute_value
   turbolinks
   uglifier (>= 1.3.0)
+  validates_timeliness (~> 4.0)
   web-console (~> 2.0)
 
 RUBY VERSION

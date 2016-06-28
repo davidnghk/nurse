@@ -8,6 +8,7 @@ Rails.application.routes.draw do
          put :disengage #-> domain.com/bookings/:id/disengage         
          put :complete  #-> domain.com/bookings/:id/complete
          put :reject    #-> domain.com/bookings/:id/reject
+         put :expire    #-> domain.com/bookings/:id/reject
        end
      end
     # mount Upmin::Engine => '/admin'
