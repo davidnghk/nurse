@@ -1,0 +1,10 @@
+    <br><br>
+    <p><strong>Time:</strong>     <%= @booking.order_datetime.strftime("%l %p %d/%m/%Y") %> for <%= @booking.hours %> hours</p>
+    <p><strong>Location:</strong> <%= @booking.hospital %> <%= @booking.location %></p>
+    <p><strong>Nurse:</strong>    <%= @booking.nurse.name %></p>
+    <p><strong>Income:</strong>   <%= number_to_currency(@booking.cost, precision: 0)  %> </p>
+    <p><strong>Contact:</strong>  <%= @booking.contact_person %></p>
+    <p><Strong>Phone No.:</Strong> <%= @booking.contact_phone_no %> </p>
+    <p><strong>Status:</strong>   <%= @booking.status %></p>
+    <p><strong>Payment:</strong>  <%= @booking.payment %></p>
+    <br><br>

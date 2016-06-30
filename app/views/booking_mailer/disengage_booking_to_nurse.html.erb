@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Dear <%= @booking.nurse.name %></h2>
+    <p>
+      I am sorry that you have let go the booking.
+      The following is the revised booking details. 
+    </p>
+        
+    <br><br>
+    <p><strong>Time:</strong>     <%= @booking.order_datetime.strftime("%l %p %d/%m/%Y") %> for <%= @booking.hours %> hours</p>
+    <p><strong>Location:</strong> <%= @booking.hospital %> <%= @booking.location %></p>
+    <p><strong>Nurse:</strong>    <%= @booking.nurse.name %></p>
+    <p><strong>Income:</strong>   <%= number_to_currency(@booking.cost, precision: 0)  %> </p>
+    <p><strong>Contact:</strong>  <%= @booking.contact_person %></p>
+    <p><Strong>Phone No.:</Strong> <%= @booking.contact_phone_no %> </p>
+    <p><strong>Status: </strong> Open</p>
+    <p><strong>Payment:</strong>  <%= @booking.payment %></p>
+    <br><br>
+
+    <p>
+      Should you have any questions regarding to 
+      the mentioned order, feel free to contact us.</p>  
+    <br><br>
+    <p>
+      Thanks for your notice.</p>
+    <br><br>
+    <p>Regards</p>
+    <p>Partner Service</p>
+    <p>Lets Nurse</p>
+  </body>
+</html>

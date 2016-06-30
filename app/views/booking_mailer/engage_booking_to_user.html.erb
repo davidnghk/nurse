@@ -6,9 +6,11 @@
   <body>
     <h2>Dear <%= @booking.user.name %></h2>
     <p>
-      I am sorry that you have just cancelled your booking.   
-      The following is the current status of the revised booking. 
+      I am please to inform you that your booking is assigned 
+      to <strong><%= @booking.nurse.name %></strong>. 
+      The following is the revised booking details. 
     </p>
+
     <br><br>
     <p><strong>Time:</strong>     <%= @booking.order_datetime.strftime("%l %p %d/%m/%Y") %> for <%= @booking.hours %> hours</p>
     <p><strong>Location:</strong> <%= @booking.hospital %> <%= @booking.location %></p>
@@ -18,11 +20,12 @@
     <p><strong>Status:</strong>   <%= @booking.status %></p>
     <p><strong>Payment:</strong>  <%= @booking.payment %></p>
     <br><br>
+    
     <p>
       Should you have any questions regarding to the mentioned order, 
-      feel free to contact us.  
-      Thanks for using our services and have a great day!</p>
-    <br><br>
+      feel free to contact us. </p>
+    <br>
+    <br>
     <p>Regards</p>
     <p>Customer Service</p>
     <p>Lets Nurse</p>

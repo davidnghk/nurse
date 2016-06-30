@@ -18,23 +18,42 @@
           <%= render 'details' %>
       <% else %>
 
-        <%= f.input :order_datetime, discard_minute: :true %>
-        <%= f.input :hours, collection: [4,8,12], default: 4 %>
+<!--      <%= f.date_field :order_datetime, required: true %>-->
+
+        <% if I18n.locale == :en %>
+          <%= f.input :order_datetime, as: :datetime_picker, required: true %>
+        <% else %>
+          <%= f.input :order_datetime, discard_minute: :true, required: true %>
+        <% end %>
+      
+        <% if @booking.new_record? %>
+      
+      <%= f.input :hours, label: t("hours"), collection: [[4, '4:  $1,000'], [8, '8:  $2,000'], [12, '12: $3,000'] ], as: :radio_buttons, label_method: :last, value_method: :first%>
+        <% else %>
+          <Strong><%= t("duration") %>: <%= @booking.hours %> <%= t("hours") %></strong> <br><br>
+        <% end %>
+      
         <%= f.input :hospital, collection: Booking.hospitals.keys %>
         <%= f.input :location %>
-
-        <% if @booking.new_record? %>
-        <%= f.hidden_field :status, value: :Pending %>
-        <% else %>
-          <%= f.input :status, collection: Booking.statuses.keys %>
-        <% end %>
 
         <% if current_user.admin? %>
           <%= f.association :nurse, :as => :collection_select, collection: User.partner %>
         <% end %>
 
+      <% @booking.contact_person = current_user.name %>
+      <% @booking.contact_phone_no = current_user.phone_no %>
         <%= f.input :contact_person %>
         <%= f.input :contact_phone_no %>
+      
+      <%= f.input :preferred_language, collection: Booking.preferred_languages.keys  %>
+      
+        <% if @booking.new_record? %>
+          <%= f.hidden_field :status, value: :Pending %>
+        <% else %>
+          <%#= f.input :status, collection: Booking.statuses.keys %>
+          <strong><%= t("status") %>: <%= @booking.status %></strong>
+        <% end %>
+
 
       <% end %>
       
@@ -46,17 +65,17 @@
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
         data-amount=""
-        data-name="Let's Nurse"
-        data-description="Widget"
-        data-image="../app/assets/images/stripeLogo.png"
+        data-name="Lets Nurse"
+        data-description="Stripe Payment Gateway"
+        data-image="<%= image_url('stripeLogo.png') %>"
         data-locale="auto"
         data-currency="hkd">
       </script>
     </form>
-  <% else %>
-    <div class="form-actions">
-      <%= f.button :submit %>
-    </div>
+  <% elsif @booking.Open? or @booking.Matched? %>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
   <% end %>
   
   <% end %>

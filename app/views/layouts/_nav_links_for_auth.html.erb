@@ -4,11 +4,16 @@
 <% else %>
   <li><%= link_to t('sign_in'), new_user_session_path %></li>
   <li><%= link_to t('sign_up'), new_user_registration_path %></li>
-<li><%= link_to t('partner_up'), new_user_registration_path(:role => :partner) %></li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('partner')%><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to t('partner_up'), new_user_registration_path(:role => :partner) %></li>
+        <li><%= link_to t('FAQ'), partner_faq_path %></li>
+      </ul>
 <% end %>
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
-    <li><%= link_to t('admin'), '/admin' %></li>
+    <li><%#= link_to t('admin'), '/admin' %></li>
     <li><%= link_to t('users'), users_path %></li>
   <% end %>
 <% end %>

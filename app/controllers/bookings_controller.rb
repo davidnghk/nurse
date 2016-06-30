@@ -4,21 +4,24 @@ class BookingsController < ApplicationController
 
   def cancel
     @booking.cancel!
-    BookingMailer.cancel_booking(@booking).deliver
+    BookingMailer.cancel_booking_to_user(@booking).deliver
+    BookingMailer.cancel_booking_to_nurse(@booking).deliver
     redirect_to bookings_path  
   end
   
   def engage
     @booking.nurse = current_user
     @booking.engage!
-    BookingMailer.engage_booking(@booking).deliver
+    BookingMailer.engage_booking_to_user(@booking).deliver
+    BookingMailer.engage_booking_to_nurse(@booking).deliver
     redirect_to bookings_path 
   end
   
   def disengage
-    BookingMailer.disengage_booking(@booking).deliver
+    BookingMailer.disengage_booking_to_nurse(@booking).deliver
     @booking.nurse = nil 
     @booking.disengage!
+    BookingMailer.disengage_booking_to_user(@booking).deliver
     redirect_to bookings_path 
   end
   
@@ -31,6 +34,10 @@ class BookingsController < ApplicationController
   end
   
   def reject
+    BookingMailer.reject_booking_to_user(@booking).deliver
+    if @booking.Matched?
+      BookingMailer.reject_booking_to_nurse(@booking).deliver
+    end 
     redirect_to bookings_path  if @booking.reject!
   end
   
@@ -38,7 +45,7 @@ class BookingsController < ApplicationController
   # GET /bookings.json
   def index
     if current_user.customer? 
-      @bookings = Booking.where(" user_id = ?", current_user.id).order(order_datetime: :desc)
+      @bookings = Booking.where(" user_id = ?", current_user.id).order('order_datetime desc')
     elsif current_user.admin?
       @bookings = Booking.all.order(order_datetime: :desc)
     else
@@ -65,26 +72,38 @@ class BookingsController < ApplicationController
   def create
   @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.fee  = @booking.hours * 250
-    @booking.cost = @booking.hours * 200
-    @booking.status = :Open
     @booking.payment_token = params[:stripeToken]
+    if @booking.order_datetime
+      if @booking.order_datetime <= Time.now + 1.day
+        @booking.fee  = 0
+        @booking.cost = 0
+        @booking.status = :Rejected
+      else
+        @booking.fee  = @booking.hours * 250
+        @booking.cost = @booking.hours * 200
+        @booking.status = :Open
+      #end
 
+      #respond_to do |format|
+        customer = Stripe::Customer.create(
+          :email => params[:stripeEmail],
+          :source  => params[:stripeToken]
+        )
+
+        charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @booking.fee * 100,
+          :description => 'Nurse: '+@booking.user.name,
+          :currency    => 'hkd'
+        )
+        end
+      end
     respond_to do |format|
-      customer = Stripe::Customer.create(
-        :email => params[:stripeEmail],
-        :source  => params[:stripeToken]
-      )
-
-      charge = Stripe::Charge.create(
-        :customer    => customer.id,
-        :amount      => @booking.fee * 100,
-        :description => 'Nurse: '+@booking.user.name,
-        :currency    => 'hkd'
-      )
-
-      if @booking.save
-        BookingMailer.new_booking(@booking).deliver
+      if @booking.save 
+        BookingMailer.new_booking_to_user(@booking).deliver
+        if @booking.Open?
+          BookingMailer.new_booking_to_nurses(@booking).deliver
+        end
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
@@ -130,6 +149,7 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user_id, :order_datetime, :hours, :hospital, :status, :location, :fee, :cost, :contact_person, :contact_phone_no, :payment_token, :nurse_id)
+      params.require(:booking).permit(:user_id, :order_datetime, :hours, :hospital, :status, :location, :fee, :cost, :contact_person, :contact_phone_no, :payment_token, :nurse_id, :preferred_language, 
+        :notes)
     end
 end

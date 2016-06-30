@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Dear <%= @booking.user.name %></h2>
+
+      <p>
+        You have successfully placed your booking to us. 
+        The following is the details of your order. 
+      </p>
+
+    <br><br>
+    <p><strong>Time:</strong>     <%= @booking.order_datetime.strftime("%l %p %d/%m/%Y") %> for <%= @booking.hours %> hours</p>
+    <p><strong>Location:</strong> <%= @booking.hospital %> <%= @booking.location %></p>
+    <p><strong>Fee:</strong>      <%= number_to_currency(@booking.fee, precision: 0)  %> </p>
+    <p><strong>Contact:</strong>  <%= @booking.contact_person %></p>
+    <p><Strong>Phone No.:</Strong>    <%= @booking.contact_phone_no %> </p>
+    <p><strong>Status:</strong>   <%= @booking.status %></p>
+    <p><strong>Payment:</strong>  <%= @booking.payment %></p>
+    <br><br>
+    
+    <p>
+      Thanks for using our services and have a great day!</p>
+    <br><br>
+    <p>Regards</p>
+    <p>Customer Service</p>
+    <p>Lets Nurse</p>
+  </body>
+</html>

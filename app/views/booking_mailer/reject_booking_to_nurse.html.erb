@@ -6,9 +6,9 @@
   <body>
     <h2>Dear <%= @booking.nurse.name %></h2>
     <p>
-      I am please that you have picked the booking.
-      The following is the booking details. 
+      I am sorry to inform you that your assigned booking was rejected.
     </p>
+    
     <br><br>
     <p><strong>Time:</strong>     <%= @booking.order_datetime.strftime("%l %p %d/%m/%Y") %> for <%= @booking.hours %> hours</p>
     <p><strong>Location:</strong> <%= @booking.hospital %> <%= @booking.location %></p>
@@ -19,11 +19,7 @@
     <p><strong>Status:</strong>   <%= @booking.status %></p>
     <p><strong>Payment:</strong>  <%= @booking.payment %></p>
     <br><br>
-    <p>
-      Please contact the client for details <strong>one day</strong> 
-      before the order. Should you have any questions regarding to 
-      the mentioned order, feel free to contact us.</p>  
-    <br><br>
+
     <p>
       Thanks for working with us and have a happy order! </p>
     <br><br>

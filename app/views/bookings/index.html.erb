@@ -17,7 +17,12 @@
       <th><%= t('hours') %></th>
 <!--      <th>Hospital</th>-->
       <th><%= t('location') %></th>
-      <th><%= t('nurse') %></th>
+      
+      <% if current_user.admin? %>
+               <th><%= t('nurse') %></th>
+      <% end %>
+
+
       <th><%= t('status') %></th>
       <% if current_user.admin? or current_user.customer? %>
         <th><%= t('fee') %></th>
@@ -37,20 +42,26 @@
           <td><%= booking.user.name %></td>
         <% end %>
         <% if booking.order_datetime? %>
-        <td><%= booking.order_datetime.strftime("%d/%m/%Y %l %p") %> </td>
+        <td><%= booking.order_datetime.strftime("%Y/%m/%d %l %p") %> </td>
         <% end %> 
         <td><%= booking.hours %></td>
-        <td><%= booking.hospital %> <%= booking.location %></td>
+<!--        <td><%= booking.hospital %> -->
+        <td><%= t_enum(booking, :hospital) %>
+            <%= booking.location %></td>
 
-        <% if booking.nurse_id != nil %>
-          <td><%= booking.nurse.name %></td>
-        <% else %>
-          <td></td>
+        <% if current_user.admin? %>
+          <% if booking.nurse_id != nil  %>
+            <td><%= booking.nurse.name %></td>
+          <% else %>
+            <td></td>
+          <% end %>
         <% end %>
-        <td><%= booking.status %></td>
+        
+        <td><%= t_enum(booking, :status) %>
+        
         <% if current_user.admin? or current_user.customer? %>
           <td><%= number_with_delimiter(booking.fee) %></td>
-          <td><%= booking.payment %></td>
+        <td><%= t_enum(booking, :payment) %></td>
         <% end %>
         <% if current_user.admin? or current_user.partner? %>
           <td><%= number_with_delimiter(booking.cost) %></td>

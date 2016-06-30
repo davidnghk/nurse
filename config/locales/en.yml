@@ -20,8 +20,83 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  our_services: "Private Nursing Services in Hong Kong"
+  our_services1: "You Derserve It"
+  our_services2: "To have your peace of mind, we take good care of your family"
+  services_scope: "Services"
+  services_2A: "Hospital Nursing"
+  services_2B: "Private Hospital Nursing Services"
+  services_3A: "Private Nursing"
+  services_3B: "Home Visit Nursing Services"
+  services_1A: "Medical Escort"
+  services_1B: "Private Medical Escort Services"
+  promotion: "Promotion"
+  details: "Details"
+  address_1: "Rm C 2/F Capital Trade Centre"
+  address_2: "62 Tsun Yip St Kwun Tong KLN"
+  work_scope: "Services Scope"
+  
+  FAQ: "FAQ"
+  FAQ_customer: "Customer Questions"
+  FAQ_partner: "Partner Questions"
+  FAQ_text: "Frequently asked questions"
+  
+  customer_FAQ_1Q: "What need to be done before I make my booking?"
+  customer_FAQ_1A: "You need to sign up before you can make your booking."  
+  customer_FAQ_2Q: "Who will provide the services?"
+  customer_FAQ_2A: "All our services providers are registered nurses in Hong Kong."
+  customer_FAQ_3Q: "What areas are covered by your services?"
+  customer_FAQ_3A: "Our services mainly in Hong Kong, including Hong Kong Island, Kowloon and New Territory."
+  customer_FAQ_4Q: "When should I make the booking?"
+  customer_FAQ_4A: "Please make your booking at least one day before the services."
+  customer_FAQ_5Q: "Any guarantee my booking will be matched?"
+  customer_FAQ_5A: "No, there is no gurantee that your bookings will be matched but we shall use our best effort to get it matched."  
+  customer_FAQ_6Q: "Do I have to pay when I make my booking?"
+  customer_FAQ_6A: "Yes, you pay when you book your services."
+  customer_FAQ_7Q: "How can I pay?"
+  customer_FAQ_7A: "You can pay with major credit cards."
+  customer_FAQ_8Q: "Is my credit card information safe?"
+  customer_FAQ_8A: "Yes, absolutely. You credit card information will be passed to the Stripe payment gateway directly. Stripe has been audited by a PCI-certified auditor, and is certified to PCI Service Provider Level 1. We simply do NOT store your credit card information by any means."
+  customer_FAQ_9Q: "What happens if my booking is not matched?"
+  customer_FAQ_9A: "Your money will be refunded to your credit card within three business days." 
+  customer_FAQ_10Q: "What is your privacy policy?"
+  customer_FAQ_10A: "We collect minimium information requested for the services and we will use it solely for this services. Access to your booking is strictly limited and no information will be revealed to other parties."
+  
+  partner_FAQ_1Q: "Who can be your partners?"
+  partner_FAQ_1A: "Only qualified registered nurse in Hong Kong can join us."  
+  partner_FAQ_2Q: "Any fee to join LetsNurse?"
+  partner_FAQ_2A: "It is alsolutely free to join."
+  partner_FAQ_3Q: "What need to be done before providing services?"
+  partner_FAQ_3A: "You need to sign up with your professional information, and you can take order after your application is approved."
+  partner_FAQ_4Q: "Why do you need my photo and my HKID copy?"
+  partner_FAQ_4A: "We need to verify your identity in the approval process. Further, your photo will be directed to clients with your bookings.  A nice portrait photo is desirable."
+  partner_FAQ_5Q: "How could I know if there is open booking?"
+  partner_FAQ_5A: "Once your application is approved, you will be informed available bookings by emails "  
+  partner_FAQ_6Q: "How could I take orders?"
+  partner_FAQ_6A: "Go to the booking listing via menu Booking, you can see all the available bookings."  
+  partner_FAQ_7Q: "What should I do after picking a booking?"
+  partner_FAQ_7A: "You should contact your clients via phone and/or whatsapp once you confirmed the order."
+  partner_FAQ_8Q: "Am I free to pick the bookings?"
+  partner_FAQ_8A: "You are free to pick your orders you want based on bookings' locations, time and durations"
+  partner_FAQ_9Q: "How do I get paid"
+  partner_FAQ_9A: "You will be paid weekly with accounting deadline at Sunday night, and payment will be wired to to bank account by next Wednesday." 
+  partner_FAQ_10Q: "What is the rating system?"
+  partner_FAQ_10A: "Your clients will rated your services from 1 to 5 stars. You may be forbidden from picking bookings if your score is too low. To avoid that, providing first class services is always the best strategy. "
+  
+  about_us: "About Us"
+  about_letsnurse: "About LetsNurse"
+  about_letsnurse_1: "LetsNurse is placement agent that sources qualified nursing services for our clients. To ensure the quality of our services, we only source Hong Kong experienced registered nurses."
+  about_letsnurse_2: "Our English and/or Cantonese speaking registered nurses are happy to provide first class nursing services in the place that you want, whether it is in hospital or in your home.  Should you need a long-term private nursing services arrangment, feel free to contact us."
+  about_letsnurse_3: "Our mission is to provide quality, private nursing services wherever and whenever you need it."
+  
+  job: "Our Practices"
+  job1: "Home Care"
+  job2: "Hospital Care"
+  job3: "Medical Escort"
+  
+  preferred_language: "Preferred Language"
   hello: "Hello world"
-  duration: "hours"
+  duration: "Duration"
   hours: "Number of Hours"
   home: "Home"
   order: "Order"
@@ -52,7 +127,7 @@ en:
   Nurse: "Nurse"
   listing_booking: "Listing of Bookings"
   new: "New"
-  partner_up: "Partner"
+  partner_up: "Affiliate"
   server_grade: "Grade"
   location: "Location"
   hospital: "Hospital"
@@ -90,6 +165,7 @@ en:
   disangage: "Disengage"
   reject: "Reject"
   home: "Lets Nurse"
+  brand: "LetsNurse"
   
   註冊護士: "Registed Nurse"
   登記護士: "Enrolled Nurse"  
@@ -127,24 +203,77 @@ en:
   simple_form:
     labels:
       defaults:
-        start_datetime: 'Start Time'
-        user: 'Name'
+        username: 'User name'
+        password: 'Password'
+        order_datetime: 'Time'
         hours: 'Hours'
-        pickup_address: "Pickup"
-        dropoff_address: "Dropoff"
-        trip_type: "Trip Type"
-        helper_class: "Helper Class"
-        server: "Server"
-        
+        hospital: "Hospital"
+        location: "Location"
+        contact_person: "Contact Person"
+        contact_phone_no: "Phone No"
+        nurse: "Nurse"
+        bank: "Bank"
+        bank_account_no: "Bank Account No."
+        bank_account_name: "Bank Account Name"
+    placeholders:
+      defaults:
+        username: 'Your username'
+        password: '****'
+        order_datetime: 'Time'
+        hours: 'Hours'
+        hospital: "Hospital"
+        location: "Location"
+        contact_person: "Contact Person"
+        contact_phone_no: "Phone No"
+        nurse: "Nurse"
+                
   activerecord:
-    attributes:
+    enums:
       booking:
-        hosiptal:
+        status:
+          Open:   "Open"
+          Matched: "Matched"
+          Completed: "Completed"
+          Cancelled: "Cancelled"
+          Rejected: "Rejected"
+          Pending: "Pending"
+          Expired: "Expired"
+        hospital:
+          嘉諾撒醫院: "Canossa Hospital"
+          播道醫院: "Evangel Hospital"
+          香港港安醫院: "HK Adventist Hospital"
+          浸信會醫院: "HK Baptist Hospital"
+          養和醫院: "HK Sanatorium & Hospital"
+          明德國際醫院: "Matilda Intl Hospital"
+          寶血醫院: "Precious Blood Hospital"
           聖保祿醫院: "St. Paul's Hospital"
-          明德國際醫院: "Matilda International Hospital"
-        trip_type:
-          One_Way: "Single"
-          Round: "Round Trip"  
-        helper_class:
-          Helper: "Helper"
-          Nurse: "Nurse"  
+          聖德肋撒醫院: "St. Teresa's Hospital"
+          荃灣港安醫院: "Tsuen Wan Adventist Hospital"
+          仁安醫院: "Union Hospital"
+        payment: 
+          Paid: "Paid"
+          Refunded: "Refunded"
+          NotPaid: "Not Paid"
+          PaidOut: "Paid Out"
+      user:
+        role:
+          customer: "Customer"
+          partner: "Partner"
+          admin: "Admin"
+          user: "User"
+          vip: "VIP"
+        qualification:
+          registered_nurse: "Registered Nurse"
+          enrolled_nurse: "Enrolled Nurse"
+        status:
+          Pending: "Pending"
+          Approved: "Approved"
+          Disapproved: "Disapproved"
+          
+  datepicker:
+    dformat: '%Y/%m/%d'             # display format of the date (this is the default, can be ommited)
+    pformat: 'YYYY/MM/DD'           # picking format of the date (this is the default, can be ommited)
+  timepicker:
+    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
+    pformat: 'HH:00'                # picking format of the time (this is the default, can be ommited)
+  dayViewHeaderFormat: 'MMMM YYYY'

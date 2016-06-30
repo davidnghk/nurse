@@ -20,8 +20,83 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 zh:
+  our_services: "香港專業私人看護服務"
+  our_services1: "你的貼心看護服務"
+  our_services2: "為了讓你安心，我們會好好照顧好你心愛的家人。"
+  services_scope: "服務範圍"
+  services_1A: "醫療護送"
+  services_1B: "點到點來回醫院服務"
+  services_2A: "醫院看護"
+  services_2B: "駐院私家看護服務"
+  services_3A: "家庭看護"
+  services_3B: "上門私家看護服務"
+  promotion: "特別推廣服務"
+  details: "詳情"
+  address_1: "九龍觀塘駿業街62號"
+  address_2: "京貿中心2樓C室"
+  work_scope: "工作範圍"
+  
+  FAQ: "常見問題"
+  FAQ_customer: "顧客常見問題"
+  FAQ_partner: "生意夥伴常見問題"
+  FAQ_text: "常見問題"
+  
+  customer_FAQ_1Q: "我落單前需要做什麼？"
+  customer_FAQ_1A: "你需要在落單前註冊。"  
+  customer_FAQ_2Q: "誰會提供的服務?"
+  customer_FAQ_2A: "所有服務人員都是香港註冊護士。"
+  customer_FAQ_3Q: "服務覆蓋地點?"
+  customer_FAQ_3A: "我們的服務主要集中在香港，包括香港島，九龍和新界。"
+  customer_FAQ_4Q: "應該什麼時候做的預訂？"
+  customer_FAQ_4A: "請至少一天前預訂。"
+  customer_FAQ_5Q: "可有保證我的訂單將會被配對？"
+  customer_FAQ_5A: "對不起，我們不保證你訂單一定被配對，較早落單是一個好的方法。"  
+  customer_FAQ_6Q: "我需要預先付款？"
+  customer_FAQ_6A: "是,你需要落單時付款。"
+  customer_FAQ_7Q: "我如何付款？"
+  customer_FAQ_7A: "你可以使用主要的信用卡支付。"
+  customer_FAQ_8Q: "我的信用卡資料安全嗎？"
+  customer_FAQ_8A: "你的信用卡資料絕對安全。你的信用卡資料將被直接傳遞給Stripe支付網關。Stripe已經由PCI認證的核數師審計，並經過認證的PCI服務1級提供應商。我們不使用任何方式儲存你的信用卡資料。"
+  customer_FAQ_9Q: "如果我的預訂不被配對，會發生什麼？"
+  customer_FAQ_9A: "你的訂金將在三個工作日內退還給你的信用卡。" 
+  customer_FAQ_10Q: "你的隱私政策是？"
+  customer_FAQ_10A: "我們收集最少服務資料，並僅用於這項服務。我們嚴格限制你的資料使用並不透露給其他人。"
+  
+  partner_FAQ_1Q: "誰可以加盟成為合作夥伴？"
+  partner_FAQ_1A: "合格的香港註冊護士可以加入我們的行列。"  
+  partner_FAQ_2Q: "加盟看護易需要任何費用？"
+  partner_FAQ_2A: "加盟看護易是完全免費。"
+  partner_FAQ_3Q: "加盟看護易需要做什麼？?"
+  partner_FAQ_3A: "你需要註冊看護易並申請成為合作夥伴，並提供專業資格證據，當你的申請被批准後可以接單。"
+  partner_FAQ_4Q: "為什麼需要我的照片和我的身份證複印件？"
+  partner_FAQ_4A: "我們需要你確認的身份。此外，你的照片將與你接訂單被發送到客。一個專業的人像照片是可取的。"
+  partner_FAQ_5Q: "我怎麼能知道是否有新的訂單？"
+  partner_FAQ_5A: "一旦你的申請被批准，你將可以通過預約通知的電子郵件知道是否有新的訂單。"  
+  partner_FAQ_6Q: "我怎麼能拿訂單？"
+  partner_FAQ_6A: "進入菜單的訂單後，就可以看到所有新的訂單。"  
+  partner_FAQ_7Q: "我接到訂單應該後怎麼辦？"
+  partner_FAQ_7A: "一旦你確認訂單，你應該通過電話和/或WhatsApp聯繫您的客戶。"
+  partner_FAQ_8Q: "我可以自由選擇的訂單？"
+  partner_FAQ_8A: "你可以自由根據訂單的地點和時間挑選訂。"
+  partner_FAQ_9Q: "我的報酬如何得支付？"
+  partner_FAQ_9A: "我們將每週支付你的報酬,每週會計截止時間是週日晚，報酬將會在下週三支付到你的銀行賬戶." 
+  partner_FAQ_10Q: "什麼是評級系統？"
+  partner_FAQ_10A: "您的客戶將評分您的服務從1到5星。如果你的分數太低被禁止接單。為了避免這種情況，提供一流的服務永遠是最好的策略。"
+  
+  about_us: "關於我們"
+  about_letsnurse: "關於看護易"
+  about_letsnurse_1: "看護易為我們的客戶尋找合格的護理服務配售代理。為了保證我們的服務質量，我們只會尋找香港經驗的註冊護士."
+  about_letsnurse_2: "我們的英語和/或粵語註冊護士樂意為您提供一流的護理服務在您需要的地方，無論是在醫院還是在你的家。如果你需要一個長期的私人護理服務佈局研究，請隨時與我們聯繫。"
+  about_letsnurse_3: "無論何時何地，我們的使命是快速為客戶提供優質，私人護理服務。"
+  
+  job: "承辦服務"
+  job1: "家居護理"
+  job2: "醫院護理"
+  job3: "救護轉運"
+  
+  preferred_language: "首選語言"
   hello: "Hello world"
-  duration: "小時"
+  duration: "為期"
   hours: "小時"
   home: "首頁"
   order: "訂單"
@@ -76,16 +151,16 @@ zh:
   open_orders: "公開單"
   
   customer: "客户"
-  order_time: "时间"
-  hours: "小时"
+  order_time: "時間"
+  hours: "小時"
   hospital: "醫院"
   location: "地點"
-  cost: "成本"
+  cost: "分帳"
   contact: "聯絡人"
   phone_no: "電話號碼"
   nurse: "護士"
   status: "狀態"
-  payment: "費用"
+  payment: "付款"
   Paid: "已付"
   ot: "未付"
   
@@ -93,7 +168,7 @@ zh:
   cancel: "取消"
   disangage: "放單"
   reject: "拒絕"
-  home: "護理易"
+  brand: "看護易"
   
   admin: "管理員"
   partner: "夥伴"
@@ -101,15 +176,32 @@ zh:
   simple_form:
     labels:
       defaults:
-        start_datetime: '時間'
-        hours: '小時'
+        email: "電郵帳戶"
+        name: "姓名"
+        image: "照片"
         user: '用戶'
-        pickup_address: "接人地點"
-        dropoff_address: "下車地點"
-        trip_type: "旅程"
-        helper_class: "幫手類型"
-        server: "服務人員"
-  
+        password: "密碼"
+        order_datetime: '時間'
+        hours: '小時'
+        hospital: "醫院"
+        location: "地點"
+        contact_person: "聯繫人"
+        contact_phone_no: "聯繫電話號碼"
+        nurse: "護士"
+        status: "狀態"
+    placeholders:
+      defaults:
+        username: 'Your username'
+        password: '****'
+        order_datetime: 'Time'
+        hours: 'Hours'
+        hospital: "Hospital"
+        location: "Location"
+        contact_person: "Contact Person"
+        contact_phone_no: "Phone No"
+        nurse: "Nurse"
+        status: "Status"
+        
   attributes:
     booking:
       start_datetime: "時間"
@@ -120,25 +212,59 @@ zh:
       email: "電郵"
 
   activerecord:
-    attributes:
+    enums:
       booking:
-        hosiptal_translation:
-          聖保祿醫院: "聖保祿醫院"
+        status:
+          Open:   "公開"
+          Matched: "配對"
+          Completed: "完成"
+          Cancelled: "取消"
+          Rejected: "拒絕"
+          Pending: "聽候"
+          Expired: "過期"
+        hospital:
+          嘉諾撒醫院: "嘉諾撒醫院"
+          播道醫院: "播道醫院"
+          香港港安醫院: "香港港安醫院"
+          浸信會醫院: "浸信會醫院"
+          養和醫院: "養和醫院"
           明德國際醫院: "明德國際醫院"
-        trip_type_translation:
-          One_Way: "單程"
-          Round: "往返"  
-        helper_class_translation:
-          Helper: "幫手"
-          nurse: "護士"  
-
-  activerecord:
+          寶血醫院: "寶血醫院"
+          聖保祿醫院: "聖保祿醫院"
+          聖德肋撒醫院: "聖德肋撒醫院"
+          荃灣港安醫院: "荃灣港安醫院"
+          仁安醫院: "仁安醫院"
+        payment: 
+          Paid: "已收"
+          Refunded: "已退還"
+          NotPaid: "未收"
+          PaidOut: "已支付"
+      user:
+        role:
+          customer: "客戶"
+          partner: "業務夥伴"
+          admin: "管理員"
+          user: "用戶"
+          vip: "重要人物"
+        qualification:
+          registtered_nurse: "註冊護士"
+          enrolled_nurse: "登記護士"
+        status:
+          Pending: "未決定"
+          Approved: "認可"
+          Disapproved: "不認可"
     errors:
       messages:
         record_invalid: "驗證失敗︰%{errors}"
         restrict_dependent_destroy:
           has_one: 由於%{record}依賴此記錄，無法移除
           has_many: 由於%{record}依賴此記錄，無法移除
+      models:
+        booking:  
+          attributes:
+            order_datetime:
+              on_or_after: "Only Book in the future!"
+        
   date:
     abbr_day_names:
     - 周日
@@ -273,16 +399,43 @@ zh:
       header:
         one: 發生一項錯誤，以致 %{model} 未能儲存。
         other: 發生%{count}項錯誤，以致 %{model} 未能儲存。
+  
   helpers:
+    placeholder:
+      user:
+        email: "電郵帳戶"
+        name: "姓名"
+        image: "照片"
+        user: "用戶"
+        password: "密碼"
+    label:
+      user:
+        email: "電郵帳戶"
+        name: "姓名"
+        image: "照片"
+        hkid_image: "香港身份證照片"
+        certificate_image: "證書照片"
+        user: "用戶"
+        password: "密碼"
+        password_confirmation: "確認密碼"
+        phone_no: "電話號碼"
+        registration_english_name: "註冊英文名稱"
+        registration_chinese_name: "註冊中文名稱"
+        registration_no: "註冊號碼"
+        registration_expiry_date: "註冊到期日"
+        qualification: "職業資格"
+        bank: "銀行"
+        bank_account_no: "銀行帳號"
+        bank_account_name: "銀行帳戶名稱"
     select:
       prompt: 請選擇
     submit:
       create: 新增
       submit: 儲存
       update: 更新
-#      create: 新增%{model}
-#      submit: 儲存%{model}
-#      update: 更新%{model}
+      create: 新增%{model}
+      submit: 儲存%{model}
+      update: 更新%{model}
   number:
     currency:
       format:
@@ -343,3 +496,11 @@ zh:
       long: "%Y年%b%d日 %H:%M"
       short: "%b%d日 %H:%M"
     pm: 下午
+    
+  datepicker:
+    dformat: '%Y/%m/%d'             # display format of the date (this is the default, can be ommited)
+    pformat: 'YYYY/MM/DD'           # picking format of the date (this is the default, can be ommited)
+  timepicker:
+    dformat: '%R'                   # display format of the time (this is the default, can be ommited)
+    pformat: 'HH:00'                # picking format of the time (this is the default, can be ommited)
+  dayViewHeaderFormat: 'MMMM YYYY'

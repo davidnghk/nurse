@@ -7,10 +7,15 @@ class Booking < ActiveRecord::Base
   enum hospital: [:嘉諾撒醫院, :播道醫院, :香港港安醫院, :浸信會醫院, :養和醫院, :明德國際醫院, :寶血醫院, :聖保祿醫院, :聖德肋撒醫院, :荃灣港安醫院, :仁安醫院 ]
   enum status: [:Open, :Matched, :Completed, :Cancelled, :Rejected, :Pending, :Expired]
   enum payment: [:Paid, :Refunded, :NotPaid, :PaidOut]
+  enum preferred_language: [:English, :中文, :Either]
   
   validates_presence_of :user_id, :order_datetime, :hours
-  validates_datetime :order_datetime, :on_or_after => :today
-
+  validates_datetime :order_datetime, :after => :today
+  
+  validates :contact_phone_no,  :presence => true, 
+                        :numericality => true,
+                        :length => { :minimum => 8, :maximum => 8 }
+  
 #  before_save :calculate_fee
 #  before_update :calculate_fee
   

@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  after_action :verify_authorized
-
-  has_many :orders
+#  before_action :authenticate_user!
+#  after_action :verify_authorized
   
   def index
     @users = User.all
-    authorize User
+#    authorize User
   end
 
   def show
@@ -16,7 +14,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    authorize @user
+#    authorize @user
     if @user.update_attributes(secure_params)
       redirect_to users_path, :notice => "User updated."
     else
@@ -36,10 +34,5 @@ class UsersController < ApplicationController
   def secure_params
     params.require(:user).permit(:role)
   end
-
-  validates_attachment_size :image, :less_than => 50.kilobytes
-  validates_attachment_size :hkid_image, :less_than => 100.kilobytes
-  validates_attachment_size :certificate_image, :less_than => 100.kilobytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
 end

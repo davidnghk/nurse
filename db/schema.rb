@@ -11,58 +11,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626014109) do
+ActiveRecord::Schema.define(version: 20160630083246) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",            limit: 4
     t.datetime "order_datetime"
-    t.integer  "hours"
-    t.integer  "hospital"
-    t.string   "location"
-    t.integer  "fee"
-    t.integer  "cost"
-    t.string   "contact_person"
-    t.integer  "contact_phone_no"
-    t.string   "payment_token"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "nurse_id"
-    t.integer  "status"
-    t.integer  "payment",          default: 0
+    t.integer  "hours",              limit: 4
+    t.integer  "hospital",           limit: 4
+    t.string   "location",           limit: 255
+    t.integer  "fee",                limit: 4
+    t.integer  "cost",               limit: 4
+    t.string   "contact_person",     limit: 255
+    t.integer  "contact_phone_no",   limit: 4
+    t.string   "payment_token",      limit: 255
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.integer  "nurse_id",           limit: 4
+    t.integer  "status",             limit: 4
+    t.integer  "payment",            limit: 4,   default: 0
+    t.integer  "preferred_language", limit: 4,   default: 0
+    t.string   "notes",              limit: 255
   end
 
-  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "user_id",               limit: 4
     t.datetime "datetime"
-    t.integer  "duration"
-    t.integer  "hospital"
-    t.string   "location"
-    t.integer  "server_grade"
-    t.integer  "server_id"
-    t.string   "contact_person"
-    t.integer  "contact_phone_no"
-    t.integer  "fee"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "aasm_state"
+    t.integer  "duration",              limit: 4
+    t.integer  "hospital",              limit: 4
+    t.string   "location",              limit: 255
+    t.integer  "server_grade",          limit: 4
+    t.integer  "server_id",             limit: 4
+    t.string   "contact_person",        limit: 255
+    t.integer  "contact_phone_no",      limit: 4
+    t.integer  "fee",                   limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "aasm_state",            limit: 255
     t.date     "booking_date"
     t.time     "booking_time"
     t.datetime "booking_datetime"
-    t.string   "stripe_card_token"
-    t.string   "stripe_customer_token"
-    t.string   "stripe_charge_token"
+    t.string   "stripe_card_token",     limit: 255
+    t.string   "stripe_customer_token", limit: 255
+    t.string   "stripe_charge_token",   limit: 255
   end
 
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "payments", force: :cascade do |t|
-    t.string   "email"
-    t.string   "token"
-    t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",      limit: 255
+    t.string   "token",      limit: 255
+    t.integer  "order_id",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "user_customers", force: :cascade do |t|
@@ -71,65 +73,70 @@ ActiveRecord::Schema.define(version: 20160626014109) do
   end
 
   create_table "user_servers", force: :cascade do |t|
-    t.string   "profession_status"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "profession_status", limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                                   default: "",  null: false
-    t.string   "encrypted_password",                                      default: "",  null: false
-    t.string   "reset_password_token"
+    t.string   "email",                          limit: 255,                          default: "",  null: false
+    t.string   "encrypted_password",             limit: 255,                          default: "",  null: false
+    t.string   "reset_password_token",           limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                           default: 0,   null: false
+    t.integer  "sign_in_count",                  limit: 4,                            default: 0,   null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                                            null: false
-    t.datetime "updated_at",                                                            null: false
-    t.string   "name"
-    t.string   "confirmation_token"
+    t.string   "current_sign_in_ip",             limit: 255
+    t.string   "last_sign_in_ip",                limit: 255
+    t.datetime "created_at",                                                                        null: false
+    t.datetime "updated_at",                                                                        null: false
+    t.string   "name",                           limit: 255
+    t.string   "confirmation_token",             limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.integer  "role"
-    t.string   "invitation_token"
+    t.string   "unconfirmed_email",              limit: 255
+    t.integer  "role",                           limit: 4
+    t.string   "invitation_token",               limit: 255
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
-    t.integer  "invitation_limit"
-    t.integer  "invited_by_id"
-    t.string   "invited_by_type"
-    t.integer  "invitations_count",                                       default: 0
-    t.integer  "qualification"
-    t.string   "registration_no"
-    t.string   "registration_chinese_name"
-    t.string   "registration_english_name"
+    t.integer  "invitation_limit",               limit: 4
+    t.integer  "invited_by_id",                  limit: 4
+    t.string   "invited_by_type",                limit: 255
+    t.integer  "invitations_count",              limit: 4,                            default: 0
+    t.integer  "qualification",                  limit: 4
+    t.string   "registration_no",                limit: 255
+    t.string   "registration_chinese_name",      limit: 255
+    t.string   "registration_english_name",      limit: 255
     t.date     "registration_expiry_date"
-    t.string   "aasm_state"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.string   "aasm_state",                     limit: 255
+    t.string   "image_file_name",                limit: 255
+    t.string   "image_content_type",             limit: 255
+    t.integer  "image_file_size",                limit: 4
     t.datetime "image_updated_at"
-    t.string   "hkid_image_file_name"
-    t.string   "hkid_image_content_type"
-    t.integer  "hkid_image_file_size"
+    t.string   "hkid_image_file_name",           limit: 255
+    t.string   "hkid_image_content_type",        limit: 255
+    t.integer  "hkid_image_file_size",           limit: 4
     t.datetime "hkid_image_updated_at"
-    t.string   "certificate_image_file_name"
-    t.string   "certificate_image_content_type"
-    t.integer  "certificate_image_file_size"
+    t.string   "certificate_image_file_name",    limit: 255
+    t.string   "certificate_image_content_type", limit: 255
+    t.integer  "certificate_image_file_size",    limit: 4
     t.datetime "certificate_image_updated_at"
-    t.integer  "phone_no"
-    t.decimal  "rating",                         precision: 10, scale: 2, default: 5.0
-    t.integer  "status"
+    t.integer  "phone_no",                       limit: 4
+    t.decimal  "rating",                                     precision: 10, scale: 2, default: 5.0
+    t.integer  "status",                         limit: 4
+    t.integer  "bank",                           limit: 4
+    t.integer  "bank_account_no",                limit: 4
+    t.string   "bank_account_name",              limit: 255
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bookings", "users"
+  add_foreign_key "orders", "users"
 end

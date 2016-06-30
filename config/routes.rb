@@ -13,12 +13,14 @@ Rails.application.routes.draw do
      end
     # mount Upmin::Engine => '/admin'
 	#  root to: 'visitors#index'
-    root to: 'visitors#LetsNurse'
-    devise_for :users
-    resources :users
-    resources :orders
-    resources :orders do 
-      collection do 
+     root to: 'visitors#LetsNurse'
+     get "customer_faq" => "visitors#faq"
+     get "partner_faq"  => "visitors#faq2"
+     devise_for :users
+     resources :users
+     resources :orders
+     resources :orders do 
+       collection do 
         get :open
       end
     end
