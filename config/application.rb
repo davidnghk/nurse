@@ -22,5 +22,8 @@ module Letsnurse
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    # Install delayed Job for email
+    config.active_job.queue_adapter = :delayed_job
   end
 end

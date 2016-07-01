@@ -269,7 +269,11 @@ en:
           Pending: "Pending"
           Approved: "Approved"
           Disapproved: "Disapproved"
-          
+  
+  errors:
+    messages:
+      in_future: "The date should be in the future"
+  
   datepicker:
     dformat: '%Y/%m/%d'             # display format of the date (this is the default, can be ommited)
     pformat: 'YYYY/MM/DD'           # picking format of the date (this is the default, can be ommited)
@@ -277,3 +281,16 @@ en:
     dformat: '%R'                   # display format of the time (this is the default, can be ommited)
     pformat: 'HH:00'                # picking format of the time (this is the default, can be ommited)
   dayViewHeaderFormat: 'MMMM YYYY'
+  
+  hospitals:
+    嘉諾撒醫院: "Canossa Hospital"
+    播道醫院: "Evangel Hospital"
+    香港港安醫院: "HK Adventist Hospital"
+    浸信會醫院: "HK Baptist Hospital"
+    養和醫院: "HK Sanatorium & Hospital"
+    明德國際醫院: "Matilda Intl Hospital"
+    寶血醫院: "Precious Blood Hospital"
+    聖保祿醫院: "St. Paul's Hospital"
+    聖德肋撒醫院: "St. Teresa's Hospital"
+    荃灣港安醫院: "Tsuen Wan Adventist Hospital"
+    仁安醫院: "Union Hospital"

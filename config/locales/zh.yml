@@ -497,6 +497,11 @@ zh:
       short: "%b%d日 %H:%M"
     pm: 下午
     
+    
+  errors:
+    messages:
+      in_future: "S該日期應該是在未來"
+      
   datepicker:
     dformat: '%Y/%m/%d'             # display format of the date (this is the default, can be ommited)
     pformat: 'YYYY/MM/DD'           # picking format of the date (this is the default, can be ommited)
@@ -504,3 +509,17 @@ zh:
     dformat: '%R'                   # display format of the time (this is the default, can be ommited)
     pformat: 'HH:00'                # picking format of the time (this is the default, can be ommited)
   dayViewHeaderFormat: 'MMMM YYYY'
+  
+  
+  hospitals:
+    嘉諾撒醫院: "嘉諾撒醫院"
+    播道醫院: "播道醫院"
+    香港港安醫院: "香港港安醫院"
+    浸信會醫院: "浸信會醫院"
+    養和醫院: "養和醫院"
+    明德國際醫院: "明德國際醫院"
+    寶血醫院: "寶血醫院"
+    聖保祿醫院: "聖保祿醫院"
+    聖德肋撒醫院: "聖德肋撒醫院"
+    荃灣港安醫院: "荃灣港安醫院"
+    仁安醫院: "仁安醫院"

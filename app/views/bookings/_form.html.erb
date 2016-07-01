@@ -14,26 +14,17 @@
           <h3><%= @booking.user.name %>'s <%= t("Booking") %></h3>
         <% end %>
 
-      <% if current_user.partner? %>
-          <%= render 'details' %>
-      <% else %>
+      <%= f.datetime_field :order_datetime, required: true %>
 
-<!--      <%= f.date_field :order_datetime, required: true %>-->
-
-        <% if I18n.locale == :en %>
-          <%= f.input :order_datetime, as: :datetime_picker, required: true %>
-        <% else %>
-          <%= f.input :order_datetime, discard_minute: :true, required: true %>
-        <% end %>
+        <%= f.input :order_datetime, discard_minute: :true, required: true %>
       
         <% if @booking.new_record? %>
-      
-      <%= f.input :hours, label: t("hours"), collection: [[4, '4:  $1,000'], [8, '8:  $2,000'], [12, '12: $3,000'] ], as: :radio_buttons, label_method: :last, value_method: :first%>
+          <%= f.input :hours, label: t("hours"), collection: [[4, ' 4:  $1,100'], [8, ' 8:  $1,900'], [12, '12: $2,700'] ], as: :radio_buttons, label_method: :last, value_method: :first%>
         <% else %>
           <Strong><%= t("duration") %>: <%= @booking.hours %> <%= t("hours") %></strong> <br><br>
         <% end %>
       
-        <%= f.input :hospital, collection: Booking.hospitals.keys %>
+      <%= f.input :hospital, collection: Booking.i18n_hospitals %>
         <%= f.input :location %>
 
         <% if current_user.admin? %>
@@ -53,9 +44,6 @@
           <%#= f.input :status, collection: Booking.statuses.keys %>
           <strong><%= t("status") %>: <%= @booking.status %></strong>
         <% end %>
-
-
-      <% end %>
       
     </div>
   

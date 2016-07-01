@@ -4,20 +4,18 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   belongs_to :nurse, :class_name => 'User', :foreign_key => 'nurse_id'
   
-  enum hospital: [:嘉諾撒醫院, :播道醫院, :香港港安醫院, :浸信會醫院, :養和醫院, :明德國際醫院, :寶血醫院, :聖保祿醫院, :聖德肋撒醫院, :荃灣港安醫院, :仁安醫院 ]
+  enum hospital: { 嘉諾撒醫院: 1, 播道醫院: 2, 香港港安醫院: 3, 浸信會醫院: 4, 養和醫院: 5, 明德國際醫院: 6, 
+    寶血醫院: 7, 聖保祿醫院: 8, 聖德肋撒醫院: 9, 荃灣港安醫院: 10, 仁安醫院: 11 }
   enum status: [:Open, :Matched, :Completed, :Cancelled, :Rejected, :Pending, :Expired]
   enum payment: [:Paid, :Refunded, :NotPaid, :PaidOut]
   enum preferred_language: [:English, :中文, :Either]
   
   validates_presence_of :user_id, :order_datetime, :hours
-  validates_datetime :order_datetime, :after => :today
+  validate :future_order 
   
   validates :contact_phone_no,  :presence => true, 
                         :numericality => true,
                         :length => { :minimum => 8, :maximum => 8 }
-  
-#  before_save :calculate_fee
-#  before_update :calculate_fee
   
   aasm(:status) do
     state :Open, :initial => true
@@ -53,14 +51,15 @@ class Booking < ActiveRecord::Base
   end
   
   private
-    def calculate_fee
-      self.fee = (self.hours + 1) * 240
-      self.cost = (self.hours + 1) * 200
-    end 
+
+  def self.i18n_hospitals(hash = {})
+    hospitals.keys.each { |key| hash[I18n.t("hospitals.#{key}")] = key }
+    hash
+  end
   
-    def book_in_the_past
-      if self.order_datetime <= Date.today
-        errors.add(:expiration_date, "can't be in the past")
-      end
-    end 
+  def future_orders
+    if order_datetime < Date.today+1.days
+      errors.add(:order_datetime, "Only future date is allowed")
+    end
+  end 
 end

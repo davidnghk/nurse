@@ -4,24 +4,24 @@ class BookingsController < ApplicationController
 
   def cancel
     @booking.cancel!
-    BookingMailer.cancel_booking_to_user(@booking).deliver
-    BookingMailer.cancel_booking_to_nurse(@booking).deliver
+    BookingMailer.delay.cancel_booking_to_user(@booking)
+    BookingMailer.delay.cancel_booking_to_nurse(@booking)
     redirect_to bookings_path  
   end
   
   def engage
     @booking.nurse = current_user
     @booking.engage!
-    BookingMailer.engage_booking_to_user(@booking).deliver
-    BookingMailer.engage_booking_to_nurse(@booking).deliver
+    BookingMailer.delay.engage_booking_to_user(@booking)
+    BookingMailer.delay.engage_booking_to_nurse(@booking)
     redirect_to bookings_path 
   end
   
   def disengage
-    BookingMailer.disengage_booking_to_nurse(@booking).deliver
+    BookingMailer.delay.disengage_booking_to_nurse(@booking)
     @booking.nurse = nil 
     @booking.disengage!
-    BookingMailer.disengage_booking_to_user(@booking).deliver
+    BookingMailer.delay.disengage_booking_to_user(@booking)
     redirect_to bookings_path 
   end
   
@@ -34,9 +34,9 @@ class BookingsController < ApplicationController
   end
   
   def reject
-    BookingMailer.reject_booking_to_user(@booking).deliver
+    BookingMailer.delay.reject_booking_to_user(@booking)
     if @booking.Matched?
-      BookingMailer.reject_booking_to_nurse(@booking).deliver
+      BookingMailer.delay.reject_booking_to_nurse(@booking)
     end 
     redirect_to bookings_path  if @booking.reject!
   end
@@ -74,17 +74,23 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.payment_token = params[:stripeToken]
     if @booking.order_datetime
-      if @booking.order_datetime <= Time.now + 1.day
+      if @booking.order_datetime < Date.today + 1.day
         @booking.fee  = 0
         @booking.cost = 0
         @booking.status = :Rejected
+        @booking.payment = :NotPaid
       else
-        @booking.fee  = @booking.hours * 250
-        @booking.cost = @booking.hours * 200
-        @booking.status = :Open
-      #end
+        if @booking.hours == 4
+          @booking.fee  = 1100
+          @booking.cost = 800
+        elsif @booking.hours == 8
+          @booking.fee  = 1900
+          @booking.cost = 1500
+        else
+          @booking.fee  = 2700
+          @booking.cost = 2200
+        end
 
-      #respond_to do |format|
         customer = Stripe::Customer.create(
           :email => params[:stripeEmail],
           :source  => params[:stripeToken]
@@ -96,13 +102,15 @@ class BookingsController < ApplicationController
           :description => 'Nurse: '+@booking.user.name,
           :currency    => 'hkd'
         )
+        @booking.status = :Open
+        @booking.payment = :Paid
         end
       end
     respond_to do |format|
       if @booking.save 
-        BookingMailer.new_booking_to_user(@booking).deliver
+        BookingMailer.delay.new_booking_to_user(@booking)
         if @booking.Open?
-          BookingMailer.new_booking_to_nurses(@booking).deliver
+          BookingMailer.delay.new_booking_to_nurses(@booking)
         end
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
