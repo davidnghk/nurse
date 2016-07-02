@@ -3,6 +3,14 @@ class BookingsController < ApplicationController
     :cancel, :engage, :disengage, :complete, :expire, :reject]
 
   def cancel
+    @booking.cancellation_datetime = Time.now
+    if @booking.cancellation_datetime + 1.days < @booking.order_datetime
+      @booking.refund_amount = @booking.fee
+    elsif @booking.cancellation_datetime + (4/24.0) < @booking.order_datetime
+      @booking.refund_amount = @booking.fee - 300
+    else
+      @booking.refund_amount = @booking.fee - 500
+    end
     @booking.cancel!
     BookingMailer.delay.cancel_booking_to_user(@booking)
     BookingMailer.delay.cancel_booking_to_nurse(@booking)
@@ -70,27 +78,13 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-  @booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.payment_token = params[:stripeToken]
-    if @booking.order_datetime
-      if @booking.order_datetime < Date.today + 1.day
-        @booking.fee  = 0
-        @booking.cost = 0
-        @booking.status = :Rejected
-        @booking.payment = :NotPaid
-      else
-        if @booking.hours == 4
-          @booking.fee  = 1100
-          @booking.cost = 800
-        elsif @booking.hours == 8
-          @booking.fee  = 1900
-          @booking.cost = 1500
-        else
-          @booking.fee  = 2700
-          @booking.cost = 2200
-        end
-
+    @booking.calculate_fee
+    @booking.status = :Open
+    @booking.payment = :Paid
+    if @booking.valid?
         customer = Stripe::Customer.create(
           :email => params[:stripeEmail],
           :source  => params[:stripeToken]
@@ -99,13 +93,10 @@ class BookingsController < ApplicationController
         charge = Stripe::Charge.create(
           :customer    => customer.id,
           :amount      => @booking.fee * 100,
-          :description => 'Nurse: '+@booking.user.name,
+          :description => 'client: '+@booking.user.name,
           :currency    => 'hkd'
         )
-        @booking.status = :Open
-        @booking.payment = :Paid
-        end
-      end
+    end
     respond_to do |format|
       if @booking.save 
         BookingMailer.delay.new_booking_to_user(@booking)
@@ -115,7 +106,8 @@ class BookingsController < ApplicationController
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
-        format.html { render :new }
+        format.html { redirect_to new_booking_path, notice: 'We do not take back-dated order.' }
+       # format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end

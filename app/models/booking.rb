@@ -1,6 +1,8 @@
 class Booking < ActiveRecord::Base
   include AASM
   
+  #before_save :calculate_refund
+  
   belongs_to :user
   belongs_to :nurse, :class_name => 'User', :foreign_key => 'nurse_id'
   
@@ -11,11 +13,16 @@ class Booking < ActiveRecord::Base
   enum preferred_language: [:English, :中文, :Either]
   
   validates_presence_of :user_id, :order_datetime, :hours
-  validate :future_order 
-  
+#  validates :order_datetime, in_future: true 
+  validate :future_order
+  validates_numericality_of :hours, integer_only: true, gt: 0
+  validates_numericality_of :fee, integer_only: true, within: 500..5000
+  validates_numericality_of :cost, integer_only: true, within: 500..5000 
   validates :contact_phone_no,  :presence => true, 
                         :numericality => true,
                         :length => { :minimum => 8, :maximum => 8 }
+  
+  before_update :calculate_fee
   
   aasm(:status) do
     state :Open, :initial => true
@@ -49,16 +56,44 @@ class Booking < ActiveRecord::Base
       transitions :from => :Paid, :to => :Refunded
     end
   end
-  
-  private
 
+  
+  public
+  
+  def calculate_fee
+    if self.hours == 4
+      self.fee  = 1100
+      self.cost = 800
+    elsif self.hours == 8
+      self.fee  = 1900
+      self.cost = 1500
+    else
+      self.fee  = 2700
+      self.cost = 2200
+    end
+  end
+  
+    
+  private
+  
+  def calculate_refund
+    self.cancellation_datetime = Time.now
+    if self.cancellation_datetime + 24.hours < self.order_datetime
+      self.refund_amount = self.fee
+    elsif self.cancellation_datetime + 4.hours < self.order_datetime
+      self.refund_amount = 300
+    else
+      self.refund_amount = 500
+    end
+  end
+  
   def self.i18n_hospitals(hash = {})
     hospitals.keys.each { |key| hash[I18n.t("hospitals.#{key}")] = key }
     hash
   end
   
-  def future_orders
-    if order_datetime < Date.today+1.days
+  def future_order
+    if order_datetime < Time.now
       errors.add(:order_datetime, "Only future date is allowed")
     end
   end 

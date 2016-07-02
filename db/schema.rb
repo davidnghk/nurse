@@ -11,26 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701042530) do
+ActiveRecord::Schema.define(version: 20160702154846) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer  "user_id",            limit: 4
+    t.integer  "user_id",               limit: 4
     t.datetime "order_datetime"
-    t.integer  "hours",              limit: 4
-    t.integer  "hospital",           limit: 4
-    t.string   "location",           limit: 255
-    t.integer  "fee",                limit: 4
-    t.integer  "cost",               limit: 4
-    t.string   "contact_person",     limit: 255
-    t.integer  "contact_phone_no",   limit: 4
-    t.string   "payment_token",      limit: 255
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.integer  "nurse_id",           limit: 4
-    t.integer  "status",             limit: 4
-    t.integer  "payment",            limit: 4,   default: 0
-    t.integer  "preferred_language", limit: 4,   default: 0
-    t.string   "notes",              limit: 255
+    t.integer  "hours",                 limit: 4
+    t.integer  "hospital",              limit: 4
+    t.string   "location",              limit: 255
+    t.integer  "fee",                   limit: 4
+    t.integer  "cost",                  limit: 4
+    t.string   "contact_person",        limit: 255
+    t.integer  "contact_phone_no",      limit: 4
+    t.string   "payment_token",         limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.integer  "nurse_id",              limit: 4
+    t.integer  "status",                limit: 4
+    t.integer  "payment",               limit: 4,   default: 0
+    t.integer  "preferred_language",    limit: 4,   default: 0
+    t.string   "notes",                 limit: 255
+    t.datetime "cancellation_datetime"
+    t.integer  "refund_amount",         limit: 4,   default: 0
+    t.boolean  "refunded",                          default: false
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
@@ -50,38 +53,6 @@ ActiveRecord::Schema.define(version: 20160701042530) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "user_id",               limit: 4
-    t.datetime "datetime"
-    t.integer  "duration",              limit: 4
-    t.integer  "hospital",              limit: 4
-    t.string   "location",              limit: 255
-    t.integer  "server_grade",          limit: 4
-    t.integer  "server_id",             limit: 4
-    t.string   "contact_person",        limit: 255
-    t.integer  "contact_phone_no",      limit: 4
-    t.integer  "fee",                   limit: 4
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "aasm_state",            limit: 255
-    t.date     "booking_date"
-    t.time     "booking_time"
-    t.datetime "booking_datetime"
-    t.string   "stripe_card_token",     limit: 255
-    t.string   "stripe_customer_token", limit: 255
-    t.string   "stripe_charge_token",   limit: 255
-  end
-
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
-
-  create_table "payments", force: :cascade do |t|
-    t.string   "email",      limit: 255
-    t.string   "token",      limit: 255
-    t.integer  "order_id",   limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
 
   create_table "user_customers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -154,5 +125,4 @@ ActiveRecord::Schema.define(version: 20160701042530) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "bookings", "users"
-  add_foreign_key "orders", "users"
 end
