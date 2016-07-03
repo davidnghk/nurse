@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702154846) do
+ActiveRecord::Schema.define(version: 20160703162218) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20160702154846) do
     t.decimal  "rating",                                     precision: 10, scale: 2, default: 5.0
     t.integer  "status",                         limit: 4
     t.integer  "bank",                           limit: 4
-    t.integer  "bank_account_no",                limit: 4
+    t.integer  "bank_account_no",                limit: 8
     t.string   "bank_account_name",              limit: 255
   end
 

@@ -33,17 +33,17 @@
 #  password: asdfzxcv
 #  host: localhost
 #
-  default: &default
+default: &default
   adapter: mysql2
   encoding: utf8
   username: webapp
-  password:<%= ENV['MYSQL_PASSWORD'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: 127.0.0.1
   port: 3306
 
 development:
   <<: *default
-  database: nurse_development
+  database: nurse
 
 test:
   <<: *default

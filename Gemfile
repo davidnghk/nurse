@@ -43,8 +43,7 @@ gem 'paperclip'
 gem 'aasm'
 gem 'validates_timeliness', '~> 4.0'
 gem 'jquery-ui-rails', '~> 4.2.1'
-gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'momentjs-rails', '~> 2.9'
 gem 'delayed_job_active_record'
 gem 'daemons'
 
