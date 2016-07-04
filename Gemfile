@@ -46,4 +46,5 @@ gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'momentjs-rails', '~> 2.9'
 gem 'delayed_job_active_record'
 gem 'daemons'
-
+#gem 'aws-sdk'
+#gem 'aws-sdk-rails'

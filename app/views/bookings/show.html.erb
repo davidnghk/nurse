@@ -21,7 +21,8 @@
 
     <% if @booking.nurse %>
       <p> <strong><%= t('nurse') %>: </strong><%= @booking.nurse.name %></p>
-      <div><%= image_tag @booking.nurse.image, size: "200x200", class: "img-responsive img-thumbnail img-circle" %></div>
+      <div><%= image_tag @booking.nurse.image.url(:thumb), class: "img-responsive img-thumbnail img-circle" %></div>
+<!--        <div><%= image_tag @booking.nurse.image, size: "200x200", class: "img-responsive img-thumbnail img-circle" %></div>-->
       <p></p>
     <% end %>
   

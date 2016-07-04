@@ -7,9 +7,6 @@ class User < ActiveRecord::Base
   
   scope :customer, -> { where(role: :customer)}
   scope :partner, -> { where(role: :partner)}
-  
-  #has_many :orders, :class_name => 'Order', :foreign_key => 'user_id' 
-  #has_many :services, :class_name => 'Order', :foreign_key => 'server_id'
 
   enum role: [:customer, :partner, :admin, :user, :vip]
   enum qualification: [:registered_nurse, :enrolled_nurse]
@@ -23,13 +20,16 @@ class User < ActiveRecord::Base
                         :numericality => true,
                         :length => { :minimum => 8, :maximum => 8 }
   
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "150x150>" }
+  validates :bank_account_no,  :numericality => true,
+                        :length => { :minimum => 8, :maximum => 15 }
+  
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "200x200>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   
-  has_attached_file :certificate_image, styles: { large: "800x600>", thumb: "200x150>" }
+  has_attached_file :certificate_image, styles: { large: "1200x900>", medium: "400x300>"}
   validates_attachment_content_type :certificate_image, content_type: /\Aimage\/.*\Z/
   
-  has_attached_file :hkid_image, styles: { medium: "400x300>", thumb: "160x120>" }
+  has_attached_file :hkid_image, styles: { large: "1200x900>", medium: "400x300>" }
   validates_attachment_content_type :hkid_image, content_type: /\Aimage\/.*\Z/
   
 #  validates_attachment_size :image, :less_than => 50.kilobytes

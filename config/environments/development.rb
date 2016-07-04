@@ -58,4 +58,6 @@ Rails.application.configure do
   
   # Paper Clip configuration
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  
+
 end
