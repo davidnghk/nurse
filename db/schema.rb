@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703162218) do
+ActiveRecord::Schema.define(version: 20160705173931) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
@@ -34,9 +34,19 @@ ActiveRecord::Schema.define(version: 20160703162218) do
     t.datetime "cancellation_datetime"
     t.integer  "refund_amount",         limit: 4,   default: 0
     t.boolean  "refunded",                          default: false
+    t.datetime "payment_datetime"
   end
 
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
+  create_table "charges", force: :cascade do |t|
+    t.datetime "charge_datetime"
+    t.integer  "booking_id",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "charges", ["booking_id"], name: "index_charges_on_booking_id", using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   limit: 4,     default: 0, null: false
@@ -125,4 +135,5 @@ ActiveRecord::Schema.define(version: 20160703162218) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "bookings", "users"
+  add_foreign_key "charges", "bookings"
 end

@@ -1,0 +1,6 @@
+<% if charge.charge_datetime %>
+<p>
+  <strong><%= t('payment_date') %>:</strong>
+  <%= charge.charge_datetime.strftime("%Y/%m/%d %l:%M %p") %>
+</p>
+<% end %>

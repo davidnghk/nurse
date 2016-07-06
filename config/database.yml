@@ -30,7 +30,7 @@
 #  database: nurse
 #  pool: 5
 #  username: webapp  
-#  password: asdfzxcv
+#  password: 
 #  host: localhost
 #
 default: &default
@@ -43,7 +43,7 @@ default: &default
 
 development:
   <<: *default
-  database: nurse
+  database: nurse_development
 
 test:
   <<: *default

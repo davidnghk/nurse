@@ -2,10 +2,12 @@ Rails.application.routes.draw do
    scope "(:locale)", locale: /en|zh/ do
      resources :bookings
      resources :bookings do
+       resources :charges 
        member do
          put :cancel    #-> domain.com/bookings/:id/cancel
          put :engage    #-> domain.com/bookings/:id/engage       
-         put :disengage #-> domain.com/bookings/:id/disengage         
+         put :disengage #-> domain.com/bookings/:id/disengage  
+         put :confirm   #-> domain.com/bookings/:id/confirm 
          put :complete  #-> domain.com/bookings/:id/complete
          put :reject    #-> domain.com/bookings/:id/reject
          put :expire    #-> domain.com/bookings/:id/reject

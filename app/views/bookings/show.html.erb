@@ -2,12 +2,15 @@
 
 <!--Booking Record Info-->
 
-  <p><strong><%= t('customer') %>: </strong><%= @booking.user.name %></p>
-    <p>
-      <strong><%= t('order_time') %>: </strong><%= @booking.order_datetime.strftime("%d/%m/%Y - %l:00 %p") %>
-    </p>
+    <p><strong><%= t('customer') %>: </strong><%= @booking.user.name %></p>
+    <% if !current_user.customer?  %>
+      <p><strong><%= t('customer_rating') %>: </strong><%= @booking.user.rating %></p>
+    <% end %>
+  
+    <p><strong><%= t('order_time') %>: </strong><%= @booking.order_datetime.strftime("%d/%m/%Y - %l:00 %p") %></p>
     <p><strong><%= t('hours') %>: </strong><%= @booking.hours %> hours</p>
-    <p><strong><%= t('hospital') %>: </strong><%= @booking.hospital %></p>
+    <p><strong><%= t('hospital') %>: </strong><%= I18n.t :"hospitals.#{@booking.hospital}" %></p>
+  
     <p><strong><%= t('location') %>: </strong><%= @booking.location %></p>
     <% if current_user.admin? or current_user.customer? %>
       <p><strong><%= t('fee') %>: </strong><%= number_to_currency(@booking.fee, precision: 0) %></p>
@@ -15,22 +18,35 @@
     <% if current_user.admin? or current_user.partner? %>
       <p><strong><%= t('cost') %>: </strong><%= number_to_currency(@booking.cost, precision: 0) %></p>
     <% end %>
-    <p><strong><%= t('contact') %>: </strong><%= @booking.contact_person %></p>
-    <p><strong><%= t('phone_no') %>: </strong><%= @booking.contact_phone_no %></p>
+  
+    <% if !current_user.partner? or !@booking.NotPaid? %>
+      <p><strong><%= t('contact') %>: </strong><%= @booking.contact_person %></p>
+      <p><strong><%= t('phone_no') %>: </strong><%= @booking.contact_phone_no %></p>
+    <% end %>
+  
     <p><strong><%= t('preferred_language') %>: </strong><%= @booking.preferred_language %></p>
 
     <% if @booking.nurse %>
       <p> <strong><%= t('nurse') %>: </strong><%= @booking.nurse.name %></p>
       <div><%= image_tag @booking.nurse.image.url(:thumb), class: "img-responsive img-thumbnail img-circle" %></div>
-<!--        <div><%= image_tag @booking.nurse.image, size: "200x200", class: "img-responsive img-thumbnail img-circle" %></div>-->
-      <p></p>
+      <p><strong><%= t('nurse_rating') %>: </strong><%= @booking.nurse.rating %></p>
+    <% end %>
+  
+    <% if !current_user.customer? or !@booking.NotPaid? %>
+      <% if @booking.nurse %>
+      <p><strong><%= t('nurse_phone_no') %>: </strong><%= @booking.nurse.phone_no %></p>
+      <% end %>  
     <% end %>
   
     <p><strong><%= t('status') %>: </strong><%= t_enum(@booking, :status) %></p>
+  
     <% if current_user.admin? %>
       <p> <strong>Stripe Token: </strong><%= @booking.payment_token %> </p>
     <% end %>
+  
+    <% if !current_user.partner? %>
       <p> <strong><%= t('payment') %>: </strong><%= t_enum(@booking, :payment) %> </p>
+    <% end %>
 
     <% if @booking.Cancelled? and @booking.cancellation_datetime%>
       <p> <strong><%= t('cancel_time') %>: </strong><%= @booking.cancellation_datetime.strftime("%d/%m/%Y - %l:%M %p") %> </p>
@@ -41,13 +57,16 @@
       <% end %>
     <% end %>
   
-    <br>
+  <% if  current_user.customer? and @booking.Matched? %>
+    <%= render @booking.charges %>
+    <%= render 'charges/form' %>
+  <% end %>
   
 <!--Booking Record Info-->
   
 <div class="btn-group inline"> 
   <% if current_user.customer? %>
-    <% if @booking.Open? or @booking.Matched?%>
+  <% if @booking.Open? or @booking.Matched? or @booking.Confirmed? %>
       <span><%= link_to t('cancel'), cancel_booking_path(@booking), method: :put, class: "btn btn-success"  %>  </span>
     <% end %>
   <% elsif current_user.partner? %>

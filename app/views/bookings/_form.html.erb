@@ -13,14 +13,14 @@
         <% else %>
           <h3><%= @booking.user.name %>'s <%= t("Booking") %></h3>
         <% end %>
-
-      <p><%= f.datetime_select :order_datetime, { discard_minute: true, minute_step: 60, ampm: true} %></p>
       
         <%#= f.input :order_datetime, discard_minute: :true, minute_step: 60, ampm: true %>
       
-        <% if @booking.new_record? %>
+      <% if @booking.new_record? or @booking.Open? %>
+          <p><%= f.datetime_select :order_datetime, { discard_minute: true, minute_step: 60, ampm: true} %></p>
           <%= f.input :hours, label: t("hours"), collection: [[4, '4:  $1,100'], [8, ' 8:  $1,900'], [12, '12: $2,700'] ], as: :radio_buttons, label_method: :last, value_method: :first%>
         <% else %>
+          <p><strong><%= t('order_time') %>: </strong><%= @booking.order_datetime.strftime("%d/%m/%Y - %l:00 %p") %></p>
           <Strong><%= t("duration") %>: <%= @booking.hours %> <%= t("hours") %></strong> <br><br>
         <% end %>
       
@@ -39,33 +39,20 @@
       <%= f.input :preferred_language, collection: Booking.preferred_languages.keys  %>
       
         <% if @booking.new_record? %>
-          <%= f.hidden_field :status, value: :Pending %>
+      <%= f.hidden_field :status, value: :Open %>
         <% else %>
           <%#= f.input :status, collection: Booking.statuses.keys %>
           <strong><%= t("status") %>: <%= @booking.status %></strong>
-        <% end %>
-      
-    </div>
+        <% end %>  
+    </div>  
   
-  <% if @booking.new_record? %>
-    <form action="" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-amount=""
-        data-name="Lets Nurse"
-        data-description="Stripe Payment Gateway"
-        data-image="<%= image_url('stripeLogo.png') %>"
-        data-locale="auto"
-        data-currency="hkd">
-      </script>
-    </form>
-  <% elsif @booking.Open? or @booking.Matched? %>
+  <% if @booking.Matched? or @booking.Open? or @booking.new_record? %>
+      <br>
       <div class="form-actions">
         <%= f.button :submit %>
       </div>
   <% end %>
   
-  <% end %>
-</div>
+<% end %>
 
+</div>

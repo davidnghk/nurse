@@ -80,23 +80,23 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.payment_token = params[:stripeToken]
+#    @booking.payment_token = params[:stripeToken]
     @booking.calculate_fee
     @booking.status = :Open
-    @booking.payment = :Paid
-    if @booking.valid?
-        customer = Stripe::Customer.create(
-          :email => params[:stripeEmail],
-          :source  => params[:stripeToken]
-        )
-
-        charge = Stripe::Charge.create(
-          :customer    => customer.id,
-          :amount      => @booking.fee * 100,
-          :description => 'client: '+@booking.user.name,
-          :currency    => 'hkd'
-        )
-    end
+    @booking.payment = :NotPaid
+#    if @booking.valid?
+#        customer = Stripe::Customer.create(
+#          :email => params[:stripeEmail],
+#          :source  => params[:stripeToken]
+#        )
+#
+#        charge = Stripe::Charge.create(
+#          :customer    => customer.id,
+#          :amount      => @booking.fee * 100,
+#          :description => 'client: '+@booking.user.name,
+#          :currency    => 'hkd'
+#        )
+#    end
     respond_to do |format|
       if @booking.save 
         BookingMailer.delay.new_booking_to_user(@booking)
@@ -111,9 +111,9 @@ class BookingsController < ApplicationController
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
     end
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_booking_path
+#  rescue Stripe::CardError => e
+#    flash[:error] = e.message
+#    redirect_to new_booking_path
   end
 
   # PATCH/PUT /bookings/1

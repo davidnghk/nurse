@@ -83,6 +83,10 @@ zh:
   confirmed: "確認"
   completed: "完成"
   open_orders: "公開單"
+  payment_date: "付款日期"
+  nurse_rating: "護士評分"
+  customer_rating: "客戶評分"
+  nurse_phone_no: "護士聯絡電話"
   
   customer: "客户"
   order_time: "時間"
@@ -100,7 +104,7 @@ zh:
   
   engage: "接單"
   cancel: "取消"
-  disangage: "放單"
+  disengage: "放單"
   reject: "拒絕"
   brand: "看護易"
   
@@ -156,6 +160,7 @@ zh:
           Rejected: "拒絕"
           Pending: "聽候"
           Expired: "過期"
+          Confirmed: "確認"
         hospital:
           嘉諾撒醫院: "嘉諾撒醫院"
           播道醫院: "播道醫院"
@@ -183,10 +188,6 @@ zh:
         qualification:
           registtered_nurse: "註冊護士"
           enrolled_nurse: "登記護士"
-        status:
-          Pending: "未決定"
-          Approved: "認可"
-          Disapproved: "不認可"
     errors:
       messages:
         record_invalid: "驗證失敗︰%{errors}"
@@ -367,14 +368,11 @@ zh:
         bank_account_no: "銀行帳號"
         bank_account_name: "銀行帳戶名稱"
     select:
-      prompt: 請選擇
+      prompt: "請選擇"
     submit:
-      create: 新增
-      submit: 儲存
-      update: 更新
-      create: 新增%{model}
-      submit: 儲存%{model}
-      update: 更新%{model}
+      create: "新增"
+      submit: "儲存"
+      update: "更新"
   number:
     currency:
       format:

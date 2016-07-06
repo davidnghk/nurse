@@ -73,6 +73,9 @@ en:
   cancelled: "Cancelled"
   confirmed: "Confirmed"
   completed: "Completed"
+  nurse_rating: "Nurse's Rating"
+  customer_rating: "Customer's Rating"
+  nurse_phone_no: "Phone No"
   
   customer: "Client"
   order_time: "Time"
@@ -172,6 +175,7 @@ en:
           Rejected: "Rejected"
           Pending: "Pending"
           Expired: "Expired"
+          Confirmed: "Confirmed"
         hospital:
           嘉諾撒醫院: "Canossa Hospital"
           播道醫院: "Evangel Hospital"

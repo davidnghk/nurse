@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
                         :numericality => true,
                         :length => { :minimum => 8, :maximum => 8 }
   
-  validates :bank_account_no,  :numericality => true,
-                        :length => { :minimum => 8, :maximum => 15 }
+  validates :bank_account_no,  
+                        :length => { :maximum => 15 }
   
   has_attached_file :image, styles: { medium: "300x300>", thumb: "200x200>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/

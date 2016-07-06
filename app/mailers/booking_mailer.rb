@@ -25,6 +25,15 @@ class BookingMailer < ApplicationMailer
     end
   end
 
+  def confirm_booking_to_user(booking)
+    @booking = booking
+    mail(to: @booking.user.email, subject: 'Pick the booking')
+  end
+  def confirm_booking_to_nurse(booking)
+    @booking = booking
+    mail(to: @booking.nurse.email, subject: 'Pick the booking')
+  end
+  
   def engage_booking_to_user(booking)
     @booking = booking
     mail(to: @booking.user.email, subject: 'Pick the booking')

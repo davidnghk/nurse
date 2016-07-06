@@ -5,10 +5,12 @@ class Booking < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :nurse, :class_name => 'User', :foreign_key => 'nurse_id'
+  has_many :charges, :dependent => :destroy
+  accepts_nested_attributes_for :charges, :allow_destroy => :true
   
   enum hospital: { 嘉諾撒醫院: 1, 播道醫院: 2, 香港港安醫院: 3, 浸信會醫院: 4, 養和醫院: 5, 明德國際醫院: 6, 
     寶血醫院: 7, 聖保祿醫院: 8, 聖德肋撒醫院: 9, 荃灣港安醫院: 10, 仁安醫院: 11 }
-  enum status: [:Open, :Matched, :Completed, :Cancelled, :Rejected, :Pending, :Expired]
+  enum status: [:Open, :Matched, :Completed, :Cancelled, :Rejected, :Pending, :Expired, :Confirmed]
   enum payment: [:Paid, :Refunded, :NotPaid, :PaidOut]
   enum preferred_language: [:English, :中文, :Either]
   
@@ -26,7 +28,7 @@ class Booking < ActiveRecord::Base
   
   aasm(:status) do
     state :Open, :initial => true
-    state :Rejected, :Cancelled, :Matched, :Completed, :Expired
+    state :Rejected, :Cancelled, :Matched, :Completed, :Expired, :Confirmed
 
     event :engage do
       transitions :from => :Open, :to => :Matched
@@ -35,25 +37,31 @@ class Booking < ActiveRecord::Base
       transitions :from => [:Open, :Matched], :to => :Rejected
     end
     event :cancel do
-      transitions :from => [:Open, :Matched], :to => :Cancelled
+      transitions :from => [:Open, :Matched, :Confirmed], :to => :Cancelled
     end
-    event :complete do
-      transitions :from => :Matched, :to => :Completed
+    event :confirm do
+      transitions :from => :Matched, :to => :Confirmed
     end
     event :disengage do
       transitions :from => :Matched, :to => :Open
     end
     event :expire do
-      transitions :from => :Open, :to => :Expired
+      transitions :from => [:Open, :Matched], :to => :Expired
+    end
+    event :complete do
+      transitions :from => :Confirmed, :to => :Completed
     end
   end
   
   aasm(:payment) do
-    state :Paid, :initial => true
-    state :Refunded
+    state :NotPaid, :initial => true
+    state :Refunded, :NotPaid, :Paid
 
     event :refund do
       transitions :from => :Paid, :to => :Refunded
+    end
+    event :pay do
+      transitions :from => :NotPaid, :to => :Paid
     end
   end
 
