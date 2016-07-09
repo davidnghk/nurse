@@ -70,13 +70,13 @@ class Booking < ActiveRecord::Base
   
   def calculate_fee
     if self.hours == 4
-      self.fee  = 1100
+      self.fee  = 999
       self.cost = 800
     elsif self.hours == 8
-      self.fee  = 1900
+      self.fee  = 1899
       self.cost = 1500
     else
-      self.fee  = 2700
+      self.fee  = 2799
       self.cost = 2200
     end
   end

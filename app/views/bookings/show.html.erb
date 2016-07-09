@@ -1,9 +1,9 @@
 <div >
 <%= render 'content' %>
-  </div>
+
 <!--Booking Record Info-->
   
-<div class="btn-group inline"> 
+
   <% if current_user.customer? %>
   <% if @booking.Open? or @booking.Matched? or @booking.Confirmed? %>
       <span><%= link_to t('cancel'), cancel_booking_path(@booking), method: :put, class: "btn btn-success"  %>  </span>

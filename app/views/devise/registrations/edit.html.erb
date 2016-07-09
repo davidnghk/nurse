@@ -34,7 +34,7 @@
           <%= f.label :hkid_image %>
           <% if @user.hkid_image.exists? %>
             <%#= image_tag @user.hkid_image %>
-            <%= image_tag @user.hkid_image.url(:medium) %>
+          <%= image_tag @user.hkid_image.url(:large) %>
           <% end %>
           <%= f.file_field :hkid_image, class: 'form-control' %>
         </div>
@@ -62,7 +62,7 @@
           <%= f.label :certificate_image %>
           <% if @user.certificate_image.exists? %>
             <%#= image_tag @user.certificate_image %>
-          <%= image_tag @user.certificate_image.url(:medium) %>
+          <%= image_tag @user.certificate_image.url(:large) %>
           <% end %>
           <%= f.file_field :certificate_image, class: 'form-control' %>
         </div>
@@ -107,8 +107,9 @@
     <%= f.submit 'Update', :class => 'button right' %>
   <% end %>
 </div>
+<!--
 <div class="authform">
 <h3>Cancel Account</h3>
 <p>Unhappy? We'll be sad to see you go.</p>
 <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
-</div>
+</div>-->

@@ -24,13 +24,13 @@ class User < ActiveRecord::Base
                         :length => { :maximum => 15 }
   
   has_attached_file :image, styles: { medium: "300x300>", thumb: "200x200>" }
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/pdf']  
   
-  has_attached_file :certificate_image, styles: { large: "1200x900>", medium: "400x300>"}
-  validates_attachment_content_type :certificate_image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :certificate_image, styles: { large: "600x400>", medium: "300x200>"}
+  validates_attachment_content_type :certificate_image, :content_type => ['image/jpeg', 'image/png', 'image/pdf']  
   
-  has_attached_file :hkid_image, styles: { large: "1200x900>", medium: "400x300>" }
-  validates_attachment_content_type :hkid_image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :hkid_image, styles: { large: "1200x800>", medium: "400x300>" }
+  validates_attachment_content_type :hkid_image, :content_type => ['image/jpeg', 'image/png', 'image/pdf']  
   
 #  validates_attachment_size :image, :less_than => 50.kilobytes
 #  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png']  

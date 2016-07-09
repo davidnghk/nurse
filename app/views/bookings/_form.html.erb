@@ -18,7 +18,7 @@
       
       <% if @booking.new_record? or @booking.Open? %>
           <p><%= f.datetime_select :order_datetime, { discard_minute: true, minute_step: 60, ampm: true} %></p>
-          <%= f.input :hours, label: t("hours"), collection: [[4, '4:  $1,100'], [8, ' 8:  $1,900'], [12, '12: $2,700'] ], as: :radio_buttons, label_method: :last, value_method: :first%>
+          <%= f.input :hours, label: t("hours"), collection: [[4, '4:  $999'], [8, ' 8:  $1,899'], [12, '12: $2,799'] ], as: :radio_buttons, label_method: :last, value_method: :first%>
         <% else %>
           <p><strong><%= t('order_time') %>: </strong><%= @booking.order_datetime.strftime("%d/%m/%Y - %l:00 %p") %></p>
           <Strong><%= t("duration") %>: <%= @booking.hours %> <%= t("hours") %></strong> <br><br>
@@ -31,8 +31,12 @@
           <%= f.association :nurse, :as => :collection_select, collection: User.partner %>
         <% end %>
 
-      <% @booking.contact_person = current_user.name %>
-      <% @booking.contact_phone_no = current_user.phone_no %>
+      <% if !@booking.contact_person %>
+        <% @booking.contact_person = current_user.name %>
+      <% end %>
+      <% if !@booking.contact_phone_no %>
+        <% @booking.contact_phone_no = current_user.phone_no %>
+      <% end %>
         <%= f.input :contact_person %>
         <%= f.input :contact_phone_no %>
       

@@ -14,9 +14,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update_attribute(:image, params[:user][:image])  
-    @user.update_attribute(:hkid_image, params[:user][:hkid_image])  
-    @user.update_attribute(:certificate_image, params[:user][:certificate_image])   
 #    authorize @user
     if @user.update_attributes(secure_params)
       redirect_to users_path, :notice => "User updated."
