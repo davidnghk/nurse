@@ -42,7 +42,8 @@
           <td><%= booking.user.name %></td>
         <% end %>
         <% if booking.order_datetime? %>
-        <td><%= booking.order_datetime.strftime("%Y/%m/%d %l %p") %> </td>
+        <%#= booking.order_datetime.strftime("%Y/%m/%d %l %p") %>
+        <td><%= booking.order_datetime.strftime("%m/%d %l%p") %> </td> 
         <% end %> 
         <td><%= booking.hours %></td>
 <!--        <td><%= booking.hospital %> -->
@@ -77,7 +78,7 @@
           </td>
         <% end %>
         
-        <% if current_user.customer? or current_user.admin? %>
+        <% if current_user.admin? %>
           <td>
           <%= link_to edit_booking_path(booking)  do %>
               <i class="glyphicon glyphicon-edit"></i>

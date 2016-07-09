@@ -37,8 +37,8 @@ zh:
   order_list: "訂單清單"
   new_order: "新訂單"
   booking: "訂單"
-  List_Booking: "預訂清單"
-  New_Booking: "新預訂"
+  List_Booking: "訂單清單"
+  New_Booking: "新訂單"
   about: "關於我們"
   edit_account: "編輯帳戶"
   sign_out: "登出"
@@ -59,7 +59,7 @@ zh:
   RoundTrip: "來往"
   Helper: "幫手"
   Nurse: "護士"
-  listing_booking: "預訂清單"
+  listing_booking: "訂單清單"
   new: "新增"
   Booked: "新增"
   Confirmed: "確認"
@@ -84,7 +84,8 @@ zh:
   completed: "完成"
   open_orders: "公開單"
   payment_date: "付款日期"
-  nurse_rating: "護士評分"
+  nurse_rating: "評分"
+  preferred_language: "聯繫語言"
   customer_rating: "客戶評分"
   nurse_phone_no: "護士聯絡電話"
   
@@ -98,7 +99,7 @@ zh:
   phone_no: "電話號碼"
   nurse: "護士"
   status: "狀態"
-  payment: "付款"
+  payment: "訂金"
   Paid: "已付"
   ot: "未付"
   
@@ -125,6 +126,7 @@ zh:
         location: "地點"
         contact_person: "聯繫人"
         contact_phone_no: "聯繫電話號碼"
+        preferred_language: "聯繫語言"  
         nurse: "護士"
         status: "狀態"
     placeholders:
@@ -177,7 +179,7 @@ zh:
           Paid: "已收"
           Refunded: "已退還"
           NotPaid: "未收"
-          PaidOut: "已支付"
+          PaidOut: "已付"
       user:
         role:
           customer: "客戶"

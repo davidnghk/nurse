@@ -37,7 +37,7 @@ Rails.application.configure do
     password: Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'letsapp.ddns.net:3033' }
+  config.action_mailer.default_url_options = { :host => 'letsapp.ddns.net:3133' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   # Send email in development mode?
@@ -58,6 +58,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   
   # Paper Clip configuration
-  Paperclip.options[:command_path] = "/usr/local/bin/"
-  
+  #Paperclip.options[:command_path] = "/usr/local/bin/"
+  # for ubuntu
+  Paperclip.options[:command_path] = "/usr/bin/"
 end

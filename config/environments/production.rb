@@ -81,7 +81,7 @@ Rails.application.configure do
     password: Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'letsapp.mobi:3033' }
+  config.action_mailer.default_url_options = { :host => 'letsapp.ddns.net:3133' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -95,13 +95,13 @@ Rails.application.configure do
   # Paper Clip configuration
   Paperclip.options[:command_path] = "/usr/bin/"
   
-  config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: 'letsnurse',
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    s3_region: 'us-west-1',
-    }
-  }
+  # config.paperclip_defaults = {
+  # storage: :s3,
+  # s3_credentials: {
+  #   bucket: 'letsnurse',
+  #   access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+  #   secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+  #   s3_region: 'us-west-1',
+  #   }
+  # }
 end

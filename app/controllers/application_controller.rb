@@ -17,16 +17,32 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:edit_account) do |user_params|
-        user_params.permit(:name, :phone_no, :email, :current_password, :image, :hkid_image, :role, :qualification, :registration_no, :registration_chinese_name, :registration_english_name, :registration_expiry_date, :certificate_image, :status, :bank, :bank_account_no, :bank_account_name)
+        user_params.permit(:name, :phone_no, :email, :current_password, 
+          :image, :hkid_image, :role, :qualification, :registration_no, 
+          :registration_chinese_name, :registration_english_name, 
+          :registration_expiry_date, :certificate_image, :status, 
+          :bank, :bank_account_no, :bank_account_name)
 	  end
       devise_parameter_sanitizer.permit(:account_update) do |user_params|
-        user_params.permit(:name, :phone_no, :email, :current_password, :image, :hkid_image, :role, :qualification, :registration_no, :registration_chinese_name, :registration_english_name, :registration_expiry_date, :certificate_image, :status, :bank_account_no, :bank_account_name)
+        user_params.permit(:name, :phone_no, :email, :current_password, 
+          :image, :hkid_image, :role, :qualification, :registration_no, 
+          :registration_chinese_name, :registration_english_name, 
+          :registration_expiry_date, :certificate_image, :status, 
+           :bank, :bank_account_no, :bank_account_name)
 	  end
 	  devise_parameter_sanitizer.permit(:sign_up) do |user_params|
-        user_params.permit(:name, :phone_no, :email, :password, :image, :hkid_image, :role, :registrtion_no, :qualification, :registration_no, :registration_chinese_name, :registration_english_name, :registration_expiry_date, :certificate_image, :status, :bank_account_no, :bank_account_name)
+        user_params.permit(:name, :phone_no, :email, :password, 
+          :image, :hkid_image, :role, :registrtion_no, :qualification, 
+          :registration_no, :registration_chinese_name, :registration_english_name, 
+          :registration_expiry_date, :certificate_image, :status, :bank, 
+          :bank_account_no, :bank_account_name)
 	  end
     devise_parameter_sanitizer.permit(:partner_up) do |user_params|
-        user_params.permit(:name, :phone_no, :email, :password, :image, :hkid_image, :role, :registrtion_no, :qualification, :registration_no, :registration_chinese_name, :registration_english_name, :registration_expiry_date, :certificate_image, :status, :bank_account_no, :bank_account_name)
+        user_params.permit(:name, :phone_no, :email, :password, 
+          :image, :hkid_image, :role, :registrtion_no, :qualification, 
+          :registration_no, :registration_chinese_name, :registration_english_name, 
+          :registration_expiry_date, :certificate_image, :status, 
+          :bank, :bank_account_no, :bank_account_name)
 	  end
   end
 end
