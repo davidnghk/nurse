@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+        <h2>經理</h2>
+    <p>關注柯打:<%= @order.store.client.chi_name %>-<%= @order.store.chi_name %></p>
+    <%= link_to "關注訂單", :controller => "orders", :action => "show", :id => @order %>
+    
+    <br>
+    <p><strong>落單時間:</strong>    <%= @order.call_date.strftime("%F %I:%M %P") %> </p>
+    <p><strong>客戶:</strong>       <%= @order.store.client.chi_name %> </p>
+    <p><strong>商鋪:</strong>        <%= @order.store.chi_name %> </p>
+    <p><strong>客戶參考號碼:</strong>    <%= @order.user_ref %> </p>
+    <p><strong>地址:</strong>      <%= @order.store.chi_address %> </p>
+    <p><strong>電話號碼:</strong>     <%= @order.store.phone_no %> </p>
+    
+    <p><strong>確認時間:</strong>   
+      <% if (@order.acknowledgement_datetime != nil) then %>
+        <%= @order.acknowledgement_datetime.strftime("%F  %I:%M %P") %> </p>
+      <% end %>
+    <p><strong>維修日期:</strong>   <%= @order.repair_date.strftime("%F") %> </p>
+
+    <p><strong>師傅:</strong>       <%= @order.technician.name %> </p>
+    <p><strong>設備:</strong>       <%= @order.device.chi_name %> </p>
+    <p><strong>問題:</strong>        <%= @order.issue.chi_name %> </p>
+
+    <p>主管技師正在等待你的指示。  </p>
+    <br>
+    <p>管理員</p>
+    <p>第壹冷凍工程有限公司</p>
+  </body>
+    <br>
+  
+    <h2>Dear Manager </h2>
+    <p>A maintenance services order has been escalated for your attention</p>
+    <%= link_to "Escalated Order", :controller => "orders", :action => "show", :id => @order %>
+  
+    <br>
+    <p><strong>Call Time:</strong>    <%= @order.call_date.strftime("%F %I:%M %P") %> </p>
+    <p><strong>Client:</strong>       <%= @order.store.client.name %> </p>
+    <p><strong>Store:</strong>        <%= @order.store.name %> </p>
+    <p><strong>Reference:</strong>    <%= @order.user_ref %> </p>
+    <p><strong>Address:</strong>      <%= @order.store.address %> </p>
+    <p><strong>Phone No:</strong>     <%= @order.store.phone_no %> </p>
+    <p><strong>Acknowledge Time:</strong>  
+      <% if (@order.acknowledgement_datetime != nil) then %>
+        <%= @order.acknowledgement_datetime.strftime("%F  %I:%M %P") %> </p>
+      <% end %>
+    <p><strong>Repair Date:</strong>  <%= @order.repair_date.strftime("%F") %> </p>
+
+    <p><strong>Technician:</strong>   <%= @order.technician.name %> </p>
+    <p><strong>Device:</strong>       <%= @order.device.name %> </p>
+    <p><strong>Issue:</strong>        <%= @order.issue.name %> </p>
+
+    <p>The techician in charge is waiting for your instructions.   </p>
+    <br>
+    <p>Regards</p>
+    <p>Administrator</p>
+    <p>First Refrigeration Limited</p>
+  </body>
+  
+</html>

@@ -1,0 +1,21 @@
+<%= simple_form_for(@store) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :client %>
+    <%= f.input :code %>
+    <%= f.input :name, label: t('store')  %>
+    <%= f.input :chi_name, label: 'Chi Store' %>
+    <%= f.input :address %>
+    <%= f.input :chi_address %>
+    <%= f.input :phone_no %>
+    <%= f.input :device_01 %>
+    <%= f.input :device_02 %>
+    <%= f.input :device_03 %>
+    <%= f.input :device_04 %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

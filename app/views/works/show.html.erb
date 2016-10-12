@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t("name") %>:</strong>
+  <%= @work.name %>
+</p>
+
+<p>
+  <strong><%= t("chi_name") %>:</strong>
+  <%= @work.chi_name %>
+</p>
+
+<td>
+  <%= link_to edit_work_path(@work)  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to works_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+</td>
+

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @client.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Chi name:</strong>
+  <%= @client.chi_name %>
+</p>
+
+<td>
+  <%= link_to edit_client_path(@client)  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to clients_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+</td>
+
+

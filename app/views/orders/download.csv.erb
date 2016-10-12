@@ -1,0 +1,32 @@
+  <%
+  headers = [
+    "Call Date",
+    "Client",
+    "Store Code",
+    "Store Naem",
+    "Client Ref",
+    "Repair Date",
+    "Status"
+    "Ack. Time",
+    "Device",
+    "Issue",
+  ]
+
+  csv_output = CSV.generate do |csv|
+    csv << headers
+
+      csv << [
+        call_date.strftime("%d-%m-%Y"),
+        client.name,
+        store.code,
+        store.name, 
+        user_ref,
+        repair_date.strftime("%d-%m-%Y"),
+        status,
+        device.name, 
+        Issue.name        
+      ]
+  end
+%>
+
+<%= csv_output.html_safe %>

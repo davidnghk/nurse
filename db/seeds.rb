@@ -9,10 +9,28 @@
 # puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
 user = User.new
+user.name = 'admin'
+user.phone_no = '93148325'
+user.role = 1
+user.email = 'david.ng.hk@gmail.com'
+user.password = '$2a$11$ikFQL9l7Q2raTSw8ISMePOiXturjQooQnbyzvV/qy98ZmmSxf/ehy'
+user.encrypted_password = '$2a$11$ikFQL9l7Q2raTSw8ISMePOiXturjQooQnbyzvV/qy98ZmmSxf/ehy'
+user.confirmed_at = Time.now
+user.save!
+user = User.new
+user.name = 'David Ng'
+user.phone_no = '93148325'
+user.role = 0
+user.email = 'david.ng@letsapp.mobi'
+user.password = '$2a$11$ikFQL9l7Q2raTSw8ISMePOiXturjQooQnbyzvV/qy98ZmmSxf/ehy'
+user.encrypted_password = '$2a$11$ikFQL9l7Q2raTSw8ISMePOiXturjQooQnbyzvV/qy98ZmmSxf/ehy'
+user.confirmed_at = Time.now
+user.save!
+user = User.new
 user.name = 'David Ng'
 user.phone_no = '93148325'
 user.role = 2
-user.email = 'david.ng@letsapp.mobi'
+user.email = 'newguyinhk@yahoo.com'
 user.password = '$2a$11$ikFQL9l7Q2raTSw8ISMePOiXturjQooQnbyzvV/qy98ZmmSxf/ehy'
 user.encrypted_password = '$2a$11$ikFQL9l7Q2raTSw8ISMePOiXturjQooQnbyzvV/qy98ZmmSxf/ehy'
 user.confirmed_at = Time.now

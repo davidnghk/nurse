@@ -1,0 +1,17 @@
+<h1><%= t("edit") %> <%= t("client") %></h1>
+
+<%= render 'form' %>
+
+<br>
+<td>
+  <%= link_to @client  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to clients_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+</td>
+
+

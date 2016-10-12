@@ -1,0 +1,84 @@
+<div>
+    <%= link_to @order  do %>
+      <i class="glyphicon glyphicon-zoom-in btn btn-tall btn-grey fa-2x col-xs-6"></i> 
+    <% end %>
+    <%= link_to orders_path  do %>
+      <i class="glyphicon glyphicon-list  btn btn-tall btn-success fa-2x col-xs-6"></i>
+    <% end %>
+</div>
+
+  <br><br><br><br>
+
+<%= simple_form_for(@order, :html => {:multipart => true}) do |f| %>  
+
+  <p>  <strong><%= t("call_date") %>:</strong> <%= @order.call_date.strftime("%F %I:%M %P") %></p>
+  <p>  <strong><%= t("client") %>: </strong> 
+      <% if I18n.locale == :zh %>
+        <%= @order.store.client.chi_name %> <%= @order.user_ref %> 
+      <% else %>
+        <%= @order.store.client.name %> <%= @order.user_ref %> 
+      <% end %>
+  </p>  <p>  <strong><%= t("store") %>: </strong> <%= @order.store.code %>
+      <% if I18n.locale == :zh %>
+        <%= @order.store.chi_name %> 
+      <% else %>
+        <%= @order.store.name %> 
+      <% end %>
+  </p>
+  <p>  <strong><%= t("repair_date") %>:</strong> <%= @order.repair_date.strftime("%F") %></p>
+  <p>  <strong><%= t("status") %>: </strong>  <%= t(@order.status)  %></p>
+  <p>  <strong><%= t("technician") %>: </strong>  <%= @order.technician.name  %></p>
+  <p>  <strong><%= t("issue") %>: </strong> 
+      <% if I18n.locale == :zh %>
+        <%= @order.device.chi_name %> - <%= @order.issue.chi_name %> 
+      <% else %>
+        <%= @order.device.name %> - <%= @order.issue.name %> 
+      <% end %>
+  </p>
+  <p><%= f.input :notes, :label => t("notes") %></p>
+
+  <div class="form-inputs">
+        
+    <% if I18n.locale == :zh %>
+      <%= f.association :work, :label => t("work"), :label_method => :chi_name %>   
+    <% else %>
+      <%= f.association :work, :label => t("work"), :label_method => :name %>
+    <% end %>
+  
+<div class="row">   
+    <div class="col-xs-3 fileupload center photo">
+      <p><%= t("photo") %> 1</p>
+      <%= f.file_field :photo %>
+      <% if (@order.photo? ) %>
+        <%= image_tag @order.photo.url(:thumb) %>
+      <% end %>
+    </div>
+    <div class="col-xs-3 fileupload center photo">
+      <p><%= t("photo") %> 2</p>
+      <%= f.file_field :photo_02  %>
+      <% if (@order.photo_02? ) %>
+        <%= image_tag @order.photo_02.url(:thumb) %>
+      <% end %>
+    </div>
+    <div class="col-xs-3 fileupload center photo">
+      <p><%= t("photo") %> 3</p>
+      <%= f.file_field :photo_03  %>
+      <% if (@order.photo_03? ) %>
+        <%= image_tag @order.photo_03.url(:thumb) %>
+      <% end %>
+    </div>
+    <div class="col-xs-3 fileupload center photo">
+      <p><%= t("photo") %> 4</p>
+      <%= f.file_field :photo_04  %>
+      <% if (@order.photo_04? ) %>
+        <%= image_tag @order.photo_04.url(:thumb) %>
+      <% end %>
+    </div>
+</div>
+  
+    <br>
+    <div>
+      <%= f.button :submit, :class => 'btn btn-tall btn-info col-xs-12' %>
+    </div><br>
+
+<% end %>

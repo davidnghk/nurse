@@ -1,0 +1,16 @@
+<h1><%= t("edit") %> <%= t("issue") %></h1>
+
+<%= render 'form' %>
+
+<br>
+<td>
+  <%= link_to @issue  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to issues_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+</td>
+

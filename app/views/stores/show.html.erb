@@ -1,0 +1,62 @@
+<br>
+<p>
+  <strong><%= t("client") %>:</strong>
+  <%= @store.client.name%>
+</p>
+
+<p>
+  <strong><%= t("code") %>:</strong>
+  <%= @store.code %>
+</p>
+
+<p>
+  <strong><%= t("name") %>:</strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong><%= t("chi_name") %>:</strong>
+  <%= @store.chi_name %>
+</p>
+
+<p>
+  <strong><%= t("address") %>:</strong>
+  <%= @store.address %>
+</p>
+
+<p>
+  <strong><%= t("chi_address") %>:</strong>
+  <%= @store.chi_address %>
+</p>
+
+<p>
+  <strong><%= t("phone_no") %>:</strong>
+  <%= @store.phone_no %>
+</p>
+<p>
+  <strong><%= t("device") %> 1:</strong>
+  <%= @store.device_01 %>
+</p>
+<p>
+  <strong><%= t("device") %> 2:</strong>
+  <%= @store.device_02 %>
+</p>
+<p>
+  <strong><%= t("device") %> 3:</strong>
+  <%= @store.device_03 %>
+</p>
+<p>
+  <strong><%= t("device") %>4:</strong>
+  <%= @store.device_04 %>
+</p>
+
+
+
+  <%= link_to edit_store_path(@store) do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %> 
+
+  <%= link_to stores_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+

@@ -1,0 +1,56 @@
+
+<%#= link_to "Download Excel", reports_path(params.merge(format: "xls")) %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t("call_date") %></th>
+      <th><%= t("client") %></th>
+      <th><%= t("store") %></th>
+      <th><%= t("client_ref") %></th>
+      <th><%= t("repair_date") %></th>
+      <th><%= t("status") %></th>
+      <th><%= t("technician") %></th>
+      <th><%= t("device") %></th>
+      <th><%= t("issue") %></th>
+      <th><%= t("work") %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        
+        
+        <td><%= order.call_date %></td>
+        
+        <% if I18n.locale == :en  %>
+            <td><%= order.store.client.name %></td>
+            <td><%= order.store.name %></td>
+            <td><%= order.user_ref %></td>
+            <td><%= order.repair_date %></td>
+            <td><%= order.status %></td>
+            <td><%= order.technician.name %></td>
+            <td><%= order.device.name %></td>
+            <td><%= order.issue.name %></td>
+            <td><%#= order.work.name %></td>
+        
+        <% else %>
+            <td><%= order.store.client.chi_name %></td>
+            <td><%= order.store.chi_name %></td>
+            <td><%= order.user_ref %></td>
+            <td><%= order.repair_date %></td>
+            <td><%= t(order.status) %></td>
+            <td><%= order.technician.name %></td>
+            <td><%= order.device.chi_name %></td>
+            <td><%= order.issue.chi_name %></td>
+            <td><%#= order.work.chi_name %></td>
+        <% end %>
+                        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

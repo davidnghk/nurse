@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :authenticate_user! 
+  
   protected
 
   def set_locale
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:edit_account) do |user_params|
         user_params.permit(:name, :phone_no, :email, :current_password, 
-          :image, :hkid_image, :role, :qualification, :registration_no, 
+          :image, :hkid_image, :role, :qualification, :registration_no,  
           :registration_chinese_name, :registration_english_name, 
           :registration_expiry_date, :certificate_image, :status, 
           :bank, :bank_account_no, :bank_account_name)

@@ -1,0 +1,7 @@
+
+<% if current_user.repairman? %>
+<% then %>
+  <%= render 'mform' %>
+<%else %>
+  <%= render 'form' %>
+<% end %> 

@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t("client_list") %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t("code") %></th>
+      <th><%= t("name") %></th>
+      <th><%= t("chi_name") %></th>
+      <th><%= t("show") %> </th>
+      <th><%= t("update") %> </th>
+      <th><%= t("delete") %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td><%= client.code %></td>
+        <td><%= client.name %></td>
+        <td><%= client.chi_name %></td>
+        
+          <td>
+            <%= link_to client do %>
+              <i class="glyphicon glyphicon-zoom-in"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_client_path(client)  do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to client, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
+        
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to new_client_path  do %>
+        <i class="glyphicon glyphicon-plus"></i>
+<% end %>
+
+

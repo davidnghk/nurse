@@ -1,0 +1,226 @@
+client_id,code,name,chi_name,phone_no,address,chi_address
+3,HGW,Hing Wah Shopping Centre,興華村,25159775 ,Shop No. 119-120 1/F Hing Wah Plaza Chai Wan Hong Kong,香港柴灣興華廣場119-120號舖
+3,NJS,New Jade Shopping Arcade,新翠商埸,25877028,Shop No. 113 Level 1 New Jade Shopping Arcade Chai Wan H.K.,香港柴湾柴湾道233號新翠商埸一楼113號舖
+3,LWB,Lai Wan Building,麗灣大厦,25608960 ,Shop F on G/F & Cockloft Lai Wan Building Nos.33 37-55 Shau Kei Wan Road  No.1 Tai Hong StreetH.K.,香港太康街1號筲箕湾道3337-55號麗灣大厦地下F舖及閣樓
+3,CPZ,City Plaza,太古城中心,29159055 ,Shop No.124 First Floor Cityplaza 18 TaiKoo Shing Rd Taikoo Shing Island East HK,香港港島太古城太古城道18号太古城中心一楼124號舖
+3,SKW,Shau Kei Wan,筲箕灣,28853268 ,Shop D & E G/F. King Fai Building 104 Shau Kei Wan Main Street Hong Kong,香港筲箕灣東大街102-104號景輝大廈地下D及E號
+3,SSW,Siu Sai Wan Shopping Centre,小西灣商場,22944575 ,Shop No. 108 First Floor Siu Sai Wan Shopping Centre Hong Kong,香港柴灣小西灣商場一樓108號舖
+3,ST,Stanley,赤柱,28130213,Shop A3&5 G/F & 1/F Stanley New Street Stanley Hong Kong,香港赤柱新街1樓及地下A3&5舖
+3,QBR,Quarry Bay,鰂魚涌,25627431 ,Portion of Lower Ground Floor Fok Cheong Building 1032-1044 King’s Road Quarry Bay Hong Kong,香港鰂魚涌英皇道1032-1044號福昌樓高層地下部份舖位
+3,KOH,Kornhill,康山,29676555,Portion of Mezzanine Floor Kornhill Plaza (North) 1-2 Kornhill Road Quarry Bay Hong Kong,香港鰂魚涌康山道1-2號康怡廣場(北)閣樓部份
+3,JAR,Java Road,渣華道,25650311 ,Shop 3 G/F The Java No. 98 Java Road North Point Hong Kong,香港北角渣華道98號TheJava地下3號舖
+3,PVD,Provident Centre,和富中心,25975667 ,Shop B20 Basement Commercial Podium of Provident Ctr. 21-53 Wharf Road North Point HK,北角和富中心21-53號和富中心家居庭地庫B20舖
+3,CHI,Chi Fu,置富,28755494 ,Shop Nos. 403 & 405A 4/F Chi Fu Landmark,置富南區廣場403及405A號舖
+3,ABD,Aberdeen Centre,香港仔中心,28148319 ,Flat/Rm 6C Hoi Chu Court Aberdeen Centre Aberdeen Hong Kong,香港仔中心廣場海珠閣地下6C
+3,SHN,South Horizons,海怡半島,28710782 ,Shop112 112A & 113 Rear Portion 1/F South Horizon Marina Square West Comm.Ctr. Apleichau HK,香港仔鴨利洲海怡半島海怡廣場一樓112112A及113號舖
+3,NTB,Nam Tin Building,南天大厦,25086067 ,Part of Ground Floor of Nam Tin Building 275 King's Road Hong Kong,香港北角英皇道275號南天大厦地下部分舖
+3,HYR,Heung Yip Road,香葉道,25670388 ,Shop G08 G/F One Island South 2 Heung Yip Road Wong Chuk Hang   ,黃竹坑香葉道2號OneIslandSouth地下G08號舖
+3,KGR,No. 375 King's Road,英皇道375號,25120123,G/F 375 King's Road North Point Hong Kong,香港北角英皇道375號地下
+3,LT,Lei Tung Estate,利東村,28713194 ,Shop 2051/FCommercial CentreLei Tung EstateHong Kong,香港仔鴨利洲利東村利東商場205室
+3,ISP,Island Place,港運城,29604647 ,Shop 111 1/F Island Place North Point Hong Kong,香港北角英皇道500號港運城商場一字樓111號
+3,VAL,Happy Valley,跑馬地,25731336 ,Shop 19 on G/F Hang Fung Mansion 17-19 Wong Nai Chung Road Happy Valley HK,香港跑馬地黃泥涌道17-19號恆豐大廈地下19號舖
+3,TIH,Tin Hau,天后,25783827 ,Shop C C1 & D G/F. Kiu Hing Mansion  14 King's Road   North Point Hong Kong,北角英皇道十四號僑興大夏地下CC1&D
+3,WIN,Windsor House,皇室堡,25045166 ,Shop 73 75 & 76 on Basement Windsor House 311 Gloucester Road Causeway Bay HK,香港銅鑼灣告士打道311號皇室堡地庫7375及76號舖
+3,HES,Hennessy Road,軒尼詩道,28022719 ,G/F & M/F205-207 Hennessy RoadWanchaiHong Kong,香港軒尼詩道205-207號廣德大廈地下及閣樓
+3,CLI,CLI Building ,中國人壽保險大廈,25751739,Shop G1 G/F CLI Building 313-317B Hennessy Road Wanchai Hong Kong,香港灣仔軒尼詩道313-317B號中國人壽保險大廈地下G1舖
+3,KSH,Kwong Sang Hong,廣生行大廈,28936200,Shop A2 G/F Kwong Sang Hong Building (Block A) No. 298 Hennessy Road Wan Chai Hong Kong,香港灣仔軒尼詩道298號廣生行大廈A座地下A2號舖
+3,TLW,Tung Lo Wan Road,銅鑼灣道,28057052,Portion of Portion No. 2 of Shop A G/F. Cathay Mansion 3-5 Tung Lo Wan Road Causeway Bay HK,香港銅鑼灣道3-5號國泰大廈A座2號舖
+3,WCB,The World Trade Centre,BeautiqWatson,25099973,Shop No. P211A on Podium 2 of  The World Trade Centre 280 Gloucester Road Causeway Bay,銅鑼灣告士打道280號世貿中心2樓P211A號舖
+3,CBP,Causeway Bay Plaza 1,銅鑼灣廣場1期,25770081 ,Units 101 102 & 103 on 1st Floor Causway Bay Plaza I No. 489 Hennessy Road Hong Kong,銅鑼灣軒尼詩道489號銅鑼灣廣場1期1樓101-103號舖
+3,CRW,Canal Road West,堅拿道西,25238390 ,G/F No. 23 Canal Road West Wan Chai Hong Kong,香港灣仔堅拿道西23號地下
+3,TS3,Times Square ,時代廣場,25063229 ,Shop 905A 9/F Times Square Causeway Bay Hong Kong,香港銅鑼灣時代廣場9樓905A號舖
+3,STH,Star House,星光行,27302803,Shop 1 & 2 G/F Star House 3 Salisbury Road Tsimshatsui Kowloon,九龍尖沙咀梳士巴利道星光行地下1至2號
+3,HAN,Hankow Road,漢口道,23671120 ,Portion of Ground Floor of Kaiseng Commercial Centre 4-6 Hankow Road Tsimshatsui Kowloon,九龍尖沙咀漢口道4-6號騏生商業中心地下
+3,HIT,Hilton Tower,希爾頓大廈,23679532 ,Portion of Shop C G/F Hilton Tower 96 Granville Road Tsimshatsui Kowloon,九龍尖沙咀加連威老道96號希爾頓大廈地下C舖(部份)
+3,CR,Cameron Road,金馬倫道,27233802 ,Shop 5 G/F & Basement Hang Seng Bank Building 18 Carnarvon Road Tsimshatsui Kowloon,九龍尖沙咀金馬倫道18號恆生銀行大廈地下及地庫5號舖
+3,K11,K11,K11,31224436 ,Shop No. B108 on Basement 1 K11 Tsimshatsui Kowloon,九龍尖沙咀K11地庫B108號舖
+3,OLP,Olympian City,奧海城,27404217 ,Shop 108 1/F. Olympian City 2 18 Hoi Ting Road Kowloon,九龍海庭道18號奧海城二期一樓108號
+3,OCS3,Olympian City 3,奧海城3期,31949077 ,Shop Nos. UG91 & UG92 UG/F Olympian City 3 1 Hoi Wang Road Kowloon,九龍海泓道1號奧海城3期高層地下91及92號舖
+3,CHC,China Hong Kong City,中港城,27157233,UG/F 43D Floor UG China Hong Kong City (UG & PL) 33 Canton Road Tsim Sha Tsui,九龍尖沙咀廣東道33號中港城高層地下43D號舖
+3,HBC,Harbour City,海港城,21171093,Shop 3302 Level 3 Gateway Arcade Harbour City Tsimshatsui Kowloon,九龍尖沙咀廣東道7-23號海港城港威中心三樓3302號舖
+3,MK,Mongkok ,旺角,23966637 ,Shop No.C1 G/F. & Whole of Mezzanine Floor Wu Sang House 655 Nathan Road Mongkok KLN,九龍旺角彌敦道655號胡社生行地下及C1
+3,LHP,Langham Place,朗豪坊,35149285 ,Shop 35b in Basement 2 Langham Place 8 Argyle Street Mongkok Kowloon,九龍旺角亞皆老街8號朗豪坊低層2樓35b號舖
+3,JOR,Jordan,佐敦,27351386 ,Shop No. A and B on G/F and A portion of the Roof Cumberland House 227 Nathan Road No. 38 Pilkem Street Kowloon,九龍庇利金街38號彌敦道227號金百龍大廈部分天台及地下A舖及B舖
+3,ALB,Alhambra Building,平安大廈,26563528 ,九龍彌敦道383-389C號平安大廈地下9 號,ShopNos.9G/F.AlhambraBuilding383-389CNathanRoadKowloon
+3,NAT,Nathan Road,彌敦道,27837933,Shop on G/F Golden Dragon Commercial Building No.522 Nathan Road Kowloon,九龍彌敦道522號金龍商業大厦地下
+3,AUS,Austin Road,柯士甸道,27368377,Shop on G/F No.114 Austin Road Kowloon Hong Kong,九龍柯士甸道114號地下
+3,GEP,Golden Era,金鷄廣場,27712238,Shop 1A&1B G/F Golden Era Plaza 39 Sai Yee Street Mongkok Kowloon,九龍旺角洗衣街39號金雞廣場地下G1A及1B號舖
+3,FYN,Fa Yuen Street,花園街,23593899,Shop 6 G/F Hung Hay Building No.1 Fa Yuen Street Kowloon,九龍旺角花園街1號鴻禧大廈地下6號舖
+3,SYC,Sai Yeung Choi Street South, 西洋菜南街,27631170,Shop Nos.2W and 2X Sai Yeung Choi Street South Kowloon,九龍西洋菜南街2W及2X
+3,MEH,Mong Kok East Station,旺角東站,27039128,MTR Station Shop MKK 22 at Mong Kok East Station,港鐵旺角東站MKK22號舖
+3,UNC,Un Chau Shopping Centre,元洲村,23618454 ,Shop No.1 Un Chau Shopping Centre Un Chau Street Kowloon,九龍深水埗元洲村元洲商場1號舖
+3,TKT,Tai Kok Tsui,大角咀,23800747 ,Shop 1 G/F Tai Kung Building Cosmopolitan Estate 107-127 Tai Kok Tsui RoadTai Kok Tsui KLN,九龍大角咀大角咀道107-127號地下1號舖
+3,PEW,Prince Edward Rd West,太子道西,27768933,Ground Floor Nos. 135 Prince Edward Road West Kowloon,九龍太子太子道西135號地下
+3,DC,Dragon Centre,西九龍中心,23600923,Unit 205 & part of unit 206 2/F Dragon Centre 37KYen Chow Street Sham Shui Po Kowloon,九龍深水埗欽洲街西九龍中心205號及206號舖
+3,KKS,Kiu Kiang Street,九江街,27203039,Shop Nos. 2-5 G/F Celebrity Comm. Centre 64 Castle Peak Road Sham Shui Po Kowloon,九龍深水土步青山道64號明仁商業中心地下2-5號舖
+3,LKK,Lai Kok Estate,麗閣邨,36934109,Shop 1-2 on Ground Flor Lai Kok Shopping Centre Lai Kok Estate Shamshuipo Kowloon,九龍深水埗麗閣邨麗閣商場地下1-2號舖
+3,UPC,Union Park Centre ,柏宜中心,27898042,Shop Nos. 4-6 Ground Floor Union Park Centre 771-775 Nathan Road Mongkok Kowloon Hong Kong,九龍旺角彌敦道771-775號柏宜中心地下4-6號舖
+3,CPR,Castle Peak Road ,青山道,23616196,G/F Tat Ming Building No. 244 Castle Peak Road Kowloon ,九龍青山道244號達明大廈地下
+3,LCK,Lai Chi Kok ,荔枝角道,23616207 ,Ground Floor including Cockloft 308 Lai Chi Kok Road Shamshuipo Kowloon,九龍深水埗荔枝角道308號地下及閱樓
+3,PCF,The Pacifica Mall,宇晴軒,36950112 ,Shop No. 41 42 & 47 2/F The Pacifica Mall No. 9 Sham Shing Road Lai Chi Kok Kowloon,九龍荔枝角深盛路9號宇晴軒商場2樓4142及47號舖
+3,SHM,Sham Shui Po,深水埗,23617773,Portion of 1/F & 2/F 195-199 Nam Cheong Street Sham Shui Po Kowloon,九龍深水埗南昌街195-199號2樓及1樓(部份)
+3,HLA,Hoi Lai Shopping Centre,海麗商場,35146305,Portion of Shop 106 1st Floor Hoi Lai Shopping Centre Hoi Lai Estate Shamshuipo Kowloon,香港九龍深水埗海麗邨海麗商場1樓106號舖部份
+3,WPG,Whampoa Garden,黃埔花園,29945691 ,Shop No G3A on the Ground Floor Site 2 Whampoa Garden Hunghom KLN,九龍紅磡黃埔花園第二期商場地下3A號舖
+3,JBP,Jubilant Place,欣榮花園,22467922 ,Shop 46-49 G/F Jubilant Place 33 Ma Tau Kok Road Tokwawan Kowloon,九龍土瓜灣馬頭角道33號欣榮花園地下46-49號
+3,EDX,Eldex Building,義達工業大廈,21808495 ,Shop B G/F Eldex Ind Building 21 Ma Tau Wai Road Hunghom Kowloon,九龍紅磡馬頭圍道21號義達工業大廈地下B舖
+3,TKW,Tokwawan,土瓜灣,23652438 ,G/F Shop 20-1 Portion of Shop 30B Honor Building 80-2 Tokwawan RoadTokwawanKln,九龍土瓜灣土瓜灣道80-2號.定安大廈地下20-1及30B舖
+3,MPM,Metropolis Mall,國際都會,23655819 ,Shop No. 719 & 720B Level 7 The Metropolis Mall  6 Metropolis Drive Hunghom.,九龍紅磡都會道6號置富都會7層(7樓)719720A&720B號舖
+3,FTR,Fuk Lo Tsun Road,褔佬村道,27161686 ,G/F No. 13 Fuk Lo Tsun Road Kowloon City Kowloon,九龍九龍城福佬村道13號地下
+3,KCP,Kowloon City Plaza,九龍城廣場,23820084 ,Shop No. LG13-15 Lower Ground Floor Kowloon City Plaza 128 Carpenter Road Kowloon City Kowloon,九龍賈炳達道128號九龍城廣場LG13-15號舖
+3,WG,Whampoa Garden,黃埔花園,29945822 ,Shop G5 On G/F & Shop B7 Infirst Basement Of Comm. Podium 0f Site 2 0f Whampoa Garden Hunghom Kowloon ,九龍紅磡黃埔花園第二期商場地下五號舖及地庫一層七號舖
+3,HHB,Hunghom Bay,紅磡灣,31623427,Shop 10 G/F. Hunghom Bay Centre 92-112 Baker Street Hunghom Kowloon,九龍紅磡必嘉街92-112號紅磡中心地下10號舖
+3,NTW,Nga Tsin Wai Road,衙前圍道,27160005,Ground Floor No.92 Nga Tsin Wai RoadKowloon City ,九龍城衙前圍道92號地下
+3,HMT,Homantin Plaza,何文田廣場,22420208,Shop No. 7-8 G/F Homantin Plaza 80 Fat Kwong Street Ho Man Tin Kowloon,九龍何文田佛光街80號何文田廣場地下7至8號舖
+3,OME,Oi Man,愛民,27960008,Shop No. G16 G/F Oi Man Shopping Centre No. 60 Chung Hau Street Kowloon,九龍忠孝街60號愛民商場地下G16號舖
+3,HMC,Hung Hom Square ,紅磡廣場,29945094 ,Part of Shop 13-14 Shop 61-67 1/F Hunghom Commercial Centre Kowloon,九龍紅磡廣場一樓13-14號舖部份及61-67號舖
+3,CW3,Choi Wan Shopping Centre,彩雲商場,23279238 ,Shop No. B203 2/F Choi Wan Shopping Centre Phase 3 Ngau Chi Wan Kowloon,九龍牛池灣道45號彩雲商場二樓B203號舖
+3,SFS,Sheung Fung Street,雙鳳街,23218629 ,Shop A & B No.6 Sheung Fung Street and No. 2 Wan Fung Street Wong Tai Sin Kowloon,九龍黃大仙雙鳳街6號及環鳳街2號A及B舖
+3,SPK,San Po Kong,爵祿街,23220561 ,G/F 52 Tseuk Luk Street Sanpokong Kowloon,九龍新蒲崗爵祿街52號地下
+3,MKK,Mikiki,譽港灣,23274255 ,Shop No. 135 on the First Floor of Mikiki 638 Prince Edward Road East San Po Kong NKIL 6307 Kowloon,九龍太子道東638號Mikiki1樓135號舖
+3,LF,Lok Fu,樂富,23386092 ,Shop Nos. L106-108 Upper Ground Floor 1 Lok Fu Plaza Wang Tau Hom Kowloon,九龍樂富樂富廣場地下高層一樓L106-108號舖
+3,LFS,Lok Fu Shopping Centre,樂富中心,23362817 ,Shop 2117 2/F Lok Fu Shopping Centre Lok Fu Kowloon,九龍橫頭磡樂富中心二樓2117號舖
+3,FTW,Festival Walk,又一城,21808482 ,Portion of Unit MTR-01 Level MTR Festival Walk 80 Tat Chee Avenue Kowloon,九龍九龍塘達之路80號又一城MTR01號
+3,IN8,Infinity Eight,匯八坊,27622210 ,Shop B206 Basement 2 Floor Infinity Eight 8 Clear Water Bay Road Choi Hung Kowloon,九龍彩虹清水灣道8號匯八坊低層二樓B206號舖
+3,DH2,Diamond Hill,鑽石山,29555756 ,Shop No. 228 L2 Plaza Hollywood Diamond Hill Kowloon,九龍鑽石山荷里活廣場2樓228號舖
+3,CYU,Chuk Yuen,竹園,23276338 ,Shop No. S231 Chuk Yuen Shopping Centre Wong Tai Sin Kowloon,九龍黃大仙竹園商場S231號舖
+3,WTS,Wong Tai Sin Shopping Centre,黃大仙中心,23203251 ,Shop LG2 Lower Ground Floor Wong Tai Sin Plaza Wong Tai Sin Estate Kowloon,九龍黃大仙黃大仙廣場LG2號舖
+3,LCM,Lung Cheung Mall,龍翔中心,31628463,Shop 107A & 108A Level 1 Lung Cheung Mall  136 Lung Cheung Road Wong Tai Sin Kowloon,九龍黃大仙龍翔道136號龍翔中心一樓107A及108A號舗
+3,LKW,Lok Wah,樂華,27580419 ,Shop 314 3/F. Lok Wah (North) Shopping Centre Lok Wah (North) Estate Ngau Tau Kok Kowloon,九龍牛頭角樂華村北商場三樓，314號舖
+3,CCC,Crocodile Centre,鱷魚恤中心,27963390 ,Shop A G/F Crocodile Centre 79 Hoi Yuen Road Kwun Tong Kowloon,九龍觀塘開源道79號鱷魚恤中心地下A舖
+3,SMP,Sau Mau Ping Shopping Centre,秀茂坪商場,23548509 ,Shop 2 G/F Sau Mau Ping Shopping Centre 101 Sau Ming Road Kwun Tong Kowloon,九龍觀塘秀茂坪秀茂坪商場地下2號舖
+3,CLS,Ching Long Shopping Centre,晴朗商場,27862880 ,Shop B021 G/F Ching Long Shopping Centre  ,九龍城晴朗商場地下B021號舖
+3,AP1,Amoy Plaza,淘大商場一期,29071223,Shop Nos. F58-60 1/F Phase I Amoy Plaza 77 Ngau Tau Kok Road  Kowloon,九龍牛頭角道77號淘大商場一期一樓F58-60號舖
+3,CHT,Choi Tak Shopping Centre,彩德商場,28127248 ,Shop 513 5/F Choi Tak Shopping Centre Ngau Tau Kok Kowloon,九龍牛頭角彩德商場5樓513號舖
+3,TG2,Telford Plaza,德福廣場,29972421,Shop Units 506-507 Telford Plaza II Kowloon Bay Kowloon,九龍九龍灣德福廣場二期506-507號舖
+3,NTK,Ngau Tau Kok Road,牛頭角道,23420544 ,Shop 1 on G/F 327-333 Ngau Tau Kok Road Kwun Tong Kowloon,九龍官塘牛頭角道327-333號地下1號舖
+3,LGA,Laguna City,麗港城,27724715 ,Shop 60-62 Level 1 Laguna City Plaza Kowloon,九龍觀塘麗港城商場第一層60-62號
+3,TWS,Tsz Wan Shan,慈雲山,23525442 ,Shop 414-416 Tsz Wan Shan Shopping Centre 23 Yuk Wah Street Tze Wan Shan Kln,九龍毓華街23號慈雲山廣場414-416號舖
+3,KT,Kai Tin,啟田,23403512 ,Shop 101A 1/F Kai Tin Shopping Centre Lam Tin Kowloon,九龍藍田啟田商場一樓101A號舖
+3,TTE,Tak Tin Shopping Centre,德田商場,27177337 ,Shop No. G2A G/F Tak Tin Shopping Centre 223 Pik Wan Road Lam Tin Kowloon,九龍藍田碧雲道223號德田商場地下G2A號舖
+3,EP2,East Point City,東港城2,26285030 ,Shop No. 261 on Level 2 of East Point City 8 Chung Wa Road Tseung Kwan O N.T,新界將軍澳重華路8號東港城2樓261號舖
+3,SHE,Sheung Tak Shopping Centre,尚德商場,21780191 ,Shop No. 202 2/F Sheung Tak Shopping Centre Tseung Kwan O N.T.,新界將軍澳尚德商場二樓202號舖
+3,SCP,Sceneway Plaza,匯景廣場,27170622 ,Portion B of Shop No.1 of Unit 2 on Level (Site 1) 26 of Commerical Development Sceneway Garden No.8 Sceneway Road Kowloon,九龍藍田匯景廣場匯景道8號三樓1B號舖
+3,SKU,Sai Kung,西貢,27924319 ,Shop No. 54 & 55 G/F Sai Kung Town Centre 22-40 Fuk Man Rd Sai Kung New Territories,新界西貢福民路西貢苑地下54及55號舖
+3,TAK,Hau Tak,厚德,26237226 ,Shop Nos. L189-L190 1/F Hau Tak Shopping Centre (West Wing) Tseung Kwan O N.T.,新界將軍澳厚德商場(西翼)一樓L189-L190號舖
+3,LYM,Lei Yue Mun,鯉魚門,22045360 ,Shop No. 124A 1/F Lei Yue Mun Plaza Kowloon,九龍鯉魚門廣場一樓124A號舖
+3,MET,Metro Town,都會馬尺,35498514 ,Shop Nos.L2-018 & L2-019 on Level 2 of the Commercial Development of Metro Town Tseung Kwan O Town Lot.No.73 N.T,新界將軍澳景嶺路8號都會馬尺第二層18-19號
+3,DOM,Domain,油塘,28681912 ,Shop No. 220 on second floor Domain Yau Tong N.T.   ,新界油塘大本型第二層220號舖
+3,MTC,Metro City Phase II,新都城中心二期,24580382 ,Shops UG026-27 Upper Ground Floor Metro City Phase II Tseung Kwan O Town Lot No. 27 N.T.,新界將軍澳新都城中心二期商場UG26-27號舖
+3,MCA,Rua Campo ,水坑尾,28594566 ,Rua Campo No.62-92 Ljs. ABCD Edif. China Const. Com. Building Macau,澳門水坑尾街62-92號地下ABCD舖及1樓
+3,MTL,Three Lamps ,三盞燈,28525912 ,6A Rotunda De Carlos Da Maia Macau,澳門嘉路米耶圓地添運大廈6A地下BC舖
+3,MYH,Iao Hon,祐漢,28400885 ,Rua Um (Bairro Iao Hon) No.27 29-31 R/C Edif.Iao Kai Macau,澳門黑沙環第一街祐佳大廈地舖
+3,MSQ,Largo Senado,議事亭,28389271 ,Largo Senado No. 11 Shun Tak House Ground Floor & 1st to  3rd. Floor Macau,澳門議事亭前地11號信德堡地下及1-3樓
+3,MCO,Centro Com,米糙巷,,Em Macau Travessa Do Soriano N'11 & N'13 And Rua Oeste Do Mercado De S.Domingos N'2 Centro Com. Ou Chong Res-Do-Chao G ,澳門米糙巷1113號澳中商業中心F座Ｅ座G座連閣楼
+3,MCT,Costa,世紀豪庭,28553125 ,Em Macau Avenida De Horta E Costa No S/N Millennium Court Res-do-chao B,澳門高士德大馬路世紀豪庭地下B座
+3,MHV,Hong Vo,康和,28437538 ,Rua Da Tribuna No.62 R/C Hong Vo Plaza Macau,澳門看台街62號康和廣場地舖
+3,MGX,The Galaxy,澳門銀河酒店,,Shop G034 on G/F Galaxy Macau Avenida De Cotai City Macau,澳門蓮花海濱大馬路銀河酒店銀河渡假城G034號鋪
+3,MVK,Vong Kam,黄金商場,28413101 ,EM MACAU AVENIDA DA LONGEVIDADE N31A CENTRO COMERCIAL VONG KAM RES-DO-CHAO BI& BH,澳門長壽大馬路31號及31-A號黄金商場地下BI及BH座
+3,MPAN,Hoi Pan Fa Un,海濱花園,28455433,EM MACAU AVENIDA DA LONGEVIDADE N31A CENTRO COMERCIAL VONG KAM RES-DO-CHAO BI& BH,澳門長壽大馬路31號及31-A號黄金商場地下BI及BH座
+3,MSY,Jardins Sun Yick ,新益花園,28535460 ,Em Macau Rampa dos Cavaleiros 15 Jardins Sun Yick Bloco III Res-Do-Chao K,澳門馬交石斜坡(黑沙環斜路)15號新益花園第三座地下K舖
+3,MNG,Nova Garden,濠景花園,28836285 ,NA TAIPA AVENID DE GUIMARÃES N°S 107-117 URBANIZAÇÃO DA NOVA TAIPA-FASE 1 BLOCO 20 22 RÉS-DO-CHÃO A  ,澳門氹仔基馬拉斯大馬路107-117號濠景花園第2022座地下A座
+3,MVE,Venetian,威尼斯人,28828152 ,Shop Nos. 2025 & 2026 Grand Canal Floor The Grand Canal Shoppes Venetian Macao  ,澳門威尼斯人度假村酒店大運河購物中心2025&2026號舖
+3,FHS,Fung House,馮氏大廈,25303357 ,Ground Floor Shop  Fung House 19-20 Connaught Road Central Hong Kong,香港中環干諾道中19-20號馮氏大廈地下(地舖)
+3,MP,Melbourne Plaza,萬邦行,25230666,Shop G1-A G/F Melbourne Plaza 33 Queen's Road CentralHong Kong,香港中環皇后大道中33號萬邦行地下G1-A舖
+3,HKS,Hong Kong Station ,香港站,21475915 ,MTR Station Concession HOK51-52 Hong Kong Station Central Hong Kong,香港中環地鐡香港站市區預辦登機大堂HOK51-52號舖
+3,PRB,Prosperous Building,裕昌大廈,28401432 ,Shop A on G/F & Shop B on G/F and B/M Prosperous Building 48-52 Des Voeux Road Central Hong Kong,香港德輔道中48-52號裕昌大廈地庫及地下A及B舖
+3,UC,United Centre,統一中心,28669939 ,Shop 1003-1004 1/F. United Centre 95 Queensway Road Hong Kong,香港金鐘道95號統一中心1003-1004號
+3,ADM,Admiralty Centre,金鐘海富中心,25296603,1/F Tower 1 Shop 23-28 81-83 Admiralty Centre Hong Kong,香港金鐘海富中心一期一樓23-2881-83號
+3,JST,Johnston Road ,莊士敦道,22940120 ,Shop A G/F. Johnston Court 28 - 34 Johnston Road Wanchai Hong Kong,灣仔莊士敦道28-34號莊士敦大樓地下A號舖
+3,PAC,Pacific Place,太古廣場,25232885 ,Unit 145 Level One Pacific Place Phase II 88 QueenswayHong Kong,香港金鐘太古廣場二期一樓145號舖
+3,HW,Hopewell Centre,合和中心,28662526 ,Shop 301-306 Hopewell Centre 183 Queen's Road East Wanchai Hong Kong,香港灣仔皇后大道東183號合和中心三樓301-306號
+3,CCPR,Cheung Chau,長洲,29819111 ,G/F 1/F 2/F 3/F & roof 85 Praya Road Cheung Chau Hong Kong,長洲海旁路85號地下至3樓及閣樓
+3,WM,Wah Ming Centre,華明中心,25463291,G/F Wah Ming Centre 396 Des Voeux Road West Hong Kong,香港德輔道西396號華明中心地下
+3,BLH,Belcher’s Hill ,寶雅山,28551208 ,Shop 1 & 2 on Lower Ground Floor Belcher’s Hill 42-44 Belcher’s Street Kennedy Town Hong Kong,香港堅尼地城卑路乍街42至44號寶雅山低層地下1及2號舖
+3,BHS,No.102-114 Belcher's Street,卑路乍街102-114號,28558768 ,Shop G & H G/F No. 102-114 Belcher's Street Luen Yau Building Sai Wan,西環卑路乍街102-114號聯友新樓地下G及H號舖
+3,STC,Shun Tak Centre,信德中心,25591059 ,Unit 291-293 2/F Shun Tak Centre HK Macau Ferry Terminal 200 Connaught Road Central Hong Kong,香港港澳碼頭信德中心二樓291-293號
+3,CNT,Centre Street,正街,25400213,Ground Floor No.13-15 Centre Street Sai Ying Pun Hong Kong,香港西營盤正街13-15號地舖
+3,CA,Caine Road,堅道,25407701 ,Shop B- D & Store 2 G/F 99 Caine RoadHong Kong,香港堅道99號豐樂閣地下B-D舖及2號舖
+3,TC2,Tung Chung 2,東涌2,21090311,MTR Station Concessions TUC 23-24 Tung Chung Station Lantau Island Hong Kong,香港大嶼山港鐵東涌TUC23-24號舖
+3,DB,Discovery Bay,愉景灣,29874089,Shop 1351/F Block C D B Plaza Discovery Bay Lantau Island Hong Kong,香港大嶼山愉景灣商場135號
+3,TCS,Tung Chung Station,東涌地鐵站,21094975,Concessions TUC 12 MTR Tung Chung Station Lantau Island Hong Kong,香港大嶼山東涌地鐵站TUC12號舖
+3,MF,Mei Foo,美孚,27416174 ,G/F N58 & N65-N68 No.5-7 Mount Sterling Mall Stage 7 Mei Foo Kowloon,九龍美孚新村萬事達廣場七期地下N58N65-68舖
+3,MFS,Mei Foo Station,港鐵美孚站,,Concession MEF 118 at Mei Foo Station,港鐵美孚站MEF118號舖
+3,TYS,Tsing Yi Station,港鐵青衣站,24356090 ,Concession TSY 35 at Tsing Yi Station,港鐵青衣站TSY35號舖
+3,KSE,Kwai Shing Est.,葵盛東村,21496371 ,Shop No. 103A Kwai Shing East Shopping Centre Kwai Shing East Estate New Territories,新界葵盛東村，葵盛東商場一樓103A號舖
+3,SYM,Shek Yam,石蔭,22760663,Shop No. 101 LG 1/F. Shek Yam Shopping Centre Shek Yam Estate Kwai Chung New Territories,新界葵涌北石蔭村石蔭商場地下101號舖
+3,SLE,Shek Lei Estate II,石籬2村,37411911,Shop No. 1 Ground Floor Shek Lei Shopping Centre II Shek Lei II Estate Kwai Chung New Territories,新界葵涌石籬2村石籬商場2期地下1號舖
+3,LMS,Lei Muk Shue ,梨木樹,34469051,Shop 117 Lei Muk Shue Shopping Centre Lei Muk Shue Estate Tsuen Wan New Territories,新界荃灣梨木樹村梨木樹商場117舖
+3,RBP,Rambler Plaza  ,藍澄灣,35425637,Shop No. 7 on Level 1 Rambler Plaza Rambler Crest 1 Tsing Yi Road Tsing Yi Town Lot 140 Tsing Yi New Territories ,新界青衣路1號藍澄灣商場7號舖
+3,SFO,Lai Fong Street,禮芳街,26981178,Shop 8 9 & 10 on G/F Foon Tak Building No. 1 Lai Fong Street Nos. 38-44 Shing Fong Street Kwai Chung New Territories,新界葵涌盛芳街38-44號禮芳街1號寛德大廈地下89及10號舖
+3,MEP,Metroplaza ,新都會廣場,31523554 ,Shop 221-223 Level 2 Metroplaza Kwai Fong New Territories,新界葵芳新都會廣場221-223號
+3,CFE,Cheung Fat Estate,長發村,24951304 ,Shop No. 209 2/F. Cheung Fat Shopping Centre Tsing Yi New Territories,香港青衣長發村長發商場2樓209號舖
+3,MRT,Maritime Square,青衣城,21867097 ,Unit 149 Level 1 Maritime Square Tsing Yi New Territories,新界青衣青衣城149號舖
+3,SMD,Smartland,創意無限廣場,24396303,Shop G7 G/F East Asia Gardens 16 Tsuen Wah Street Tsuen Wan New Territories,荃灣荃華街創意無限廣場7號地舖
+3,BEG,Belvedere Garden,麗城花園,24121163,Shop 29 G/F Belvedere Square Belvedere Garden Phase III 625 Castle Peak Road Tsuen Wan New Territories,新界荃灣青山道麗城廣場三期地下29號
+3,TWP,Tsuen Wan Plaza,荃灣廣場,24177092 ,Shop Nos. 201-202 Level 2 Tsuen Wan Plaza Tsuen Wan New Territories,新界荃灣廣場二樓201-202號舖
+3,DPS,Discovery Park Shopping Centre,愉景新城,24318083,Shops 2058-61 Level 2 of Discovery Park Shopping Centre,愉景新城二期2楼2058-61號舖
+3,LYSC,Luk Yeung Sun Chuen,綠楊新村,24935132 ,F20 1/F  Luk Yeung Shopping Centre Luk Yeung Sun Chuen Tsuen Wan New Territories,新界荃灣綠楊新村商場一樓F20號舖
+3,LDG,Lido Avenue,麗都花園,24910566 ,Shop Nos. 7&8 on Ground Floor of Lido Avenue No.41-63 Castle Peak Road Sham Tseng N.T.,新界青山公路41-63號深井段麗都花園地下7及8號舖
+3,NAF,Nan Fung Centre,南豐中心,24090133,Unit A 120 of Nan Fung Centre 264-298 Castle Peak Road Tsuen Wan 64-98 Sai Lau Kok Road Tsuen Wan N.T.,新界荃灣西樓角路64-98號青山公路荃灣段264-298號南豐中心A120號舖
+3,BSM,Bo Shek Mansion,寶石大廈,25907322 ,Shop G18 G/F. Plaza 328 Bo Shek Mansion No. 328 Sha Tsui Road Tsuen Wan New Territories ,新界荃灣沙咀道328號寶石大廈328廣場地下G18號舖
+3,CHU,Chung On Street,眾安街,26142283,Shop on G/F 65 & 67 Chung On Street Tsuen Wan New Territories,新界荃灣眾安街6567號地下
+3,CW2,Ciytwalk Phase 2,荃新天地2期,26143695 ,Shop G66-68 G/F Citywalk 2 18 Yeung Uk Road Tsuen Wan New Territories,新界荃灣楊屋道18號荃新天地2期G66-G68號舖
+3,GDT,HK Gold Coast,黃金海岸,24575387 ,Shop No 9-10 G/F. Marina Magic Shopping Mall HK Gold Coast 1 Castle Peak Road Tsuen Wan New Territories,新界荃灣青山道1號黃金海岸商場地下9-10號舖
+3,CEH,Chelsea Heights,卓爾居,24569313,Shop 101 1/F. Chelsea Heights Tuen Mun New Territories,新界屯門卓爾居一樓101號舖
+3,KMP,Kai Man Path,屯門啟民徑,24418634 ,Shop 9 G/F. Mei Hang Building 15-45 Kai Man Path Tuen Mun New Territories,新界屯門啟民徑14-15號美恒樓地下9號舖
+3,BFE,Butterfly Estate,蝴蝶村,24660882 ,Shop Nos. L201 L206 and L207 Level 2 Butterfly Shopping Centre Butterfly Estate Tuen Mun New Territories,新界屯門蝴蝶村蝴蝶商場一樓L201L206及L207號舖
+3,OTE,On Ting Shopping Centre ,安定商場,26026177 ,Shop No. M205 and M206 Second Floor Restaurant BlockOn Ting Estate Tuen Mun New Territories,屯門安定商場二樓M205&M206號舖
+3,STM,Sun Tuen Mun Centre,新屯門中心,24657866 ,Shop 125 Level 3 Sun Tuen Mun Shopping Centre 55-65 Lung Mun Road Tuen Mun New Territories,新界屯門龍門路55-65號新屯門中心3樓125號舖
+3,TM2,Tuen Mun Town Plaza Phase II,屯門市廣場2期,24045639 ,Shop Nos. 43 45 & 46 1/F Tuen Mun Town Plaza Phase II 3 Tuen Long Street Tuen Mun New Territories,新界屯門屯隆街3號屯門市廣場2期1樓434546號舖
+3,TTP,Trend Plaza,屯門時代廣場,24042368 ,Shop 11A &11B Level 2 South Wing Trend Plaza Tuen Mun New Territories,新界屯門屯門時代廣場南翼二樓11A11B號舖
+3,TM,Tuen Mun,屯門,24517628 ,Shop 2115-2122 2/F Tuen Mun Town Plaza Tuen Mun New Territories,新界屯門屯門市廣場二樓2115-2122號
+3,CLFY,Chi Lok Fa Yuen,置樂花園,26187244 ,Shop No. 68 on G/F Chi Lok Fa Yuen Tuen Mun New Territories,新界屯門置樂花園地下68號舖
+3,VTC,V City (MTR Level),VCity(地鐵樓層),26793202 ,Shop M-32 MTR Level V City 83 Tuen Mun Heung Sze Wui Road Tuen Mun New Territories,新界屯門鄉事會路83號VCity地鐵樓層M-32號舖
+3,WDA,Waldorf Avenue ,華都大道,23536110 ,Shop No. 5B1 on Level Three of Waldorf Avenue No 1 Tuen Lee Street Tuen Mun New Territories,新界屯門屯利街一號華都大道三樓5B1號舖
+3,KSB,Kin Shing Building,建成樓,24708082 ,Ground Floor No. 205 Castle Peak Shop Yuen Long Yeun Long N.T.,新界元朗青山道205號地下
+3,LKE,Leung King,良景,24639369 ,Shop Nos. L307 and L308 Level 3 Leung King Shopping Centre Leung King Estate No. 31 Tin King Road Tuen Mun New Territories,新界屯門田景路31號良景村良景商場3樓L307及L308號舖
+3,KSA,Kin Sang,建生,26187768 ,Shop Nos. 109 & 110 G/F Kin Sang Shopping Centre Kin Sang Estate Tuen Mun New Territories,新界屯門建生村建生商場地下109及110號舖
+3,ONR,On Ning Road,安寧路,26560368 ,Shop A and Cockloft on G/F Sun Wing Building No. 61 Yuen Long On Ning Road Yuen Long New Territories,新界元朗安寧路61號新榮樓地下及閣樓A號舖
+3,OPH,Opulence Height,豐裕軒,24090166 ,Shop No. 4-5 Ground Floor Opulence Height No. 46A 48 Castle Peak Road Yuen Long New Territories,新界元朗青山公路元朗地段46A48號豐裕軒地下4-5號舖
+3,YL,Yuen Long,元朗,24750324 ,G/F 1/F & 2/F 142 Castle Peak RoadYuen Long New Territories,新界元朗大馬路142號地下至2樓
+3,NYL,New Yuen Long,新元朗,24788221 ,Shop 2 & 3 8-10 G/F Hing Fat House 9-13 Kau Yuk Road Yuen Long New Territories,新界元朗教育路9-13號興發大樓地下2-3及8-10舖
+3,YLP,Yuen Long Plaza,元朗廣場,29443793,Shop Nos. 65-70 on G/F Yuen Long Plaza 245-251 Castle Peak Road Yuen Long New Territories,新界元朗青山道245-251號元朗廣場地下65-70號舖
+3,TCH,Tseng Choi Street,井財街,29604330 ,Shop Nos. 11 & 12 on G/F Kam Men Mansion No. 15 Tseng Choi Street Tuen Mun New Territories,新界屯門井財街15號金銘大廈地下11及12號舖
+3,YLM,Yuen Long Citimall,千色廣場,24626038 ,Shop Nos.241 & 42 G/F Citimall 1 Kau Yuk RoadYuen Long,元朗教育路1號千色廣場地下241及42號舖
+3,SFU,Sau Fu Street,壽富街,29443286 ,G/F 17 Sau Fu Street Yuen Long New Territories ,新界元朗壽富街17號地下
+3,SHC,Shatin Centre,沙田中心,26709733,Shop 52A & 52B1 Level 3 Shatin Centre Shatin New Territories,新界沙田16號地段沙田中心L3樓52A&52B1號舖
+3,STP,Shatin Plaza,沙田廣場,26062683,Shop 33 L3 Shatin Plaza STTL 189 New Territories,新界沙田189號地段沙田廣場L3樓33號舖
+3,NTP,New Town Plaza ,新城市廣場,26066500 ,Shops 451-453 on Level 4 New Town Plaza Phase 1 Shatin New Territories,新界沙田新城市廣場1期4樓451-453號舖
+3,GRV,Garden Rivera,河畔花園,26462172,Shop 19-20 Level 1 Garden Rivera 20-30 Tai Chung Kiu Road ShatinNew Territories,新界沙田河畔花園19-20號舖
+3,WCE,Wo Che Estate ,禾輋村,26811552 ,Shop No. 233 Second Floor Wo Che Shopping Centre Wo Che Estate Shatin New Territories,沙田禾輋村禾輋商場二樓233號舖
+3,PAL,Palazzo,御龍山,24852662 ,Shop 102B The Palazzo Fo Tan Shatin New Territories,新界沙田火炭御龍山102B舖
+3,CO,Fortune City One Plus,置富第一城∙樂薈,26493997 ,Shop G24B G25 & G26 Of Fortune City One Shatin New Territories,新界沙田置富第一城∙樂薈地下G24BG25-G26舖
+3,TAW,Tai Wai,大圍,26015567 ,Shop A & B G/F & Cockloft Chung Pak Lau 28-30 Tai Wai Road Tai Wai New Territories,新界沙田大圍路28-30號地下AB及閣樓
+3,TAWS,Tai Wai KCR Station,大圍火車站,26093337 ,Shop No.31 & 32at the Unpaid Concourse Tai Wai Station KCRC East Rail New Territories.,新界沙田大圍火車站入閘前大堂31-32號舖
+3,SCI,Sun Chui Estate,新翠邨,35250758 ,Shop 4 on Ground Floor Sun Chui Shopping Centre Sun Chui Estate Tai Wai Shatin New Territories,香港新界沙田大圍新翠邨新翠商場地下4號舖
+3,LP,Lucky Plaza,好運中心,26928478 ,Shop 37A Level 3 Lucky Plaza Shatin New Territories,新界沙田好運中心第三層37A號
+3,FLT,Fanling Town Centre,粉嶺名都廣場,21444517,Shop No. 28B Level 2 Fanling Town Centre Fanling New Territories,新界粉嶺名都廣場二樓28號B舖
+3,ELG,Eightland Garden,八號花園,31582562 ,Shop No. 8 G/F Eightland Gardens 2 On Chee Road Tai Po New Territories,新界大埔安慈路二號八號花園地下8號舖
+3,TWE,Tai Wo Estate,太和村,26537483,Shop 230 230A and 231 Level 2 Tai Wo Shopping Centre Tai Wo Estate Tai Po New Territories,新界大埔太和村太和商場第二期二樓230230A及231號舖
+3,DVP,Dawning Views Plaza ,牽晴間,22564509 ,Shop Nos G12B-G13 Ground Floor Dawning Views Plaza 23 Yat Ming Road Fanling New Territories,新界粉嶺23號一鳴路牽晴間商場地下G12B-G13號舖
+3,TPH,Po Heung Street,寶鄉街,26388557 ,Portion of G/F & 1/F 82 Po Heung Street Tai Po New Territories,新界大埔寶鄉街82號地下及一樓
+3,UP,Uptown Plaza,新達廣場,26381681,Shop 079-082 Level 1 Uptown Plaza Tai Po New Territories,新界大埔新達廣場第一期079-082號舖
+3,FUS,Fu Shin Estate,富善邨,26646574 ,Shop 123 on 1/F Fu Shin Shopping Centre Fu Shin Estate Tai Po New Territories,新界大埔富善邨富善商場1樓123號舖
+3,FUK,Kwong Fuk Lane,廣褔里,26381921 ,Shop 2 on G/F & Cockloft Fuk Cheong Building Nos. 12-14 Kwong Fuk Lane Nos. 5 7 & 19 Kwong Fuk Square Tai Po New Territories,新界大埔廣褔坊57及19號廣褔里12-14號褔昌樓地下2號舖及閣樓
+3,REG,Regentville,帝庭軒,26825650 ,Shop No. 27-28 on First Floor Regentville Shopping Mall 8 Wo Mun Street Luen Wo Hui Fanling New Territories,新界粉嶺聯和墟和滿街8號帝庭軒購物商場1樓27-28號舖
+3,TPM,Tai Po Mega Mall,大埔超級城,26674533,Shop No. 673 Level 1 Zone D Tai Po Mega Mall Tai Po New Territories,新界大埔超級城D區1樓673號舖
+3,FPL,Flora Plaza,花都廣場,26769329 ,Shop Nos. 11-12 and 35-38 on the Ground Floor of Flora Plaza Fanling New Territories,新界粉嶺花都廣場地下11-12及35-38舖
+3,CYP,Choi Yuen Plaza,彩園村商場,26390424 ,Shop No. R42 & R43 3/F Choi Yuen Plaza Sheung Shui N.T.,新界上水彩園商場三樓R42&R43號舖
+3,SSC,Sheung Shui Centre,上水中心,26714426 ,Shop 2037 Level 2 Sheung Shui Centre 3 Chi Cheong Road Sheung Shui New Territories,新界上水智昌路3號，上水中心二樓，2037號舖
+3,SPO,Spot,上水滙,26031378 ,Shop 103 on 1st Floor of Spot 48 Lung Sum Avenue Shek Wu Hui Sheung Shui N.T.,新界上水石湖墟龍琛路48號上水滙1樓103號舖
+3,SS,Sheung Shui,上水,26686508 ,G/F & Cockloft 43-45 Fu Hing Street Sheung Shui New Territories,新界上水符興街43-45號地下
+3,SSS,Sheung Shui Station,上水站,24137100 ,MTR Station Shop SHS 3 at Sheung Shui Station,港鐵上水站SHS 3號舖
+3,STKC,Sha Tau Kok Chuen,沙頭角邨,26559269 ,Shop 1 on G/F Block 16 Sha Tau Kok Chuen Sha Tau Kok New Territories,沙頭角沙頭角邨16座地下1號舖
+3,LMC,Lok Ma Chau,落馬洲,34046106 ,MTR Station Shop LMC 115 and Storeroom LMC STR 11 at Lok Ma Chau Station New Territories,港鐵落馬洲站LMC115號舖及LMCSTR11號貨倉
+3,SHS,San Hong Street,新康街,26714738 ,G/F & C/L No. 86 San Hong Street North Sheung Shui New Territories,新界上水新康街86號地下及閣樓
+3,LMA,Lok Ma Chau Station (Extension),落馬洲2,34046298 ,MTR Station Shop LMC 207 208 and Storeroom LMC STR 12 14 at Lok Ma Chau Station New Territories ,港鐵落馬洲站LMC207208號舖及LMCSTR1214號貨倉
+3,TPN,Tin Ping Estate,天平邨,26721260 ,Shops 108 & 120 on Ground Floor Tin Ping Shopping Centre Tin Ping Estate Sheung Shui New Territories,香港新界上水天平邨天平商場地下108及120號舖
+3,LOC,Locwood Court,新北江商場,24096166 ,Shop Nos.3&4 on 1/F The Mall of Commercial Development Locwood Court Kingswood Villas No. 1 Tin Wu Road Tin Shui Wai,天水圍新北江商場1樓3及４號舖
+3,KSD,Kingswood Ginza,嘉湖銀座,21239901 ,Shop No.139 1/F Phase 1 Fortune Kingswood No. 12-18 Tin Yan Road Tin Shui Wai New Territories,新界天水圍天恩路第12號及18號置富嘉湖一期一樓139號舖
+3,CFU,Chung Fu ,頌富,22531765 ,Shop No. 19 Chung Fu Shopping Centre Tin Shui Wai New Territories,新界天水圍頌富商場19號舖
+3,TYE,Tin Yiu Estate,天耀,24470053,Shop Nos. L033 and L034 Ground Floor Tin Yiu Shopping Centre Tin Shui Wai New Territories,新界天水圍天耀村天耀商場地下L033-L034號舖
+3,TCK,Tin Chak ,天水圍天澤商場,24863612 ,Shop No. 105 Tin Chak Shopping Centre Tin Chak Estate Tin Shui Wai New Territories ,新界天水圍天澤商場105號舖
+3,MOS,Ma On Shan,馬鞍山,26338730 ,Shop 222-225 Level 2 Ma On Shan Plaza No. 608 Sai Sha Road Ma On Shan New Territories,新界馬鞍山西沙路608號馬鞍山廣場第二層222-225號
+3,SUC,Sunshine City,新港城中心,26303346 ,Shop Nos. 2192-95 Level 2 Sunshine City Plaza Ma On Shan Shatin Town Lot 307 New Territories,新界馬鞍山沙田地段307新港城中心二樓2192-95號舖
+3,COE,Chung On ,頌安,39042956 ,Shop 4A 4B & 19 G/F Chung On Shopping Centre Ma On Shan New Territories,新界沙田馬鞍山頌安商場地下4A4B及19號舖
+

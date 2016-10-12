@@ -29,6 +29,13 @@
         </div>
     </div>
 
+    <div>
+        <% if !user_signed_in? %>
+        <%= link_to t("sign_in"), new_user_session_path, class: "btn btn-warning btn-lg" %>
+        <%= link_to t("sign_up"), new_user_registration_path, class: "btn btn-warning btn-lg" %>
+        <% end %>
+  </div>
+  
     <!-- Controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="icon-prev"></span>

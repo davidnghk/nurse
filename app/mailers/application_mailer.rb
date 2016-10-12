@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "admin@letsapp.mobi"
+  default from: "david.ng@letswebapp.com"
   layout 'mailer'
 end

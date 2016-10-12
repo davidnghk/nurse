@@ -1,0 +1,116 @@
+<h1><%= t("order_list") %></h1>
+
+<%= search_form_for @q do |f| %>
+
+  <div class="field">  
+
+        <%= f.label :store_name_cont, t("store") %>
+        <%= f.search_field :store_code_or_store_chi_name_or_store_name_cont %>
+
+ 
+        <%= f.label :technician_name_cont, t("staff") %>
+        <%= f.search_field :technician_name_cont %>
+  </div>
+
+      <div class="field">  
+        <%= f.label :call_date_gteg, t("date_range") %>
+        <%= f.search_field :call_date_gteq %>
+
+        <%= f.label :call_date_lteg, " - " %>
+        <%= f.search_field :call_date_lteq %>
+      </div>
+
+  <div class="actions"> <%= f.submit %> </div>
+
+<% end %>
+
+<p>
+  Download:  <%= link_to "All", orders_path(format: "csv") %> |
+  <%= link_to "Shown", orders_path(format: "xlsx") %>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link @q, :call_date, t("call_date") %></th>
+      <th><%= t("client") %></th>
+      <th><%= t("store") %></th>
+      <th><%= sort_link @q, :user_ref, t("client_ref") %></th>
+      <th><%= sort_link @q, :repair_date, t("repair_date") %></th>
+      <th><%= t("acknowledge_time") %></th>
+      <th><%= sort_link @q, :status, t("status") %></th>
+      <th><%= sort_link @q, :technician_name, t("technician") %></th>
+      <th><%= sort_link @q, :device_name, t("device") %></th>
+      <th><%= t("issue") %></th>
+      <th></th>
+      <th><%= t("show") %></th>
+      <th><%= t("update") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <% if order.Acknowledged? %>
+          <tr class="info">                    
+      <% elsif order.Escalated? %>
+          <tr class="danger">
+      <% elsif order.FollowUp? %>
+          <tr class="warning">
+      <% elsif order.Completed? %>
+          <tr class="success">
+      <% end %>      
+        
+        <td><%= order.call_date.strftime("%Y-%m-%d %I:%M") %></td>
+        
+        <% if I18n.locale == :en  %>
+            <td><%= order.store.client.name %></td>
+            <td><%= order.store.code %>:<%= order.store.name %></td>
+            <td><%= order.user_ref %></td>
+            <td><%= order.repair_date.strftime("%m-%d") %></td>
+            <% if (order.acknowledgement_datetime != nil) then %>
+              <td><%= order.acknowledgement_datetime.strftime("%I:%M") %></td>
+            <% else %>
+              <td><%= order.acknowledgement_datetime %></td>
+            <% end %>
+            <td><%= order.status %></td>
+            <td><%= order.technician.name %></td>
+            <td><%= order.device.name %></td>
+            <td><%= order.issue.name %></td>
+            <td><%#= order.work.name %></td>
+        
+        <% else %>
+            <td><%= order.store.client.chi_name %></td>
+            <td><%= order.store.code %>:<%= order.store.chi_name %></td>
+            <td><%= order.user_ref %></td>
+            <td><%= order.repair_date.strftime("%m-%d")  %></td>
+            <% if (order.acknowledgement_datetime != nil) then %>
+              <td><%= order.acknowledgement_datetime.strftime("%I:%M") %></td>
+            <% else %>
+              <td><%= order.acknowledgement_datetime %></td>
+            <% end %>
+            <td><%= t(order.status) %></td>
+            <td><%= order.technician.name %></td>
+            <td><%= order.device.chi_name %></td>
+            <td><%= order.issue.chi_name %></td>
+            <td><%#= order.work.chi_name %></td>
+        <% end %>
+        
+        <td>
+          <%= link_to order  do %>
+            <i class="glyphicon glyphicon-zoom-in"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_order_path(order)  do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @orders, :previous_label => '<', :next_label => '>' %>
+<br>
+
+<%#= link_to 'New Order', new_order_path %>

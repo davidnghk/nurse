@@ -20,8 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  app_title: "LetsNurse: HK Nurses Finder"
-  app_desc: "LetsNurse is an App which helps people finding private nursing services in Hong Kong. With our responsive framework, you can start search your private nursing services on your smartphone without any downloads which save you a lot troubles and security issues.  Or become a freelance nurse and start earning money on your won schedule. We pay a lot of attention to your privacy and security. You don't have worry about your credit card information as we do not store your credit card information in our servers by any means. Your information will be masked once the services completed."
+  app_title: "First Refrigeration"
+  app_desc: "First Refrigeration Engineering Ltd was established in 1987. Over 25 year’s practical experiences, we developed and specialized in design, installation, repair and maintenance services in commercial refrigeration, air conditioning system focusing in supermarket, food retailing and hospitality sector. We utilize the latest technology and our broad range of extensive experience gives us an overall edge over our competition. We comprise of highly skilled retail experts and professional that offers the full services to our customer."
   preferred_language: "Preferred Language"
   hello: "Hello world"
   duration: "Duration"
@@ -76,6 +76,15 @@ en:
   nurse_rating: "Rating"
   customer_rating: "Customer's Rating"
   nurse_phone_no: "Phone No"
+  current_password: "Current Password"
+  leave_blank_password: "Leave these fields blank if you don't want to change your password."
+  enter_password: "You must enter your current password to make changes."
+  acknowledge: "note"
+  
+  our_business: "Our Services"
+  our_business1: "Sales"
+  our_business2: "Installation"
+  our_business3: "Repair and Maintenance"
   
   customer: "Client"
   order_time: "Time"
@@ -91,13 +100,27 @@ en:
   Paid: "Paid"
   ot: "Outstanding "
   
+  name: "Name"
+  chi_name: "Chinese Name"
+  client_list: "Client List"
+  new_client: "New Client"
+  chi_address: "Chinese Address"
+  
   engage: "Engage"
   cancel: "Cancel"
   disangage: "Disengage"
   reject: "Reject"
   home: "Lets Nurse"
-  brand: "LetsNurse"
+  brand: "FirstRef"
   
+  statuses:
+    Open:   "Open"
+    FollowUp: "FollowUp"
+    Completed: "Completed"
+    Cancelled: "Cancelled"
+    Escalated: "Escalated"
+    Acknowledged: "Acknowleged"  
+
   註冊護士: "Registed Nurse"
   登記護士: "Enrolled Nurse"  
   
@@ -166,6 +189,14 @@ en:
                 
   activerecord:
     enums:
+      order:
+        status:
+          Open:   "Open"
+          FollowUp: "FollowUp"
+          Completed: "Completed"
+          Cancelled: "Cancelled"
+          Escalated: "Escalated"
+          Acknowleged: "Acknowleged"   
       booking:
         status:
           Open:   "Open"
@@ -233,7 +264,7 @@ en:
     荃灣港安醫院: "Tsuen Wan Adventist Hospital"
     仁安醫院: "Union Hospital"
     
-  our_services: "Private Nursing Services in Hong Kong"
+  our_services: "Cloud Services Management Information System"
   our_services1: "You Derserve It"
   our_services2: "To have your peace of mind, we take good care of your family"
   services_scope: "Services"
@@ -245,8 +276,8 @@ en:
   services_1B: "Private Medical Escort Services"
   promotion: "Promotion"
   details: "Details"
-  address_1: "Rm C 2/F Capital Trade Centre"
-  address_2: "62 Tsun Yip St Kwun Tong KLN"
+  address_1: "Room 246-248, 2/F, Kwai On Industrial Building"
+  address_2: "103-113 Tai Lin Pai Road, Kwai Chung, NT Hong Kong"
   work_scope: "Services Scope"
   
   FAQ: "FAQ"

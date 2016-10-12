@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t("work_list") %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t("name") %></th>
+      <th><%= t("chi_name") %></th>
+      <th><%= t("show") %> </th>
+      <th><%= t("update") %> </th>
+      <th><%= t("delete") %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @works.each do |work| %>
+      <tr>
+        <td><%= work.name %></td>
+        <td><%= work.chi_name %></td>
+        
+          <td>
+            <%= link_to work do %>
+              <i class="glyphicon glyphicon-zoom-in"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_work_path(work)  do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to work, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_work_path  do %>
+        <i class="glyphicon glyphicon-plus"></i>
+<% end %>

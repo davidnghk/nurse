@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t("name") %>:</strong>
+  <%= @device.name %>
+</p>
+
+<p>
+  <strong><%= t("chi_name") %>:</strong>
+  <%= @device.chi_name %>
+</p>
+
+<td>
+  <%= link_to edit_device_path(@device)  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to devices_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+</td>
+
+

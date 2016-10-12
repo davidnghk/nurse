@@ -1,0 +1,96 @@
+<p id="notice"><%#= notice %></p>
+
+<h1><%= t("store_list") %></h1>
+
+<%= search_form_for @q do |f| %>
+
+    <% if I18n.locale == :en  %>
+      <div class="field">  
+        <%= f.label :code_or_name_or_chi_name_cont, "Store Contains:" %>
+        <%= f.search_field :code_or_name_or_chi_name_cont %>
+      </div>
+    <% else %>
+      <div class="field">  
+        <%= f.label :code_or_name_or_chi_name_cont, "商鋪包含:" %>
+        <%= f.search_field :code_or_name_or_chi_name_cont %>
+      </div>
+    <% end %>
+
+  <div class="actions"> <%= f.submit %> </div>
+
+<% end %>
+
+<%#= form_tag import_stores_path, multipart: true do %>
+  <%#= file_field_tag :file %>
+  <%#= submit_tag "Import" %> 
+<%# end %> 
+<br> 
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= sort_link @q, :client_name, t("client") %></th>
+      <th><%= t("code") %></th>
+      <th><%= t("store") %></th>
+      <th><%= t("address") %></th>
+      <th><%#= t("contact") %></th>
+      <th><%= t("phone") %></th>
+      <th><%= t("new_order") %> </th>
+      <th><%= t("show") %> </th>
+      <th><%= t("update") %> </th>
+      <th><%= t("delete") %> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @stores.each do |store| %>
+      <tr>
+        <% if I18n.locale == :en  %>
+          <td><%= store.client.name %></td>
+          <td><%= store.code %></td>
+          <td><%= store.name %></td>
+          <td><%= store.address %></td>
+          <td><%#= store.contact %></td>
+          <td><%= store.phone_no %></td>
+        <% else %>
+          <td><%= store.client.chi_name %></td>
+          <td><%= store.code %></td>
+          <td><%= store.chi_name %></td>
+          <td><%= store.chi_address %></td>
+          <td><%#= store.chi_contact %></td>
+          <td><%= store.phone_no %></td>
+        <% end %>
+        
+          <td>
+            <%= link_to new_order_path(:store_id => store.id)  do %>
+              <i class="glyphicon glyphicon-new-window"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to store  do %>
+              <i class="glyphicon glyphicon-zoom-in"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_store_path(store)  do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to store, method: :delete, data: { confirm: 'Are you sure?' }, remote: true  do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @stores, :page_gap => '..', :previous_label => '<', :next_label => '>' %>
+<br><br>
+<%= link_to new_store_path  do %>
+        <i class="glyphicon glyphicon-plus"></i>
+<% end %>
+
+

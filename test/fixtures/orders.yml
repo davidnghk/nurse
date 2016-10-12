@@ -1,25 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  datetime: 2016-06-12 02:05:58
-  duration: 1
-  hospital: 
-  location: MyString
-  server_grade: 1
-  server_id: 1
-  contact_person: MyString
-  contact_phone_no: 1
-  fee: 1
+  store_id: 
+  call_date: 2016-09-24
+  repair_date: 2016-09-24
+  status: 1
+  technician_id: 1
+  device_id: 
+  issue_id: 
+  work_id: 
 
 two:
-  user_id: 
-  datetime: 2016-06-12 02:05:58
-  duration: 1
-  hospital: 
-  location: MyString
-  server_grade: 1
-  server_id: 1
-  contact_person: MyString
-  contact_phone_no: 1
-  fee: 1
+  store_id: 
+  call_date: 2016-09-24
+  repair_date: 2016-09-24
+  status: 1
+  technician_id: 1
+  device_id: 
+  issue_id: 
+  work_id: 

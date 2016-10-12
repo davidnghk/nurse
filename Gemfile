@@ -45,6 +45,17 @@ gem 'validates_timeliness', '~> 4.0'
 gem 'jquery-ui-rails', '~> 4.2.1'
 gem 'momentjs-rails', '~> 2.9'
 gem 'delayed_job_active_record'
+gem 'delayed_job'
 gem 'daemons'
 gem 'aws-sdk'
 gem 'aws-sdk-rails'
+gem 'ransack'
+gem 'will_paginate', '~> 3.1.0'
+gem 'axlsx', '~> 2.0'
+gem "axlsx_rails"
+gem 'will_paginate-bootstrap'
+gem 'whenever', :require => false
+
+
+
+

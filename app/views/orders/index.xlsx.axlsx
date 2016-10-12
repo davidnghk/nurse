@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Orders") do |sheet|
+  # this is the head row of your spreadsheet
+  sheet.add_row %w(Client store Call_date Status Device Issue)
+  
+  # each order is a row on your spreadsheet
+  @orders.each do |order|
+    sheet.add_row [order.store.client.name, order.store.name, order.call_date, order.status,
+    order.device.name, order.issue.name]
+  end
+end

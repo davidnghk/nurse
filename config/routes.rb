@@ -1,5 +1,26 @@
 Rails.application.routes.draw do
-   scope "(:locale)", locale: /en|zh/ do
+  scope "(:locale)", locale: /en|zh/ do
+    resources :works
+    resources :issues
+    resources :devices
+    resources :districts
+    resources :clients
+    resources :stores do
+      collection { post :import }
+    end
+    resources :orders do 
+       member do
+         put :cancel          #-> domain.com/orders/:id/cancel
+         put :acknowledge     #-> domain.com/orders/:id/acknowledge    
+         put :complete        #-> domain.com/orders/:id/complete
+         put :followup        #-> domain.com/orders/:id/followup
+         put :escalate        #-> domain.com/orders/:id/escalate
+         put :reopen          #-> domain.com/orders/:id/escalate
+         get :download         #-> domain.com/orders/:id/escalate
+         # get 'export' , to: 'travels#export', as: :export
+         put :delete_photo    #-> domain.com/orders/:id/escalate
+       end
+     end
      resources :bookings
      resources :bookings do
        resources :charges 
@@ -13,15 +34,15 @@ Rails.application.routes.draw do
          put :expire    #-> domain.com/bookings/:id/reject
        end
      end
-    # mount Upmin::Engine => '/admin'
-	#  root to: 'visitors#index'
-     root to: 'visitors#LetsNurse'
+     # mount Upmin::Engine => '/admin'
+	 # root to: 'visitors#index'
+     root to: 'visitors#FirstRef'
      get "customer_faq" => "visitors#faq"
      get "partner_faq"  => "visitors#faq2"
-     devise_for :users
+     get "about"  => "visitors#about"
+     devise_for :users 
      resources :users
-     resources :orders
-     resources :orders do 
+        resources :orders do 
        collection do 
         get :open
       end

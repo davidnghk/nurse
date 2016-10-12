@@ -18,7 +18,7 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should create order" do
     assert_difference('Order.count') do
-      post :create, order: { contact_person: @order.contact_person, contact_phone_no: @order.contact_phone_no, datetime: @order.datetime, duration: @order.duration, fee: @order.fee, hospital: @order.hospital, location: @order.location, server_grade: @order.server_grade, server_id: @order.server_id, user_id: @order.user_id }
+      post :create, order: { call_date: @order.call_date, device_id: @order.device_id, issue_id: @order.issue_id, repair_date: @order.repair_date, status: @order.status, store_id: @order.store_id, technician_id: @order.technician_id, work_id: @order.work_id }
     end
 
     assert_redirected_to order_path(assigns(:order))
@@ -35,7 +35,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should update order" do
-    patch :update, id: @order, order: { contact_person: @order.contact_person, contact_phone_no: @order.contact_phone_no, datetime: @order.datetime, duration: @order.duration, fee: @order.fee, hospital: @order.hospital, location: @order.location, server_grade: @order.server_grade, server_id: @order.server_id, user_id: @order.user_id }
+    patch :update, id: @order, order: { call_date: @order.call_date, device_id: @order.device_id, issue_id: @order.issue_id, repair_date: @order.repair_date, status: @order.status, store_id: @order.store_id, technician_id: @order.technician_id, work_id: @order.work_id }
     assert_redirected_to order_path(assigns(:order))
   end
 

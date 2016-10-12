@@ -43,13 +43,13 @@ default: &default
 
 development:
   <<: *default
-  database: nurse_development
+  database: fr_development
 
 test:
   <<: *default
-  database: nurse_test
+  database: fr_test
 
 production:
   <<: *default
-  database: nurse_production
+  database: fr_production
   

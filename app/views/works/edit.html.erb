@@ -1,0 +1,16 @@
+<h1><%= t("edit") %> <%= t("work") %></h1>
+
+<%= render 'form' %>
+
+
+<br>
+<td>
+  <%= link_to @work  do %>
+    <i class="glyphicon glyphicon-edit"></i>
+  <% end %>
+</td>
+<td>
+  <%= link_to works_path  do %>
+    <i class="glyphicon glyphicon-list"></i>
+  <% end %>
+</td>

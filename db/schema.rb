@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705173931) do
+ActiveRecord::Schema.define(version: 20161006010533) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20160705173931) do
 
   add_index "charges", ["booking_id"], name: "index_charges_on_booking_id", using: :btree
 
+  create_table "clients", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "name",       limit: 255
+    t.string   "chi_name",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   limit: 4,     default: 0, null: false
     t.integer  "attempts",   limit: 4,     default: 0, null: false
@@ -63,6 +71,100 @@ ActiveRecord::Schema.define(version: 20160705173931) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "chi_name",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "chi_name",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "store_id",                 limit: 4,   null: false
+    t.datetime "call_date",                            null: false
+    t.date     "repair_date",                          null: false
+    t.integer  "status",                   limit: 4,   null: false
+    t.integer  "technician_id",            limit: 4,   null: false
+    t.integer  "device_id",                limit: 4,   null: false
+    t.integer  "issue_id",                 limit: 4,   null: false
+    t.integer  "work_id",                  limit: 4
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "photo_file_name",          limit: 255
+    t.string   "photo_content_type",       limit: 255
+    t.integer  "photo_file_size",          limit: 4
+    t.datetime "photo_updated_at"
+    t.string   "user_ref",                 limit: 255
+    t.datetime "acknowledgement_datetime"
+    t.datetime "call_datetime"
+    t.string   "photo_02_file_name",       limit: 255
+    t.string   "photo_02_content_type",    limit: 255
+    t.integer  "photo_02_file_size",       limit: 4
+    t.datetime "photo_02_updated_at"
+    t.string   "photo_03_file_name",       limit: 255
+    t.string   "photo_03_content_type",    limit: 255
+    t.integer  "photo_03_file_size",       limit: 4
+    t.datetime "photo_03_updated_at"
+    t.string   "photo_04_file_name",       limit: 255
+    t.string   "photo_04_content_type",    limit: 255
+    t.integer  "photo_04_file_size",       limit: 4
+    t.datetime "photo_04_updated_at"
+    t.string   "photo_05_file_name",       limit: 255
+    t.string   "photo_05_content_type",    limit: 255
+    t.integer  "photo_05_file_size",       limit: 4
+    t.datetime "photo_05_updated_at"
+    t.string   "document_01_file_name",    limit: 255
+    t.string   "document_01_content_type", limit: 255
+    t.integer  "document_01_file_size",    limit: 4
+    t.datetime "document_01_updated_at"
+    t.string   "document_02_file_name",    limit: 255
+    t.string   "document_02_content_type", limit: 255
+    t.integer  "document_02_file_size",    limit: 4
+    t.datetime "document_02_updated_at"
+    t.string   "document_03_file_name",    limit: 255
+    t.string   "document_03_content_type", limit: 255
+    t.integer  "document_03_file_size",    limit: 4
+    t.datetime "document_03_updated_at"
+    t.string   "document_04_file_name",    limit: 255
+    t.string   "document_04_content_type", limit: 255
+    t.integer  "document_04_file_size",    limit: 4
+    t.datetime "document_04_updated_at"
+    t.string   "document_05_file_name",    limit: 255
+    t.string   "document_05_content_type", limit: 255
+    t.integer  "document_05_file_size",    limit: 4
+    t.datetime "document_05_updated_at"
+    t.string   "notes",                    limit: 255
+  end
+
+  add_index "orders", ["device_id"], name: "index_orders_on_device_id", using: :btree
+  add_index "orders", ["issue_id"], name: "index_orders_on_issue_id", using: :btree
+  add_index "orders", ["store_id"], name: "index_orders_on_store_id", using: :btree
+  add_index "orders", ["work_id"], name: "index_orders_on_work_id", using: :btree
+
+  create_table "stores", force: :cascade do |t|
+    t.integer  "client_id",   limit: 4
+    t.string   "code",        limit: 255
+    t.string   "name",        limit: 255
+    t.string   "chi_name",    limit: 255
+    t.string   "address",     limit: 255
+    t.string   "chi_address", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "phone_no",    limit: 4
+    t.string   "device_01",   limit: 255
+    t.string   "device_02",   limit: 255
+    t.string   "device_03",   limit: 255
+    t.string   "device_04",   limit: 255
+  end
+
+  add_index "stores", ["client_id"], name: "fk_client_idx", using: :btree
 
   create_table "user_customers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -134,6 +236,18 @@ ActiveRecord::Schema.define(version: 20160705173931) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "works", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "chi_name",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   add_foreign_key "bookings", "users"
   add_foreign_key "charges", "bookings"
+  add_foreign_key "orders", "devices"
+  add_foreign_key "orders", "issues"
+  add_foreign_key "orders", "stores"
+  add_foreign_key "orders", "works"
+  add_foreign_key "stores", "clients", name: "fk_client"
 end

@@ -1,0 +1,107 @@
+
+    <td>
+      <%= link_to @order  do %>
+        <i class="glyphicon glyphicon-zoom-in btn btn-fix-size btn-grey fa-2x "></i> 
+      <% end %>
+    </td>
+    <td>
+      <%= link_to orders_path  do %>
+        <i class="glyphicon glyphicon-list  btn btn-fix-size btn-success fa-2x"></i>
+      <% end %>
+    </td>
+    <br><br><br>
+
+
+<%= simple_form_for(@order, :html => {:multipart => true}) do |f| %>
+  <%= f.error_notification %>
+    
+    <p>  <strong><%= t("call_date") %>:</strong>  <%= Date.today %></p>
+    <p>  <strong><%#= t("status") %> </strong>  <%#= t(@order.status)  %></p>
+    <br>
+
+  <div class="form-inputs">
+        
+    <% if I18n.locale == :zh %>
+      <%= f.association :store, :label => t("store"), :label_method => :chi_store_name %> 
+    <% else %>
+      <%= f.association :store, :label => t("store"), :label_method => :store_name %> 
+    <% end %>
+    
+    <%= f.input :call_date, :as => :hidden, :label => t("call_date") %>
+    
+    <br>
+    <%= f.input :user_ref, :label => t("client_ref") %>
+    <%= f.input :repair_date, :label => t("repair_date") %>
+    
+    <%= f.input :status, collection: Order.i18n_statuses %>
+    
+    <%= f.association :technician, :label => t("technician"), :as => :collection_select %>
+    
+    <% if I18n.locale == :zh %>
+      <%= f.association :device, :label => t("device"), :label_method => :chi_name %>
+      <%= f.association :issue, :label => t("issue"), :label_method => :chi_name %>
+      <%= f.input :notes, :label => t("notes") %>
+      <%= f.association :work, :label => t("work"), :label_method => :chi_name %>   
+    <% else %>
+      <%= f.association :device, :label => t("device"), :label_method => :name %>
+      <%= f.association :issue, :label => t("issue"), :label_method => :name %>
+      <%= f.input :user_ref, :label => t("client_ref") %>
+      <%= f.association :work, :label => t("work"), :label_method => :name %>
+    <% end %>
+
+    <div>
+      <%= f.button :submit, :class => 'btn btn-tall btn-info col-xs-4' %>
+    </div><br><br><br><br>
+    
+    <p><%= t("maintenance_photo") %></p><%= f.file_field :photo  %>
+    <% if (@order.photo? ) %>
+      <br><%= image_tag @order.photo.url(:large) %>
+    <% end %>
+    
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_02  %>
+    <% if (@order.photo_02? ) %>
+      <%= image_tag @order.photo_02.url(:large) %>
+    <% end %>
+        
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_03  %>
+    <% if (@order.photo_03? ) %>
+      <%= image_tag @order.photo_03.url(:large) %>
+    <% end %>
+    
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_04  %>
+    <% if (@order.photo_04? ) %>
+      <%= image_tag @order.photo_04.url(:large) %>
+    <% end %>
+    
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_05  %>
+    <% if (@order.photo_05? ) %>
+      <%= image_tag @order.photo_05.url(:large) %>
+    <% end %>
+    
+    <br><p><%= t("document") %></p><%= f.file_field :document_01  %>
+    <% if (@order.document_01? ) %>
+      <iframe src=<%= @order.document_01 %> width="800" height="600" style="border: none;"> </iframe>
+    <% end %>
+    
+    <br><p><%= t("document") %></p><%= f.file_field :document_02  %>
+    <% if (@order.document_02? ) %>
+      <iframe src=<%= @order.document_02 %> width="800" height="600" style="border: none;"> </iframe>
+    <% end %>
+    
+    <br><p><%= t("document") %></p><%= f.file_field :document_03  %>
+    <% if (@order.document_03? ) %>
+      <iframe src=<%= @order.document_03 %> width="800" height="600" style="border: none;"> </iframe>
+    <% end %>
+    
+    <br><p><%= t("document") %></p><%= f.file_field :document_04  %>
+    <% if (@order.document_04? ) %>
+      <iframe src=<%= @order.document_04 %> width="800" height="600" style="border: none;"> </iframe>
+    <% end %>
+    
+    <br><p><%= t("document") %></p><%= f.file_field :document_05  %>
+    <% if (@order.document_05? ) %>
+      <iframe src=<%= @order.document_05 %> width="800" height="600" style="border: none;"> </iframe>
+    <% end %>
+  </div>
+
+<% end %>

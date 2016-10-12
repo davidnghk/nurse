@@ -1,0 +1,6 @@
+<% if current_user.repairman? %>
+<% then %>
+  <%= render 'mlist' %>
+<%else %>
+  <%= render 'list' %>
+<% end %> 
