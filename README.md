@@ -91,3 +91,4 @@ UH : Union Hospital 仁安醫院
           STH:  "聖德肋撒醫院" "St. Teresa's Hospital"
           TWAH: "荃灣港安醫院" "Tsuen Wan Adventist Hospital"
           UH:   "仁安醫院"  "Union Hospital"
+# fr
