@@ -1,6 +1,8 @@
-<% if current_user.repairman? %>
+
+<% if mobile_device? %>
 <% then %>
   <%= render 'mlist' %>
 <%else %>
   <%= render 'list' %>
 <% end %> 
+

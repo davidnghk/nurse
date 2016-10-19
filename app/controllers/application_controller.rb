@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user! 
-  
+  before_filter :prepare_for_mobile 
+   
   protected
 
   def set_locale
@@ -46,4 +47,23 @@ class ApplicationController < ActionController::Base
           :bank, :bank_account_no, :bank_account_name)
 	  end
   end
+
+  private
+  
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile/
+    end
+  end
+  
+  helper_method :mobile_device?
+  
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    # request.format = :mobile if mobile_device?
+  end
+  
+
 end

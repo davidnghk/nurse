@@ -1,61 +1,128 @@
+<% if params[:status] %>       
 
-<%= search_form_for @q do |f| %>
-  <div class="row" style="background-color: grey">
-    <div class="field col-xs-12 form-search">  
-      <br>
-          <%= f.search_field :store_code_or_store_chi_name_or_store_name_or_technician_name_cont %>
+    <%= link_to t('new_order'), orders_path(:status => "Open"), class: 
+          "btn btn-tab btn-default btn-tab btn-lg col-xs-3 col-md-3 "  %>  
+    <%= link_to t('pending_order'), orders_path(:status => "Acknowledged"), class: 
+          "btn btn-tab btn-info btn-tab btn-lg col-xs-3 col-md-3  "  %>  
+    <%= link_to t('esc_order'), orders_path(:status => "Escalated"), class: 
+          "btn btn-tab btn-danger btn-tab btn-lg col-xs-3 col-md-3  "  %>  
+    <%= link_to t('today_order'), orders_path(:status => "All"), class: 
+          "btn btn-tab btn-success btn-tab btn-lg col-xs-3 col-md-3  "  %>  
+
+<% end %> 
+
+<% if params[:order_type] == "OrderList" or params[:commit] == "Search" %>
+  <%= search_form_for @q do |f| %>
+    <br><div class="field">  
+          <%= f.search_field :technician_name_or_store_code_or_store_chi_name_or_store_name_cont %>
           <%= f.submit %> </div>
-  </div>
+  <% end %>
 <% end %>
-<br>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= t("store") %></th>
-      <th><%= sort_link @q, :repair_date, t("repair_date") %></th>
-      <th><%= t("issue") %></th>
-      <th></th>
-      <th><%= t("show") %></th>
-    </tr>
-  </thead>
 
+<table class="table table-striped">
+  <% if params[:order_type] == "OrderList" or params[:commit] == "Search" %>
+    <thead>
+      <tr>
+        <th><%= t("worksheet") %></th>
+        <th><%= sort_link @q, :repair_date, t("details") %></th>
+      </tr>
+    </thead>
+  <% end %>
   <tbody>
     <% @orders.each do |order| %>
-      <% if order.Acknowledged? %>
-          <tr class="info">                    
-      <% elsif order.Escalated? %>
-          <tr class="danger">
-      <% elsif order.FollowUp? %>
-          <tr class="warning">
-      <% elsif order.Completed? %>
-          <tr class="success">
-      <% end %>      
-              
-        <% if I18n.locale == :en  %>
-            <td><%= order.store.client.name %>:<%= order.store.code %> <br> <%= order.store.name %></td>
-            <td><%= order.repair_date.strftime("%Y-%m-%d")  %> <br> <%= order.technician.name %></td>
-            <td><%= order.device.name %> <br> <%= order.issue.name %></td>
-            <td><%#= order.work.name %></td>
-        
-        <% else %>
-            <td><%= order.store.client.chi_name %>:<%= order.store.code %> <br> <%= order.store.chi_name %></td>
-            <td><%= order.repair_date.strftime("%Y-%m-%d")  %> <br> <%= order.technician.name %></td>
-            <td><%= order.device.chi_name %> <br> <%= order.issue.chi_name %></td>
-            <td><%#= order.work.chi_name %></td>
-        <% end %>
-        
-        <td>
-          <%= link_to order  do %>
-            <i class="glyphicon glyphicon-zoom-in"></i>
-          <% end %>
-        </td>
 
+    
+      <% if order.Photographed? %>
+          <tr class="info" data-link="<%= order_path(order) %>">
+      <% end %>
+            
+      <% if order.Acknowledged? %>
+        <% if order.repair_date >= Date.today.day %>
+          <tr class="info" data-link="<%= edit_order_path(order) %>">
+        <% else %>
+          <tr class="info" data-link="<%= order_path(order) %>">    
+        <% end %> 
+      <% end %>
+      <% if order.Escalated? %>
+          <tr class="danger" data-link="<%= order_path(order) %>">
+      <% end %>
+      <% if order.FollowUp? %>
+          <tr class="warning" data-link="<%= order_path(order) %>">
+      <% end %>
+      <% if order.Completed? %>
+          <tr class="success" data-link="<%= order_path(order) %>">
+      <% end %>      
+      <% if order.Open? %>
+          <tr  data-link="<%= order_path(order) %>">
+      <% end %>  
+              
+                  
+      <% if params[:order_type] == "OrderList" or params[:commit] == "Search" %>
+        <% if order.photo_04? %>
+           <td>  <%= image_tag(order.photo_04.url(:thumb), size: "70" ) %>  </td>
+          <% elsif order.photo_03? %>
+           <td>  <%= image_tag(order.photo_03.url(:thumb), size: "70" ) %>  </td>
+          <% elsif order.photo_02? %>
+           <td>  <%= image_tag(order.photo_02.url(:thumb), size: "70" ) %>  </td>
+          <% elsif order.photo? %>
+           <td>  <%= image_tag(order.photo.url(:thumb), size: "70" ) %>  </td>
+          <% else %>
+           <td>  </td>
+        <% end %> 
+        <% if I18n.locale == :en  %>            
+            <td><small>
+              <%= order.store.client.name %> (<%= order.store.code %>:<%= order.store.name %>)
+              <br><%= order.repair_date.strftime("%Y-%m-%d")  %> <%= order.technician.name %><br>
+              <% if (order.work != nil) then %>
+                <%= order.device.name %>(<%= order.issue.name %>):<%= order.work.name %></td>
+              <% else %>
+                <%= order.device.name %>(<%= order.issue.name %>)</td>
+              <% end %>
+            </small></td>
+            </td>
+        <% else %>
+            <td><small>
+              <%= order.store.client.chi_name %> (<%= order.store.code %>:<%= order.store.chi_name %>)
+              <br><%= order.repair_date.strftime("%Y-%m-%d")  %> <%= order.technician.name %><br>
+              <% if (order.work != nil) then %>
+                <%= order.device.chi_name %>(<%= order.issue.chi_name %>):<%= order.work.chi_name %></td>
+              <% else %>
+                <%= order.device.chi_name %>(<%= order.issue.chi_name %>)</td>
+              <% end %>
+            </small></td>
+        <% end %>
+            
+      <% else %>
+            
+        <% if I18n.locale == :en  %>            
+            <td><%= order.store.client.name %>:<small><%= order.store.code %> <br> <%= order.store.name %></small></td>
+            <td>
+              <small><%= order.repair_date.strftime("%Y-%m-%d")  %>  <%= order.technician.name %><br>   
+              <% if (order.work != nil) then %>
+                <%= order.device.name %> (<%= order.issue.name %>)<br><%= order.work.name %></td>
+              <% else %>
+                <%= order.device.name %> (<%= order.issue.name %>)
+              <% end %>
+              </small>
+            </td>
+        <% else %>
+            <td><%= order.store.client.chi_name %><br><small><%= order.store.code %><%= order.store.chi_name %></small></td>
+            <td><small><%= order.repair_date.strftime("%Y-%m-%d")  %> <%= order.technician.name %><br>
+
+            <% if (order.work != nil) then %>
+              <%= order.device.chi_name %> (<%= order.issue.chi_name %>)<br><%= order.work.chi_name %></td>
+            <% else %>
+              <%= order.device.chi_name %> (<%= order.issue.chi_name %>)</td>
+            <% end %>
+            </small>
+        <% end %>
+      <% end %> 
         
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @orders, :previous_label => '<', :next_label => '>' %>
-<br>
 
-<%#= link_to 'New Order', new_order_path %>
+<% if params[:order_type] == "OrderList" %>
+  <%= will_paginate @orders, :previous_label => '<', :next_label => '>' %>
+<% end %>

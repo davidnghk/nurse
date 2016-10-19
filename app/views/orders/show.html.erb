@@ -1,32 +1,37 @@
-<% if current_user.repairman?  %>
+<!-- 
+ <% if mobile_device?  %>
   <% then %>
-      <td>
-        <%= link_to edit_order_path(@order)  do %>
-          <i class="glyphicon glyphicon-camera btn btn-tall btn-grey fa-2x col-xs-6"></i> 
-        <% end %>
-      </td>
-      <td>
-        <%= link_to orders_path  do %>
-          <i class="glyphicon glyphicon-list  btn btn-tall btn-success fa-2x col-xs-6"></i>
-        <% end %>
-      </td>
+    <% if @order.repair_date >= Time.zone.now.beginning_of_day %>
+      <div>
+          <%= link_to edit_order_path(@order)  do %>
+            <i class="glyphicon glyphicon-camera btn btn-info fa-2x col-xs-6 col-md-6  "></i> 
+          <% end %>
+
+          <%= link_to orders_path(:status => "All")  do %>
+            <i class="glyphicon glyphicon-list  btn  btn-info fa-2x col-xs-6 col-md-6 "></i>
+          <% end %>
+      </div>   
+      <br>
+    <% end %> 
   <% else %>
     <td>
       <%= link_to edit_order_path(@order)  do %>
-        <i class="glyphicon glyphicon-camera btn btn-fix-size btn-grey fa-2x "></i> 
+        <i class="glyphicon glyphicon-camera btn  btn-info btn-circle fa-2x "></i> 
       <% end %>
     </td>
     <td>
       <%= link_to orders_path  do %>
-        <i class="glyphicon glyphicon-list  btn btn-fix-size btn-success fa-2x"></i>
+        <i class="glyphicon glyphicon-list  btn  btn-info btn-circle fa-2x"></i>
       <% end %>
     </td>
-<% end %>
+<% end %> 
 
-<br><br><br><br>
+-->
+
+<br>
 <% if I18n.locale == :en  %>
   <p>  <strong><%= t("call_date") %>:</strong> <%= @order.call_date.strftime("%F %I:%M %P") %></p>
-  <p>  <strong><%= t("client") %>:</strong>  <%= @order.store.client.name %> </p>
+  <p>  <strong><%= t("store") %>:</strong>  <%= @order.store.client.name %> </p>
   <p>  <strong><%= t("store") %>:</strong> <%= @order.store.code %> <%= @order.store.name %></p>
   <p>  <strong><%= t("client_ref") %>:</strong>  <%= @order.user_ref %></p>
   <p>  <strong><%= t("repair_date") %>:</strong>  <%= @order.repair_date %></p>
@@ -40,22 +45,94 @@
   <% end %>
 <% else %>
   <p>  <strong><%= t("call_date") %>:</strong> <%= @order.call_date.strftime("%F %I:%M %P") %></p>
-  <p>  <strong><%= t("client") %>:</strong>  <%= @order.store.client.chi_name %> </p>
-  <p>  <strong><%= t("store") %>:</strong> <%= @order.store.code %> <%= @order.store.chi_name %></p>
+  <p>  <strong><%= t("store") %>:</strong>  <%= @order.store.client.chi_name %> (<%= @order.store.code %> <%= @order.store.chi_name %>)</p>
   <p>  <strong><%= t("client_ref") %>:</strong>  <%= @order.user_ref %></p>
   <p>  <strong><%= t("repair_date") %>:</strong>  <%= @order.repair_date %></p>
   <p>  <strong><%= t("status") %>: </strong>  <%= t(@order.status)  %></p>
   <p>  <strong><%= t("technician") %>:</strong>  <%= @order.technician.name %></p>
-  <p>  <strong><%= t("device") %>:</strong>  <%= @order.device.chi_name %></p>
-  <p>  <strong><%= t("issue") %>:</strong>  <%= @order.issue.chi_name %></p>
+  <p>  <strong><%= t("device") %>:</strong>  <%= @order.device.chi_name %> (<%= @order.issue.chi_name %>)</p>
   <p>  <strong><%= t("notes") %>:</strong>  <%= @order.notes %></p>
   <% if (@order.work != nil) then %>
     <p>  <strong><%= t("work") %>:</strong>  <%= @order.work.chi_name %></p>
   <% end %>
 <% end %>
 
+<br>
+
+<div class="row">
+  <div class="col-xs-3 col-md-3 fileupload photo ">
+    <% if (@order.photo? ) %>
+        <%= image_tag @order.photo.url(:large) %>
+    <% end %>
+  </div>
+  <div class="col-xs-3 col-md-3 fileupload photo ">
+    <% if (@order.photo_02? ) %>
+      <%= image_tag @order.photo_02.url(:large) %>
+    <% end %>
+  </div>
+    <div class="col-xs-3 col-md-3 fileupload photo ">
+      <% if (@order.photo_03? ) %>
+        <%= image_tag @order.photo_03.url(:large) %>
+      <% end %>
+  </div>
+    <div class="col-xs-3 col-md-3 fileupload photo ">
+      <% if (@order.photo_04? ) %>
+        <%= image_tag @order.photo_04.url(:large) %>
+      <% end %>
+  </div>
+</div>
+
+<br>
+
+<% if mobile_device?  %>
+  <% then %>
+
+    <% if @order.Photographed? and @order.repair_date >= Time.zone.now.beginning_of_day %>
+        <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
+              "btn btn-tall btn-success  col-xs-4 col-md-4"  %>  </span>
+        <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
+              "btn  btn-tall btn-warning  col-xs-4 col-md-4"  %>  </span>
+        <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
+              "btn  btn-tall btn-danger  col-xs-4 col-md-4"  %>  </span>
+    <% end %>
+
+    <% if @order.Acknowledged? and @order.repair_date >= Time.zone.now.beginning_of_day %>
+        <%= link_to t('photo'), edit_order_path(@order), class: 
+              "btn btn-tall btn-success  col-xs-12 col-md-12"  %>  
+    <% end %>
+
+    <% if @order.Open? and @order.repair_date >= Time.zone.now.beginning_of_day %>
+      <span><%= link_to t('acknowledge'), acknowledge_order_path(@order), method: :put, class: "btn  btn-tall btn-info col-xs-12 "  %>  </span>
+    <% end %>
+
+<% else %>
+
+    <% if @order.Acknowledged? %>
+        <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
+              "btn btn-fix-size btn-success  "  %>  </span>
+        <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
+              "btn   btn-fix-size btn-warning  "  %>  </span>
+        <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
+              "btn   btn-fix-size btn-danger  "  %>  </span>
+    <% end %>
+
+    <% if @order.Escalated? or @order.FollowUp? %>
+      <span><%= link_to t('reopen'), reopen_order_path(@order), method: :put, class: "btn btn-success   btn-fix-size  "  %>  </span>
+    <% end %>
+
+    <% if @order.Open? %>
+      <span><%= link_to t('acknowledge'), acknowledge_order_path(@order), method: :put, class: "btn btn-fix-size btn-info  "  %>  </span>
+    <% end %>
+
+<% end %>
+
+<!-- 
+<br><br><br><br>
+
   <% if (@order.photo? ) %>
       <%= image_tag @order.photo.url(:large) %>
+  <% else %>
+      <br><br><br><br>
   <% end %>
 
   <% if (@order.photo_02? ) %>
@@ -94,40 +171,4 @@
       <br><iframe src=<%= @order.document_05 %> width="800" height="600" style="border: none;"> </iframe>
   <% end %>
 
-  <br>
-
-<% if current_user.repairman?  %>
-  <% then %>
-    <% if @order.Acknowledged? %>
-        <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
-              "btn btn-tall btn-success  col-xs-4"  %>  </span>
-        <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
-              "btn  btn-tall btn-warning  col-xs-4"  %>  </span>
-        <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
-              "btn  btn-tall btn-danger  col-xs-4"  %>  </span>
-    <% end %>
-
-    <% if @order.Open? %>
-      <span><%= link_to t('acknowledge'), acknowledge_order_path(@order), method: :put, class: "btn  btn-tall btn-info col-xs-12 "  %>  </span>
-    <% end %>
-
-<% else %>
-
-    <% if @order.Acknowledged? %>
-        <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
-              "btn btn-fix-size btn-success  "  %>  </span>
-        <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
-              "btn   btn-fix-size btn-warning  "  %>  </span>
-        <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
-              "btn   btn-fix-size btn-danger  "  %>  </span>
-    <% end %>
-
-    <% if @order.Escalated? or @order.FollowUp? %>
-      <span><%= link_to t('reopen'), reopen_order_path(@order), method: :put, class: "btn btn-success   btn-fix-size  "  %>  </span>
-    <% end %>
-
-    <% if @order.Open? %>
-      <span><%= link_to t('acknowledge'), acknowledge_order_path(@order), method: :put, class: "btn btn-fix-size btn-info  "  %>  </span>
-    <% end %>
-
-<% end %>
+-->

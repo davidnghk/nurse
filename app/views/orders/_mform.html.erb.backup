@@ -18,17 +18,64 @@
         <%= @order.device.name %> - <%= @order.issue.name %> 
       <% end %>
   </p>
-  <p>  <strong><%= t("notes") %>: </strong>  <%= @order.notes  %></p>
 
   <% if I18n.locale == :zh %>
       <%= f.association :work, :label => t("work"), :label_method => :chi_name %>   
     <% else %>
       <%= f.association :work, :label => t("work"), :label_method => :name %>
     <% end %>
+  <p><%= f.input :notes, :label => t("notes") %></p>
+
+
+
+<div class="row">
+  <div class="col-xs-3 col-md-3 fileImage ">
+    <div id="upload_photo" >
+      <%= f.file_field :photo  %>
+    </div>
+    <div id="preview_photo" class="box">
+        <%= image_tag @order.photo.url %>
+    </div>
+    <%= t("photo") %>1
+</div>
+  
+  <div id="upload_photo_02" class="col-xs-3 col-md-3 center fileImage photo">
+      <%= f.file_field :photo_02  %>
+      <div id="preview_photo_02" class="fileImage">
+        <%= image_tag @order.photo_02.url %>
+      </div>
+      <p><%= t("photo") %>2</p>
+  </div>
+  
+  <div id="upload_photo_03" class="col-xs-3 col-md-3 center fileImage photo">
+
+      <%= f.file_field :photo_03  %>
+      <div id="preview_photo_03" >
+        <% if (@order.photo_03? ) %>  
+          <%= image_tag @order.photo_03.url %>
+        <% end %>
+      </div>
+
+  </div>
+
+  <div id="upload_photo_04" class="col-xs-3 col-md-3 center fileImage photo">
+      <%= f.file_field :photo_04  %>
+
+      <div id="preview_photo_04">
+        <% if (@order.photo_04? ) %>    
+              <%= image_tag @order.photo_04.url %>
+        <% end %>
+      </div>
+      <p><%= t("photo") %> 4</p>
+  </div>
+
+</div>          
+      
+
 <div class="row"> 
 
     <div id="upload_photo" class="col-xs-3 col-md-3 fileupload center photo">
-
+      <p><%= t("photo") %> 1</p>
         <%= f.file_field :photo  %>
       <div id="preview_photo">
         <% if (@order.photo? ) %>
@@ -37,16 +84,16 @@
       </div>
     </div>
     <div id="upload_photo_02" class="col-xs-3 col-md-3 fileupload center photo">
-
+      <p><%= t("photo") %> 2</p>
         <%= f.file_field :photo_02  %>
-      <div id="preview_photo_02">
+      <div id="preview_photo_05">
         <% if (@order.photo_02? ) %>
           <%= image_tag @order.photo_02.url(:thumb) %>
         <% end %>
       </div>
     </div>
     <div id="upload_photo_03" class="col-xs-3 col-md-3 fileupload center photo">
-
+      <p><%= t("photo") %> 3</p>
         <%= f.file_field :photo_03  %>
       <div id="preview_photo_03">
         <% if (@order.photo_03? ) %>
@@ -55,7 +102,7 @@
       </div>
     </div>
     <div id="upload_photo_04" class="col-xs-3 col-md-3 fileupload center photo">
-
+       <p><%= t("photo") %> 4</p>
         <%= f.file_field :photo_04  %>
       <div id="preview_photo_04">
         <% if (@order.photo_04? ) %>
@@ -69,7 +116,7 @@
 
     <br>
     <div>
-      <%= f.button :submit, "照相", :class => 'btn btn-tall btn-info col-xs-12' %>
+      <%= f.button :submit, :class => 'btn btn-tall btn-info col-xs-12' %>
     </div><br>
     
 <% end %>

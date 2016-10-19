@@ -51,14 +51,20 @@
   <tbody>
     <% @orders.each do |order| %>
       <% if order.Acknowledged? %>
-          <tr class="info">                    
-      <% elsif order.Escalated? %>
-          <tr class="danger">
-      <% elsif order.FollowUp? %>
-          <tr class="warning">
-      <% elsif order.Completed? %>
-          <tr class="success">
+          <tr class="info" data-link="<%= order_path(order) %>">    
+      <% end %>
+      <% if order.Escalated? %>
+          <tr class="danger" data-link="<%= order_path(order) %>">
+      <% end %>
+      <% if order.FollowUp? %>
+          <tr class="warning" data-link="<%= order_path(order) %>">
+      <% end %>
+      <% if order.Completed? %>
+          <tr class="success" data-link="<%= order_path(order) %>">
       <% end %>      
+      <% if order.Open? %>
+          <tr  data-link="<%= order_path(order) %>">
+      <% end %>  
         
         <td><%= order.call_date.strftime("%Y-%m-%d %I:%M") %></td>
         

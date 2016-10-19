@@ -11,13 +11,13 @@ Rails.application.routes.draw do
     resources :orders do 
        member do
          put :cancel          #-> domain.com/orders/:id/cancel
-         put :acknowledge     #-> domain.com/orders/:id/acknowledge    
+         put :acknowledge     #-> domain.com/orders/:id/acknowledge   
+         put :photograph      #-> domain.com/orders/:id/complete
          put :complete        #-> domain.com/orders/:id/complete
          put :followup        #-> domain.com/orders/:id/followup
          put :escalate        #-> domain.com/orders/:id/escalate
          put :reopen          #-> domain.com/orders/:id/escalate
          get :download         #-> domain.com/orders/:id/escalate
-         # get 'export' , to: 'travels#export', as: :export
          put :delete_photo    #-> domain.com/orders/:id/escalate
        end
      end

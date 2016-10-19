@@ -3,30 +3,36 @@ class OrdersController < ApplicationController
   
   def cancel
     @order.cancel!
-    redirect_to orders_path  
+    redirect_to orders_path(:status => "All")   
   end
   
   def acknowledge
     @order.acknowledgement_datetime = Time.now
+    @order.technician = current_user
     @order.acknowledge!
-    redirect_to orders_path 
+    redirect_to orders_path(:status => "All")  
   end
   
   def followup
     @order.followup!
-    redirect_to orders_path 
+    redirect_to orders_path(:status => "All") 
   end
   
   def escalate
-    #OrderMailer.delay.escalate_order_to_manager(@order)
-    OrderMailer.escalate_order_to_manager(@order).deliver
+    OrderMailer.delay.escalate_order_to_manager(@order)
+    #OrderMailer.escalate_order_to_manager(@order).deliver
     @order.escalate!
-    redirect_to orders_path 
+    redirect_to orders_path(:status => "All") 
+  end
+  
+  def photograph
+    @order.photograph!
+    redirect_to orders_path(:status => "All") 
   end
   
   def complete
     @order.complete!
-    redirect_to orders_path 
+    redirect_to orders_path(:status => "All") 
   end
   
   def reopen
@@ -35,7 +41,7 @@ class OrdersController < ApplicationController
     @order.reopen!
     #OrderMailer.delay.new_order_to_repairman(@order)
     OrderMailer.new_order_to_repairman(@order).deliver
-    redirect_to orders_path 
+    redirect_to orders_path(:status => "All")  
   end
   
   def download
@@ -44,22 +50,46 @@ class OrdersController < ApplicationController
       format.html  
       format.xls 
       format.xlsx 
-    end 
-#    @orders = Order.all
+    end  
+
   end
   
   # GET /orders
   # GET /orders.json
   def index
-    @all = Order.all 
-    @q = Order.ransack(params[:q])
-    @orders = @q.result(:distinct => true)
-    @orders = @q.result.paginate(:page => params[:page], :per_page => 30)
+    if params[:status] or params[:order_type] == "MyOrder"
+          if params[:status] == "Open"
+            @orders = Order.Open.where("repair_date >= ?", Time.zone.now.beginning_of_day)
+          end
+          if params[:status] == "Acknowledged"
+            @orders = Order.Acknowledged.where("repair_date >= ?",   Time.zone.now.beginning_of_day)
+          end
+          if params[:status] == "All"
+            @orders = Order.where("repair_date >= ?", Time.zone.now.beginning_of_day)
+          end
+          if params[:status] == "Escalated"
+            @orders = Order.Escalated.where("repair_date >= ?", Time.zone.now.beginning_of_day)
+          end
+          if params[:order_type] == "MyOrder"
+            @orders = Order.where("technician_id = ? and repair_date >= ?", current_user.id, Time.zone.now.beginning_of_day )
+          end
+    else
+      if params[:order_type] == "OrderList"
+        @orders = Order.where("technician_id = ? and repair_date < ?", current_user.id, 
+          Date.today )
+      end
+      @all = Order.all
+      @q = Order.history.ransack(params[:q])
+      @orders = @q.result
+      @orders = @q.result.paginate(:page => params[:page], :per_page => 30)
+    end
     respond_to do |format|
       format.html  
       format.csv { render text: @all.to_csv}
       format.xls 
       format.xlsx 
+      format.json
+      format.mobile 
     end 
   end
 
@@ -103,6 +133,9 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
+      if @order.Acknowledged? 
+        @order.photograph!
+      end
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }

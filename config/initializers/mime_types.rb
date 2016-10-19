@@ -5,3 +5,5 @@
 
 Mime::Type.register "application/xlsx", :xlsx
 Mime::Type.register "application/xls", :xls
+
+Mime::Type.register_alias "text/html", :mobile

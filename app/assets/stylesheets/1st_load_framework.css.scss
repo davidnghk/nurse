@@ -91,6 +91,11 @@ section {
 .btn-tall {
     height: 60px !important;
 }
+.btn-tab {
+    height: 75px ;
+    font-size:0.9em;
+    line-height: 60px;
+}
 .btn-grey {
     background-color: lightgoldenrodyellow;
 }
@@ -101,9 +106,79 @@ section {
 .form-search{
    height: 60px;
 }
+.fileUploadLabel {
+    width: 290px;
+    height: 290px;
+    overflow: hidden;
+}
+.center {
+    text-align: center;
+}
+.btn-circle-lg {
+  width: 79px;
+  height: 79px;
+  text-align: center;
+  padding: 13px 0;
+  font-size: 30px;
+  line-height: 2.00;
+  border-radius: 70px;
+}
+
+.btn-circle-image {
+  width: 85px;
+  height: 85px;
+  text-align: center;
+  padding: 13px 0;
+  font-size: 30px;
+  line-height: 2.00;
+  border-radius: 70px;
+}
+.btn-file {
+    width:   10px;
+    height: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px; 
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: yellow;
+    cursor: inherit;
+    display: block;
+}
+
+.fileImage {
+  position: relative;
+  overflow: hidden;
+  margin-left: 0;
+  margin-right: -0.0625rem; // for us 0.625rem == 10px
+  padding-left: 0.0625rem;
+  padding-right: 0.0625rem;
+  height: 160px  
+
+}
+.fileImage input {
+    top: 0;
+    right: 0; /* not left, because only the right part of the input seems to
+                 be clickable in some browser I can't remember */
+    cursor: pointer;
+    opacity: 0.0;
+    filter: alpha(opacity=0); /* and all the other old opacity stuff you
+                                 want to support */
+}
 .fileupload {
-    width: 90px;
-    height: 110px;
+    width: 94px;
+    height: 120px;
+    margin-left: 1;
+    margin-right: -0.0625rem;
+    padding-left: 0.0625rem;
+    padding-right: 0.0625rem;
     position: relative;
     overflow: hidden;
 }
@@ -119,8 +194,13 @@ section {
                                  want to support */
     font-size: 300px; /* wtf, but apparently the most reliable way to make
                          a large part of the input clickable in most browsers */
-    height: 200px;
+    /* height: 200px; */
 }
-.center {
-    text-align: center;
+.btn-fix-size {
+    width: 110px;
+    height: 60px !important;
+}
+.fix-size {
+    width: 300px;
+    height: 300px !important;
 }

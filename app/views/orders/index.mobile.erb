@@ -1,0 +1,59 @@
+
+<%= search_form_for @q do |f| %>
+  <div class="row" style="background-color: grey">
+    <div class="field col-xs-12 form-search">  
+      <br>
+          <%= f.search_field :store_code_or_store_chi_name_or_store_name_or_technician_name_cont %>
+          <%= f.submit %> </div>
+  </div>
+<% end %>
+<br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t("store") %></th>
+      <th><%= sort_link @q, :repair_date, t("repair_date") %></th>
+      <th><%= t("issue") %></th>
+      <th></th>
+      <th><%= t("show") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <% if order.Acknowledged? %>
+          <tr class="info" data-link="<%= edit_order_path(order) %>">                    
+      <% elsif order.Escalated? %>
+          <tr class="danger" data-link="<%= edit_order_path(order) %>">
+      <% elsif order.FollowUp? %>
+          <tr class="warning" data-link="<%= edit_order_path(order) %>">
+      <% elsif order.Completed? %>
+          <tr class="success" data-link="<%= edit_order_path(order) %>">
+      <% end %>       
+              
+        <% if I18n.locale == :en  %>
+            <td><%= order.store.client.name %>:<%= order.store.code %> <br> <%= order.store.name %></td>
+            <td><%= order.repair_date.strftime("%Y-%m-%d")  %> <br> <%= order.technician.name %></td>
+            <td><%= order.device.name %> <br> <%= order.issue.name %></td>
+            <td><%#= order.work.name %></td>
+        
+        <% else %>
+            <td><%= order.store.client.chi_name %>:<%= order.store.code %> <br> <%= order.store.chi_name %></td>
+            <td><%= order.repair_date.strftime("%Y-%m-%d")  %> <br> <%= order.technician.name %></td>
+            <td><%= order.device.chi_name %> <br> <%= order.issue.chi_name %></td>
+            <td><%#= order.work.chi_name %></td>
+        <% end %>
+        
+        <td>
+          <%= link_to order  do %>
+            <i class="glyphicon glyphicon-zoom-in"></i>
+          <% end %>
+        </td>
+
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @orders, :previous_label => '<', :next_label => '>' %>
+<br>

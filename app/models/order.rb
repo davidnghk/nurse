@@ -1,5 +1,8 @@
 class Order < ActiveRecord::Base
   default_scope { order('call_date DESC') }
+
+  scope :history, -> { where(role: :manager)}
+  scope :history, lambda{ where("repair_date < ?", Date.today) }
   
   include AASM
   
@@ -11,21 +14,21 @@ class Order < ActiveRecord::Base
   
   validates_presence_of :call_date, :store, :repair_date, :status, :device, :issue, :technician
   
-  enum status: [:Open, :Acknowledged, :Cancelled, :Completed, :FollowUp, :Escalated]
+  enum status: [:Open, :Acknowledged, :Cancelled, :Completed, :FollowUp, :Escalated, :Photographed]
   
-  has_attached_file :photo, styles: { large: "800x600>", thumb: "100x750>" }
+  has_attached_file :photo, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo, :content_type => 'image/jpeg'
   
-  has_attached_file :photo_02, styles: { large: "800x600>", thumb: "100x75>" }
+  has_attached_file :photo_02, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo_02, :content_type => 'image/jpeg'
   
-  has_attached_file :photo_03, styles: { large: "800x600>", thumb: "100x75>" }
+  has_attached_file :photo_03, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo_03, :content_type => 'image/jpeg'
   
-  has_attached_file :photo_04, styles: { large: "800x600>", thumb: "100x75>" }
+  has_attached_file :photo_04, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo_04, :content_type => 'image/jpeg'
   
-  has_attached_file :photo_05, styles: { large: "800x600>", thumb: "100x75>" }
+  has_attached_file :photo_05, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo_05, :content_type => 'image/jpeg'
   
   has_attached_file :document_01, styles: { large: "800x600>", thumb: "100x75>" }
@@ -45,18 +48,22 @@ class Order < ActiveRecord::Base
   aasm(:status) do
     state :Open, :initial => true
     
-    state :Acknowledged, :Cancelled, :Completed, :FollowUp, :Escalated
+    state :Acknowledged, :Cancelled, :Completed, :FollowUp, :Escalated, :Photographed
 
     event :acknowledge do
       transitions :from => [:Open, :ReOpen], :to => :Acknowledged
     end
   
+    event :photograph do
+      transitions :from => :Acknowledged, :to => :Photographed
+    end
+    
     event :followup do
-      transitions :from => :Acknowledged, :to => :FollowUp
+      transitions :from => [:Acknowledged, :Photographed], :to => :FollowUp
     end
     
     event :escalate do
-      transitions :from => :Acknowledged, :to => :Escalated
+      transitions :from => [:Acknowledged, :Photographed], :to => :Escalated
     end
   
     event :cancel do
@@ -64,11 +71,11 @@ class Order < ActiveRecord::Base
     end
   
     event :complete do
-      transitions :from => [:Acknowledged, :Escalated], :to => :Completed
+      transitions :from => [:Acknowledged, :Photographed], :to => :Completed
     end
     
     event :reopen do
-      transitions :from => [:FollowUp, :Escalated], :to => :Open
+      transitions :from => [:Acknowledged, :FollowUp, :Escalated], :to => :Open
     end
   end
   
@@ -114,6 +121,16 @@ class Order < ActiveRecord::Base
   def self.rollover
     today = Date.today
     if !today.sunday?
+      @order = Order.Open.each do |o|
+        o.acknowledge!
+      end
+      @order = Order.Acknowledged.each do |o|
+        puts o.store.name
+        o.acknowledgement_datetime = nil
+        o.repair_date = Date.today
+        o.reopen!
+        OrderMailer.delay.new_order_to_repairman(o)
+      end
       @order = Order.FollowUp.each do |o|
         puts o.store.name
         o.acknowledgement_datetime = nil
