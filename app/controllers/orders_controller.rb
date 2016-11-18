@@ -79,7 +79,8 @@ class OrdersController < ApplicationController
           Date.today )
       end
       @all = Order.all
-      @q = Order.history.ransack(params[:q])
+      # @q = Order.history.ransack(params[:q])
+      @q = Order.ransack(params[:q])
       @orders = @q.result
       @orders = @q.result.paginate(:page => params[:page], :per_page => 30)
     end
@@ -133,9 +134,9 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
-      if @order.Acknowledged? 
-        @order.photograph!
-      end
+      #if @order.Acknowledged? 
+      #  @order.photograph!
+      # end
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
@@ -169,7 +170,7 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:store_id, :call_date, :repair_date, :status, :technician_id, :device_id, :issue_id, :user_ref, :work_id, :acknowledgement_datetime, :notes,
-      :photo, :photo_02, :photo_03, :photo_04, :photo_05, :document_01, :document_02, :document_03, :document_04, :document_05)
+      params.require(:order).permit(:store_id, :call_date, :repair_date, :status, :technician_id, :device_id, :issue_id, :user_ref, :work_id, :acknowledgement_datetime, :notes, :image_01, :image_02, :image_03, :image_04,
+      :document_01, :document_02, :document_03, :document_04, :document_05)
     end
 end

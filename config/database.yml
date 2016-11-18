@@ -38,18 +38,18 @@ default: &default
   encoding: utf8
   username: root
   password: <%= ENV['MYSQL_PASSWORD'] %>
-  host: 127.0.0.1
+  host: 104.199.156.169	
   port: 3306
 
 development:
   <<: *default
-  database: fr_development
+  database: mos_development
 
 test:
   <<: *default
-  database: fr_test
+  database: mos_test
 
 production:
   <<: *default
-  database: fr_production
+  database: mos_production
   

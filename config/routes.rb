@@ -36,7 +36,7 @@ Rails.application.routes.draw do
      end
      # mount Upmin::Engine => '/admin'
 	 # root to: 'visitors#index'
-     root to: 'visitors#FirstRef'
+     root to: 'visitors#mos'
      get "customer_faq" => "visitors#faq"
      get "partner_faq"  => "visitors#faq2"
      get "about"  => "visitors#about"

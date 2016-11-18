@@ -1,0 +1,184 @@
+<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+      
+      <h1><%= t("brand") %></h1>
+      <h3><%= t("our_services") %></3>
+        <br><br><br><br>
+        <!--
+        <a href="#about" class="btn btn-dark btn-lg">詳情</a> -->
+        <% if !user_signed_in? %>
+          <%= link_to t("sign_in"), new_user_session_path, class: "btn btn-warning btn-lg" %>
+          <%#= link_to t("sign_up"), new_user_registration_path, class: "btn btn-warning btn-lg" %>
+        <% else %>
+          <% if mobile_device? %>
+            <div class="col-xs-4 col-md-4 ">
+              <%= link_to orders_path(:status => "All")  do %>
+                <i class="glyphicon glyphicon-inbox btn btn-primary btn-circle-lg  "></i> 
+              <% end %>
+              <br><small> <%= t("today_order") %> </small>
+            </div>
+            <div class="col-xs-4 col-md-4 ">
+              <%= link_to orders_path(:order_type => "MyOrder") do %>
+                <i class="glyphicon glyphicon-user btn btn-danger btn-circle-lg  "></i> 
+              <% end %>
+              <br><small> <%= t("my_order") %> </small>
+            </div>
+            <div class="col-xs-4 col-md-4 ">
+              <%= link_to orders_path(:order_type => "OrderList")  do %>
+                <i class="glyphicon glyphicon-folder-open btn btn-success btn-circle-lg  "></i> 
+              <% end %>
+              <br><small> <%= t("order_list") %> </small>
+            </div>
+          <% end %>
+      
+      <% end %>
+      
+    </div>
+</header>
+
+<% if !mobile_device? %>
+  <!-- Page Content -->
+  <div class="container">
+
+      <!-- Marketing Icons Section 
+      <div class="row">
+          <div class="col-lg-12">
+              <h1 class="page-header">
+                  <%= t("our_business") %>
+              </h1>
+          </div>
+          <div class="col-md-4">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4><i class="fa fa-fw fa-check"></i><%= t("our_business1") %></h4>
+                  </div>
+                  <div class="panel-body">
+                  <% if I18n.locale == :zh %>
+                    <p>- 冰箱和冰櫃 </p>
+                    <p>- 不銹鋼設備 </p>
+                    <p>- 運水煙罩系統</p>
+                    <p>- 空气净化系统 </p>
+                  <% else %>
+                    <p>- Refrigerator and Fridge </p>
+                    <p>- Stainless Steel Equipment </p>
+                    <p>- Hydro Vent System</p>
+                    <p>- Air purifying system </p>
+                  <% end %>
+                    <br>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4><i class="fa fa-fw fa-gift"></i><%= t("our_business2") %></h4>
+                  </div>
+                  <div class="panel-body">
+                    <% if I18n.locale == :zh %>
+                      <p>- 設計和安裝工程 </p>
+                      <p>- 顧問服務 </p>
+                      <p>- 節能咨詢</p>
+                      <p>- 冷劑回收 </p>
+                    <% else %>
+                      <p>- Design and installation </p>
+                      <p>- Consultancy services </p>
+                      <p>- Energy saving advice</p>
+                      <p>- Recycling </p>
+                    <% end %>
+                      <br>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4><i class="fa fa-fw fa-compass"></i><%= t("our_business3") %></h4>
+                  </div>
+                  <div class="panel-body">
+                    <% if I18n.locale == :zh %>
+                      <p>- 運水烟罩,清洗 </p>
+                      <p>- 24 小時,7 天維修服務 </p>
+                      <p>- 系统改造</p>
+                      <p>- 能源/绩效审计和测量 </p>
+                    <% else %>
+                      <p>- EP Hydro-Vent, EP cleaning </p>
+                      <p>- 24X7 maintenance services </p>
+                      <p>- System Retrofitting</p>
+                      <p>- Energy/Performance audit </p>
+                    <% end %>
+                      <br>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- /.row -->
+  </div> 
+
+  <!-- Footer -->
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-10 col-lg-offset-1 text-center">
+                  <h4><strong><%= t("company") %></strong>
+                  </h4>
+                <p><%= t("address_1") %><br><%= t("address_2") %></p>
+                  <ul class="list-unstyled">
+                      <li><i class="fa fa-phone fa-fw"></i> (852) 5590-2630</li>
+                      <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:info@letswebapp.com">info@letswebapp.com</a>
+                      </li>
+                  </ul>
+<!--
+                  <ul class="list-inline">
+                      <li>
+                          <a href="http://www.facebook.com/firstfrigeneration"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                      </li>
+                      <li>
+                          <a href="http://firstref@technoworks.net"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                      </li>
+                      <li>
+                          <a href="http://www.firstref.hk"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                      </li>
+                  </ul>
+-->
+                
+              </div>
+          </div>
+      </div>
+  </footer>
+<% end %>
+
+<!-- Custom Theme JavaScript -->
+<script>
+// Closes the sidebar menu
+$("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Opens the sidebar menu
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Scrolls to the selected menu item on the page
+$(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+</script>

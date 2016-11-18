@@ -37,7 +37,7 @@
       <% end %>
             
       <% if order.Acknowledged? %>
-        <% if order.repair_date >= Date.today.day %>
+        <% if order.repair_date >= Date.today.day and !order.image_01? %>
           <tr class="info" data-link="<%= edit_order_path(order) %>">
         <% else %>
           <tr class="info" data-link="<%= order_path(order) %>">    
@@ -58,14 +58,14 @@
               
                   
       <% if params[:order_type] == "OrderList" or params[:commit] == "Search" %>
-        <% if order.photo_04? %>
-           <td>  <%= image_tag(order.photo_04.url(:thumb), size: "70" ) %>  </td>
-          <% elsif order.photo_03? %>
-           <td>  <%= image_tag(order.photo_03.url(:thumb), size: "70" ) %>  </td>
-          <% elsif order.photo_02? %>
-           <td>  <%= image_tag(order.photo_02.url(:thumb), size: "70" ) %>  </td>
-          <% elsif order.photo? %>
-           <td>  <%= image_tag(order.photo.url(:thumb), size: "70" ) %>  </td>
+        <% if order.image_04? %>
+           <td>  <%= image_tag(order.image_04.url(:thumb), size: "70" ) %>  </td>
+          <% elsif order.image_03? %>
+           <td>  <%= image_tag(order.image_03.url(:thumb), size: "70" ) %>  </td>
+          <% elsif order.image_02? %>
+           <td>  <%= image_tag(order.image_02.url(:thumb), size: "70" ) %>  </td>
+          <% elsif order.image_01? %>
+           <td>  <%= image_tag(order.image_01.url(:thumb), size: "70" ) %>  </td>
           <% else %>
            <td>  </td>
         <% end %> 

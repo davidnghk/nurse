@@ -20,7 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 zh:
-  app_title: "第壹冷凍工程"
+  brand: "好柯打"
+  company: "LetsApp Limited"
+  our_services: "雲端訂單管理系統"
+  
+  app_title: "好柯打系統"
   app_desc: "第壹冷凍工程有限公司成立於1987年。超過25年度的實際經驗，我們專營商業,超市及飲食業之冷凍, 空調系統, 並提供專業設計，安裝，及保養維修服務。我們利用最新的技術和廣泛豐富經驗，使我們提升整體競爭優勢。我們訓練有素的安裝人員和資深技術服務團隊，給我們的客戶提供完整的服務。"
   was_refunded: "已被退還"
   will_be_refunded: "將會被退還"
@@ -40,6 +44,7 @@ zh:
   esc_order: "上報柯打"
   today_order: "今天柯打"
   worksheet: "工作紙"
+  take_photo: "影相"
 
   my_order: "我的柯打"
   booking: "訂單"
@@ -176,9 +181,7 @@ zh:
   engage: "接單"
   cancel: "取消"
   disengage: "放單"
-  reject: "拒絕"
-  brand: "第壹冷凍"
-  
+  reject: "拒絕"  
   admin: "管理員"
   partner: "夥伴"
   
@@ -572,7 +575,6 @@ zh:
     荃灣港安醫院: "荃灣港安醫院"
     仁安醫院: "仁安醫院"
     
-  our_services: "雲端服務管理信息系統"
   our_services1: "你的貼心看護服務"
   our_services2: "為了讓你安心，我們會好好照顧好你心愛的家人。"
   services_scope: "服務範圍"
@@ -584,8 +586,8 @@ zh:
   services_3B: "上門私家看護服務"
   promotion: "特別推廣服務"
   details: "詳情"
-  address_1: "香港新界葵涌大連排道103-113"
-  address_2: "葵安工業大廈客房246-248室"
+  address_1: "香港新界沙田香港科學園"
+  address_2: "科技大道東1號核心大樓602室"
   work_scope: "工作範圍"
   
   FAQ: "常見問題"

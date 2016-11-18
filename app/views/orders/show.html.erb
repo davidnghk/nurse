@@ -35,30 +35,33 @@
   <p>  <strong><%= t("store") %>:</strong> <%= @order.store.code %> <%= @order.store.name %></p>
   <p>  <strong><%= t("client_ref") %>:</strong>  <%= @order.user_ref %></p>
   <p>  <strong><%= t("repair_date") %>:</strong>  <%= @order.repair_date %></p>
-  <p>  <strong><%= t("status") %>: </strong>  <%= t(@order.status)  %></p>
+<!--  <p>  <strong><%= t("status") %>: </strong>  <%= t(@order.status)  %></p> -->
   <p>  <strong><%= t("technician") %>:</strong>  <%= @order.technician.name %></p>
   <p>  <strong><%= t("device") %>:</strong>  <%= @order.device.name %></p>
   <p>  <strong><%= t("issue") %>:</strong>  <%= @order.issue.name %></p>
   <p>  <strong><%= t("notes") %>:</strong>  <%= @order.notes %></p>
   <% if (@order.work != nil) then %>
     <p>  <strong><%= t("work") %>:</strong>  <%= @order.work.name %></p>
+  <% else %>
+    <p>  <strong><%= t("work") %>:</strong> </p>
   <% end %>
 <% else %>
   <p>  <strong><%= t("call_date") %>:</strong> <%= @order.call_date.strftime("%F %I:%M %P") %></p>
   <p>  <strong><%= t("store") %>:</strong>  <%= @order.store.client.chi_name %> (<%= @order.store.code %> <%= @order.store.chi_name %>)</p>
   <p>  <strong><%= t("client_ref") %>:</strong>  <%= @order.user_ref %></p>
   <p>  <strong><%= t("repair_date") %>:</strong>  <%= @order.repair_date %></p>
-  <p>  <strong><%= t("status") %>: </strong>  <%= t(@order.status)  %></p>
+<!--  <p>  <strong><%= t("status") %>: </strong>  <%= t(@order.status)  %></p> -->
   <p>  <strong><%= t("technician") %>:</strong>  <%= @order.technician.name %></p>
   <p>  <strong><%= t("device") %>:</strong>  <%= @order.device.chi_name %> (<%= @order.issue.chi_name %>)</p>
   <p>  <strong><%= t("notes") %>:</strong>  <%= @order.notes %></p>
   <% if (@order.work != nil) then %>
     <p>  <strong><%= t("work") %>:</strong>  <%= @order.work.chi_name %></p>
+  <% else %>
+    <p>  <strong><%= t("work") %>:</strong> </p>
   <% end %>
 <% end %>
 
-<br>
-
+<!--
 <div class="row">
   <div class="col-xs-3 col-md-3 fileupload photo ">
     <% if (@order.photo? ) %>
@@ -81,28 +84,60 @@
       <% end %>
   </div>
 </div>
+--> 
+<div class="row">
+  <div class="col-xs-3 col-md-3 fileupload photo ">
+    <% if (@order.image_01? ) %>
+        <%= image_tag @order.image_01.url %>
+    <% end %>
+  </div>
+  <div class="col-xs-3 col-md-3 fileupload photo ">
+    <% if (@order.image_02? ) %>
+      <%= image_tag @order.image_02.url %>
+    <% end %>
+  </div>
+    <div class="col-xs-3 col-md-3 fileupload photo ">
+      <% if (@order.image_03? ) %>
+        <%= image_tag @order.image_03.url %>
+      <% end %>
+  </div>
+    <div class="col-xs-3 col-md-3 fileupload photo ">
+      <% if (@order.image_04? ) %>
+        <%= image_tag @order.image_04.url %>
+      <% end %>
+  </div>
+</div>
 
-<br>
 
 <% if mobile_device?  %>
   <% then %>
 
-    <% if @order.Photographed? and @order.repair_date >= Time.zone.now.beginning_of_day %>
-        <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
-              "btn btn-tall btn-success  col-xs-4 col-md-4"  %>  </span>
-        <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
-              "btn  btn-tall btn-warning  col-xs-4 col-md-4"  %>  </span>
-        <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
-              "btn  btn-tall btn-danger  col-xs-4 col-md-4"  %>  </span>
-    <% end %>
-
-    <% if @order.Acknowledged? and @order.repair_date >= Time.zone.now.beginning_of_day %>
-        <%= link_to t('photo'), edit_order_path(@order), class: 
-              "btn btn-tall btn-success  col-xs-12 col-md-12"  %>  
-    <% end %>
-
-    <% if @order.Open? and @order.repair_date >= Time.zone.now.beginning_of_day %>
+    <% if @order.Open? %>
       <span><%= link_to t('acknowledge'), acknowledge_order_path(@order), method: :put, class: "btn  btn-tall btn-info col-xs-12 "  %>  </span>
+    <% else%>
+      <% if @order.Acknowledged? and @order.repair_date >= Time.zone.now.beginning_of_day %>
+        <%= link_to t('take_photo'), edit_order_path(@order), class: "btn btn-tall btn-success  col-xs-12 col-md-12"  %>  
+      <% else%>
+        <%= link_to t('take_photo'), edit_order_path(@order), class: "btn btn-tall btn-success disabled col-xs-12 col-md-12"  %>  
+      <% end %>
+    <% end %>
+        <br><br><br><br>  
+    <% if @order.Acknowledged? and @order.image_01? %>
+          <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
+                "btn btn-tall btn-success  col-xs-4 col-md-4"  %>  </span>
+          <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
+                "btn  btn-tall btn-warning  col-xs-4 col-md-4"  %>  </span>
+          <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
+                "btn  btn-tall btn-danger  col-xs-4 col-md-4"  %>  </span>
+      <br><br><br><br>  
+    <% else %>
+          <span><%= link_to t('complete'), complete_order_path(@order), method: :put, class: 
+                "btn btn-tall btn-success disabled col-xs-4 col-md-4"  %>  </span>
+          <span><%= link_to t('followup'), followup_order_path(@order), method: :put, class: 
+                "btn  btn-tall btn-warning disabled col-xs-4 col-md-4"  %>  </span>
+          <span><%= link_to t('escalate'), escalate_order_path(@order), method: :put, class: 
+                "btn  btn-tall btn-danger  disabled col-xs-4 col-md-4"  %>  </span>
+      <br><br><br><br>  
     <% end %>
 
 <% else %>
@@ -126,27 +161,24 @@
 
 <% end %>
 
-<!-- 
-<br><br><br><br>
-
-  <% if (@order.photo? ) %>
-      <%= image_tag @order.photo.url(:large) %>
+  <% if (@order.image_01? ) %>
+      <%= image_tag @order.image_01.url %>
   <% else %>
       <br><br><br><br>
   <% end %>
 
-  <% if (@order.photo_02? ) %>
-      <br><%= image_tag @order.photo_02.url(:large) %>
+  <% if (@order.image_02? ) %>
+      <br><%= image_tag @order.image_02.url %>
   <% end %>
 
-  <% if (@order.photo_03? ) %>
-      <br><%= image_tag @order.photo_03.url(:large) %>
+  <% if (@order.image_03? ) %>
+      <br><%= image_tag @order.image_03.url %>
   <% end %>
 
-  <% if (@order.photo_04? ) %>
-      <br><%= image_tag @order.photo_04.url(:large) %>
+  <% if (@order.image_04? ) %>
+      <br><%= image_tag @order.image_04.url %>
   <% end %>
-
+<!--
   <% if (@order.photo_05? ) %>
       <br><%= image_tag @order.photo_05.url(:large) %>
   <% end %>

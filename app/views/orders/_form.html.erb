@@ -53,31 +53,26 @@
       <%= f.button :submit, :class => 'btn btn-tall btn-info col-xs-4' %>
     </div><br><br><br><br>
     
-    <p><%= t("maintenance_photo") %></p><%= f.file_field :photo  %>
-    <% if (@order.photo? ) %>
-      <br><%= image_tag @order.photo.url(:large) %>
+    <p><%= t("maintenance_photo") %></p><%= f.file_field :image_01  %>
+    <% if (@order.image_01? ) %>
+      <br><%= image_tag @order.image_01.url %>
     <% end %>
     
-    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_02  %>
-    <% if (@order.photo_02? ) %>
-      <%= image_tag @order.photo_02.url(:large) %>
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :image_02  %>
+    <% if (@order.image_02? ) %>
+      <%= image_tag @order.image_02.url %>
     <% end %>
         
-    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_03  %>
-    <% if (@order.photo_03? ) %>
-      <%= image_tag @order.photo_03.url(:large) %>
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :image_03  %>
+    <% if (@order.image_03? ) %>
+      <%= image_tag @order.image_03.url %>
     <% end %>
     
-    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_04  %>
-    <% if (@order.photo_04? ) %>
-      <%= image_tag @order.photo_04.url(:large) %>
+    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :image_04  %>
+    <% if (@order.image_04? ) %>
+      <%= image_tag @order.image_04.url %>
     <% end %>
-    
-    <br><p><%= t("maintenance_photo") %></p><%= f.file_field :photo_05  %>
-    <% if (@order.photo_05? ) %>
-      <%= image_tag @order.photo_05.url(:large) %>
-    <% end %>
-    
+      
     <br><p><%= t("document") %></p><%= f.file_field :document_01  %>
     <% if (@order.document_01? ) %>
       <iframe src=<%= @order.document_01 %> width="800" height="600" style="border: none;"> </iframe>

@@ -13,7 +13,7 @@ group :development, :test do
   gem 'byebug'
 end
 group :development do
-  gem 'web-console', '~> 2.0'
+ # gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 gem 'bootstrap-sass'
@@ -55,7 +55,13 @@ gem 'axlsx', '~> 2.0'
 gem "axlsx_rails"
 gem 'will_paginate-bootstrap'
 gem 'whenever', :require => false
-
+gem "rmagick"
+# gem "carrierwave"
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "mini_magick"
+gem "fog-google"
+gem "google-api-client", ">= 0.6.2", "< 0.9"
+gem "mime-types"
 
 
 

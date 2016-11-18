@@ -25,99 +25,63 @@
     <% else %>
       <%= f.association :work, :label => t("work"), :label_method => :name %>
     <% end %>
-<div class="row"> 
 
-    <div id="upload_photo" class="col-xs-3 col-md-3 fileupload center photo">
+<br>
 
-        <%= f.file_field :photo  %>
-      <div id="preview_photo">
-        <% if (@order.photo? ) %>
-          <%= image_tag @order.photo.url(:thumb) %>
-        <% end %>
+<div class="row"  >
+
+    <div id="upload_image_01" class="col-xs-3 col-md-3 fileupload center photo">
+        <%= f.file_field :image_01  %>
+      <div id="preview_image_01">
+          <%= image_tag @order.image_01.url(:thumb) if (@order.image_01? ) %>
       </div>
     </div>
-    <div id="upload_photo_02" class="col-xs-3 col-md-3 fileupload center photo">
-
-        <%= f.file_field :photo_02  %>
-      <div id="preview_photo_02">
-        <% if (@order.photo_02? ) %>
-          <%= image_tag @order.photo_02.url(:thumb) %>
-        <% end %>
+    <div id="upload_image_02" class="col-xs-3 col-md-3 fileupload center photo">
+        <%= f.file_field :image_02  %>
+      <div id="preview_image_02">
+          <%= image_tag @order.image_02.url(:thumb) if (@order.image_02? ) %>
       </div>
     </div>
-    <div id="upload_photo_03" class="col-xs-3 col-md-3 fileupload center photo">
-
-        <%= f.file_field :photo_03  %>
-      <div id="preview_photo_03">
-        <% if (@order.photo_03? ) %>
-          <%= image_tag @order.photo_03.url(:thumb) %>
-        <% end %>
+    <div id="upload_image_03" class="col-xs-3 col-md-3 fileupload center photo">
+        <%= f.file_field :image_03  %>
+      <div id="preview_image_03">
+          <%= image_tag @order.image_03.url(:thumb) if (@order.image_03? ) %>
       </div>
     </div>
-    <div id="upload_photo_04" class="col-xs-3 col-md-3 fileupload center photo">
-
-        <%= f.file_field :photo_04  %>
-      <div id="preview_photo_04">
-        <% if (@order.photo_04? ) %>
-          <%= image_tag @order.photo_04.url(:thumb) %>
-        <% end %>
+    <div id="upload_image_04" class="col-xs-3 col-md-3 fileupload center photo">
+        <%= f.file_field :image_04  %>
+      <div id="preview_image_04">
+          <%= image_tag @order.image_04.url(:thumb) if (@order.image_04? ) %>
       </div>
     </div>
-
+  
 </div>
-
 
     <br>
     <div>
-      <%= f.button :submit, "照相", :class => 'btn btn-tall btn-info col-xs-12' %>
+      <%= f.button :submit, :class => 'btn btn-tall btn-info col-xs-12' %>
     </div><br>
     
 <% end %>
     
 <script>
-$(function() {
-  $('#upload_photo').on('change', function(event) {
-    var files = event.target.files;
-    var image = files[0]
-    var reader = new FileReader();
-    reader.onload = function(file) {
-      var img = new Image();
-      img.src = file.target.result;
-      $('#preview_photo').html(img);
-    }
-    reader.readAsDataURL(image);
-  });
-});
-$(function() {
-  $('#upload_photo_02').on('change', function(event) {
-    var files = event.target.files;
-    var image = files[0]
-    var reader = new FileReader();
-    reader.onload = function(file) {
-      var img = new Image();
-      img.src = file.target.result;
-      $('#preview_photo_02').html(img);
-    }
-    reader.readAsDataURL(image);
-  });
-});
-$(function() {
-  $('#upload_photo_03').on('change', function(event) {
-    var files = event.target.files;
-    var image = files[0]
-    var reader = new FileReader();
-    reader.onload = function(file) {
-      var img = new Image();
-      img.src = file.target.result;
-      $('#preview_photo_03').html(img);
-    }
-    reader.readAsDataURL(image);
-    console.log(files);
-  });
-});
 
 $(function() {
-  $('#upload_photo_04').on('change', function(event) {
+  $('#upload_image_01').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      img.src = file.target.result;
+      $('#preview_image_01').html(img);
+    }
+    reader.readAsDataURL(image);
+  });
+});  
+  
+$(function() {
+  $('#upload_image_02').on('change', function(event) {
     var files = event.target.files;
     var image = files[0]
     // here's the file size
@@ -127,12 +91,43 @@ $(function() {
       var img = new Image();
       console.log(file);
       img.src = file.target.result;
-      $('#preview_photo_04').html(img);
+      $('#preview_image_02').html(img);
     }
     reader.readAsDataURL(image);
     console.log(files);
   });
-});
-
+});    
+  
+$(function() {
+  $('#upload_image_03').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      img.src = file.target.result;
+      $('#preview_image_03').html(img);
+    }
+    reader.readAsDataURL(image);
+  });
+});  
+  
+$(function() {
+  $('#upload_image_04').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    // here's the file size
+    console.log(image.size);
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+      $('#preview_image_04').html(img);
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});  
 
 </script>

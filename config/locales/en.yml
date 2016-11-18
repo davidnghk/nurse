@@ -20,6 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
+  brand: "MobOrder"
+  company: "LetsApp Limited"
+  our_services: "Cloud-Based Order Management System"
+
   app_title: "First Refrigeration"
   app_desc: "First Refrigeration Engineering Ltd was established in 1987. Over 25 year’s practical experiences, we developed and specialized in design, installation, repair and maintenance services in commercial refrigeration, air conditioning system focusing in supermarket, food retailing and hospitality sector. We utilize the latest technology and our broad range of extensive experience gives us an overall edge over our competition. We comprise of highly skilled retail experts and professional that offers the full services to our customer."
   preferred_language: "Preferred Language"
@@ -111,7 +116,6 @@ en:
   disangage: "Disengage"
   reject: "Reject"
   home: "Lets Nurse"
-  brand: "FirstRef"
   
   statuses:
     Open:   "Open"
@@ -264,7 +268,6 @@ en:
     荃灣港安醫院: "Tsuen Wan Adventist Hospital"
     仁安醫院: "Union Hospital"
     
-  our_services: "Cloud Services Management Information System"
   our_services1: "You Derserve It"
   our_services2: "To have your peace of mind, we take good care of your family"
   services_scope: "Services"
@@ -276,8 +279,9 @@ en:
   services_1B: "Private Medical Escort Services"
   promotion: "Promotion"
   details: "Details"
-  address_1: "Room 246-248, 2/F, Kwai On Industrial Building"
-  address_2: "103-113 Tai Lin Pai Road, Kwai Chung, NT Hong Kong"
+  address_1: "Unit 602, Core Building, 1 Science Park Wast Avenue "
+  address_2: "Hong Kong Science Park, Shatin, NT, Hong Kong"
+  address_2: "Hong Kong Science Park, Shatin, NT, Hong Kong"
   work_scope: "Services Scope"
   
   FAQ: "FAQ"

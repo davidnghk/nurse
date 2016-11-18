@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006010533) do
+ActiveRecord::Schema.define(version: 20161061175803) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "user_id",               limit: 4
@@ -141,12 +141,16 @@ ActiveRecord::Schema.define(version: 20161006010533) do
     t.integer  "document_05_file_size",    limit: 4
     t.datetime "document_05_updated_at"
     t.string   "notes",                    limit: 255
+    t.string   "image_01",                 limit: 255
+    t.string   "image_02",                 limit: 255
+    t.string   "image_03",                 limit: 255
+    t.string   "image_04",                 limit: 255
   end
 
-  add_index "orders", ["device_id"], name: "index_orders_on_device_id", using: :btree
-  add_index "orders", ["issue_id"], name: "index_orders_on_issue_id", using: :btree
+  add_index "orders", ["call_date"], name: "index_orders_on_call_date", using: :btree
+  add_index "orders", ["repair_date"], name: "index_orders_on_repair_date", using: :btree
   add_index "orders", ["store_id"], name: "index_orders_on_store_id", using: :btree
-  add_index "orders", ["work_id"], name: "index_orders_on_work_id", using: :btree
+  add_index "orders", ["technician_id"], name: "fk_rails_f_users_idx", using: :btree
 
   create_table "stores", force: :cascade do |t|
     t.integer  "client_id",   limit: 4
@@ -245,9 +249,7 @@ ActiveRecord::Schema.define(version: 20161006010533) do
 
   add_foreign_key "bookings", "users"
   add_foreign_key "charges", "bookings"
-  add_foreign_key "orders", "devices"
-  add_foreign_key "orders", "issues"
   add_foreign_key "orders", "stores"
-  add_foreign_key "orders", "works"
+  add_foreign_key "orders", "users", column: "technician_id", name: "fk_rails_f_users"
   add_foreign_key "stores", "clients", name: "fk_client"
 end

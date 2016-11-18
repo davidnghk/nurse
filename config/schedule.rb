@@ -18,7 +18,9 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+env :PATH, ENV['PATH']
 set :output, "#{path}/log/cron.log"
+RAILS_ROOT = File.expand_path(File.dirname(__FILE__) + '/')
 
 every 1.day, :at => '9:00 am' do
   runner "Order.rollover", :environment => 'development' 

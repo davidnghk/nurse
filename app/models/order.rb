@@ -12,10 +12,16 @@ class Order < ActiveRecord::Base
   belongs_to :work
   belongs_to :technician, :class_name => 'User', :foreign_key => 'technician_id'
   
+  mount_uploader :image_01, ImageUploader
+  mount_uploader :image_02, ImageUploader
+  mount_uploader :image_03, ImageUploader
+  mount_uploader :image_04, ImageUploader
+  
   validates_presence_of :call_date, :store, :repair_date, :status, :device, :issue, :technician
   
   enum status: [:Open, :Acknowledged, :Cancelled, :Completed, :FollowUp, :Escalated, :Photographed]
   
+
   has_attached_file :photo, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo, :content_type => 'image/jpeg'
   
@@ -30,6 +36,8 @@ class Order < ActiveRecord::Base
   
   has_attached_file :photo_05, styles: { large: "800x600>", thumb: "200x150>" }
   validates_attachment_content_type :photo_05, :content_type => 'image/jpeg'
+  
+  
   
   has_attached_file :document_01, styles: { large: "800x600>", thumb: "100x75>" }
   validates_attachment_content_type :document_01, :content_type => ['image/jpg', 'image/png', 'application/pdf']
